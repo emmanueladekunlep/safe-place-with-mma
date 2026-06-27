@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · A Safe Place With Mma</title>
+  <meta name="description" content="Reach out to us. Whether it's a prayer request, testimony, or just to say hello - you are welcome here." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Georgia:ital@0;1&display=swap" rel="stylesheet" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- FLOATING AFFIRMATIONS -->
+  <!-- ============================================ -->
+  <div class="floating-affirmations">
+    <div class="floating-word">You are loved</div>
+    <div class="floating-word">You are enough</div>
+    <div class="floating-word">You are not alone</div>
+    <div class="floating-word">You are seen</div>
+    <div class="floating-word">You are cherished</div>
+    <div class="floating-word">You are beautiful</div>
+    <div class="floating-word">You are chosen</div>
+    <div class="floating-word">You are held</div>
+    <div class="floating-word">You are free</div>
+    <div class="floating-word">You are home</div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SPARKLES -->
+  <!-- ============================================ -->
+  <div class="sparkle-container" id="sparkleContainer"></div>
+
+  <!-- ============================================ -->
+  <!-- MAIN CONTENT -->
+  <!-- ============================================ -->
+  <div class="container">
+    
+    <!-- ============================================ -->
+    <!-- NAVIGATION -->
+    <!-- ============================================ -->
+    <nav>
+      <div class="logo">
+        <img src="https://emmanueladekunlepeace.com.labelreach.com/wp-content/uploads/2026/06/mma_logo.png" alt="A Safe Place With Mma" class="logo-img" />
+      </div>
+      <div class="nav-links">
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="reading.html">reading</a>
+        <a href="community.html">community</a>
+        <a href="contact.html" class="active">contact</a>
+        <a href="reading.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">start reading</a>
+      </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- CONTACT HERO -->
+    <!-- ============================================ -->
+    <section style="padding:2rem 0 1rem;" class="fade-in">
+      <h1 style="font-family:var(--font-serif);font-size:2.8rem;font-weight:400;color:var(--text);">
+        reach <span style="color:var(--primary);">out</span>
+      </h1>
+      <div class="accent-line"></div>
+      <p style="color:var(--text-light);max-width:600px;font-size:1.05rem;">
+        We'd love to hear from you. Whether it's a prayer request, testimony, 
+        question, or just to say hello — you are welcome here.
+      </p>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTACT FORM & INFO -->
+    <!-- ============================================ -->
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:2.5rem;margin:2rem 0;">
+      
+      <!-- Contact Form -->
+      <div class="contact-form fade-in-left">
+        <h3 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--primary);margin-bottom:1rem;">
+          send a message
+        </h3>
+        
+        <form id="contact-form" action="#" method="POST">
+          <div style="margin-bottom:1rem;">
+            <label for="name" style="display:block;font-weight:500;margin-bottom:0.3rem;color:var(--text-light);font-size:0.9rem;">
+              Your Name
+            </label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required />
+          </div>
+          
+          <div style="margin-bottom:1rem;">
+            <label for="email" style="display:block;font-weight:500;margin-bottom:0.3rem;color:var(--text-light);font-size:0.9rem;">
+              Email Address
+            </label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+          </div>
+          
+          <div style="margin-bottom:1rem;">
+            <label for="subject" style="display:block;font-weight:500;margin-bottom:0.3rem;color:var(--text-light);font-size:0.9rem;">
+              Subject
+            </label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+          </div>
+          
+          <div style="margin-bottom:1rem;">
+            <label for="message" style="display:block;font-weight:500;margin-bottom:0.3rem;color:var(--text-light);font-size:0.9rem;">
+              Message
+            </label>
+            <textarea id="message" name="message" placeholder="Share your heart..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn" style="width:100%;">
+            ✉️ Send Message
+          </button>
+          
+          <p style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:0.8rem;">
+            💬 For general inquiries: info@asafeplacewithmma.com<br>
+            🙏 For support & programs: support@asafeplacewithmma.com
+          </p>
+        </form>
+        
+        <!-- Form success message -->
+        <div id="form-success" style="display:none;background:#e8f0e8;padding:1.5rem;border-radius:var(--radius-sm);text-align:center;margin-top:1rem;">
+          <p style="font-size:1.1rem;color:var(--primary);font-weight:500;">✅ Message sent!</p>
+          <p style="color:var(--text-light);">Thank you for reaching out. We'll respond as soon as possible.</p>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin-top:0.5rem;">You are not alone. ❤️</p>
+        </div>
+      </div>
+
+      <!-- Contact Info Sidebar -->
+      <div class="fade-in-right">
+        <div style="background:var(--white);padding:2rem;border-radius:var(--radius);border:1px solid var(--border);">
+          <h3 style="font-family:var(--font-serif);color:var(--primary);font-size:1.2rem;margin-bottom:1rem;">
+            connect with us
+          </h3>
+          
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <span class="icon">✉️</span>
+              <div>
+                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">General Inquiries</div>
+                <a href="mailto:info@asafeplacewithmma.com" style="color:var(--primary);">
+                  info@asafeplacewithmma.com
+                </a>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <span class="icon">🙏</span>
+              <div>
+                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">Support & Programs</div>
+                <a href="mailto:support@asafeplacewithmma.com" style="color:var(--primary);">
+                  support@asafeplacewithmma.com
+                </a>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <span class="icon">🔒</span>
+              <div>
+                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">Administrative</div>
+                <span style="color:var(--text-muted);font-size:0.85rem;">admin@asafeplacewithmma.com</span>
+                <p style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Private · Secure</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <span class="icon">💬</span>
+              <div>
+                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">WhatsApp</div>
+                <a href="#" style="color:var(--primary);">@asafeplacewithmma</a>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <span class="icon">📘</span>
+              <div>
+                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">Facebook</div>
+                <a href="#" style="color:var(--primary);">@asafeplacewithmma</a>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <span class="icon">📷</span>
+              <div>
+                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">Instagram</div>
+                <a href="#" style="color:var(--primary);">@asafeplacewithmma</a>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <span class="icon">▶️</span>
+              <div>
+                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">YouTube</div>
+                <a href="#" style="color:var(--primary);">@asafeplacewithmma</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+            <h4 style="font-weight:600;color:var(--text);font-size:0.95rem;">response time</h4>
+            <p style="font-size:0.9rem;color:var(--text-light);">
+              We typically respond within 24-48 hours. For urgent matters, please 
+              reach out via WhatsApp or Facebook.
+            </p>
+          </div>
+
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+            <h4 style="font-weight:600;color:var(--text);font-size:0.95rem;">prayer requests</h4>
+            <p style="font-size:0.9rem;color:var(--text-light);">
+              If you need prayer, please share your request. You are not alone. 
+              We will pray with you.
+            </p>
+            <a href="mailto:support@asafeplacewithmma.com" style="color:var(--primary);font-weight:500;font-size:0.9rem;display:inline-block;margin-top:0.3rem;">
+              Send prayer request →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TESTIMONIAL -->
+    <!-- ============================================ -->
+    <section style="margin:2rem 0;" class="fade-in">
+      <div class="testimonial" style="max-width:700px;margin:0 auto;">
+        <p>
+          "I reached out when I was at my lowest. The response was immediate 
+          and full of love. I felt seen, heard, and held."
+        </p>
+        <span class="author">— A grateful reader</span>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer>
+      <div class="footer-links">
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="reading.html">reading</a>
+        <a href="community.html">community</a>
+        <a href="contact.html">contact</a>
+        <a href="reading.html" style="font-weight:500;color:var(--primary);">start reading</a>
+      </div>
+      
+      <!-- Social Links -->
+      <div class="social-links">
+        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp">💬</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="YouTube">▶️</a>
+        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email">✉️</a>
+      </div>
+      
+      <div class="footer-bottom">
+        <span>© 2026 A Safe Place With Mma · all rights reserved</span>
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+          <span>asafeplacewithmma.com</span>
+          <span>@asafeplacewithmma</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ============================================ -->
+  <!-- JAVASCRIPT -->
+  <!-- ============================================ -->
+  <script src="js/main.js"></script>
+  
+  <!-- Additional Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // ============================================
+      // SPARKLE EFFECT
+      // ============================================
+      const container = document.getElementById('sparkleContainer');
+      if (container) {
+        for (let i = 0; i < 25; i++) {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.left = Math.random() * 100 + '%';
+          sparkle.style.top = Math.random() * 100 + '%';
+          sparkle.style.width = (Math.random() * 4 + 2) + 'px';
+          sparkle.style.height = sparkle.style.width;
+          sparkle.style.animationDelay = (Math.random() * 6) + 's';
+          sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+          container.appendChild(sparkle);
+        }
+      }
+
+      // ============================================
+      // SCROLL ANIMATIONS
+      // ============================================
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
+        observer.observe(el);
+      });
+
+      // ============================================
+      // CONTACT FORM HANDLER
+      // ============================================
+      const form = document.getElementById('contact-form');
+      const successDiv = document.getElementById('form-success');
+      
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Show success message
+          form.style.display = 'none';
+          successDiv.style.display = 'block';
+          
+          // Log form data (replace with actual email sending later)
+          console.log('Form submitted:', {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+          });
+          
+          // Reset and show form again after 5 seconds
+          setTimeout(function() {
+            form.reset();
+            form.style.display = 'block';
+            successDiv.style.display = 'none';
+          }, 5000);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

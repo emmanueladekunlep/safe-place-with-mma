@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading · A Safe Place With Mma</title>
+  <meta name="description" content="365 days of healing, restoration, and intimacy with God. Start your journey today." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Georgia:ital@0;1&display=swap" rel="stylesheet" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- FLOATING AFFIRMATIONS -->
+  <!-- ============================================ -->
+  <div class="floating-affirmations">
+    <div class="floating-word">You are loved</div>
+    <div class="floating-word">You are enough</div>
+    <div class="floating-word">You are not alone</div>
+    <div class="floating-word">You are seen</div>
+    <div class="floating-word">You are cherished</div>
+    <div class="floating-word">You are beautiful</div>
+    <div class="floating-word">You are chosen</div>
+    <div class="floating-word">You are held</div>
+    <div class="floating-word">You are free</div>
+    <div class="floating-word">You are home</div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SPARKLES -->
+  <!-- ============================================ -->
+  <div class="sparkle-container" id="sparkleContainer"></div>
+
+  <!-- ============================================ -->
+  <!-- MAIN CONTENT -->
+  <!-- ============================================ -->
+  <div class="container">
+    
+    <!-- ============================================ -->
+    <!-- NAVIGATION -->
+    <!-- ============================================ -->
+    <nav>
+      <div class="logo">
+        <img src="https://emmanueladekunlepeace.com.labelreach.com/wp-content/uploads/2026/06/mma_logo.png" alt="A Safe Place With Mma" class="logo-img" />
+      </div>
+      <div class="nav-links">
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="reading.html" class="active">reading</a>
+        <a href="community.html">community</a>
+        <a href="contact.html">contact</a>
+        <a href="index.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">home</a>
+      </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- READING HEADER -->
+    <!-- ============================================ -->
+    <section class="reading-header fade-in" style="padding:1.5rem 0 0.5rem;">
+      <h1>the <span>365</span> journey</h1>
+      <div class="accent-line"></div>
+      <p style="color:var(--text-light);max-width:600px;font-size:1.05rem;">
+        One day at a time. No performance. Just presence. 
+        <span style="display:block;font-size:0.9rem;color:var(--text-muted);margin-top:0.3rem;">
+          📖 <span id="progress-text">0/365 days</span> · 
+          <span id="current-date-display">Loading...</span>
+        </span>
+      </p>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SEARCH BAR -->
+    <!-- ============================================ -->
+    <div style="margin:1rem 0 0.5rem;" class="fade-in">
+      <input 
+        type="text" 
+        id="search-input" 
+        placeholder="🔍 Search devotionals by title, scripture, or topic..." 
+        style="width:100%;max-width:500px;padding:0.7rem 1.2rem;border:1px solid var(--border);border-radius:50px;font-family:var(--font-sans);font-size:0.95rem;background:var(--white);color:var(--text);transition:border var(--transition);"
+      />
+      <div id="search-results" style="margin-top:0.5rem;max-width:500px;"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MONTH NAVIGATION -->
+    <!-- ============================================ -->
+    <div class="month-nav fade-in">
+      <a href="#" data-month="0" class="active">January</a>
+      <a href="#" data-month="1">February</a>
+      <a href="#" data-month="2">March</a>
+      <a href="#" data-month="3">April</a>
+      <a href="#" data-month="4">May</a>
+      <a href="#" data-month="5">June</a>
+      <a href="#" data-month="6">July</a>
+      <a href="#" data-month="7">August</a>
+      <a href="#" data-month="8">September</a>
+      <a href="#" data-month="9">October</a>
+      <a href="#" data-month="10">November</a>
+      <a href="#" data-month="11">December</a>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- PROGRESS BAR -->
+    <!-- ============================================ -->
+    <div style="display:flex;align-items:center;gap:1rem;margin:0.5rem 0 1rem;flex-wrap:wrap;" class="fade-in">
+      <span style="font-weight:500;color:var(--text-light);font-size:0.9rem;">Progress:</span>
+      <div style="flex:1;min-width:100px;height:6px;background:var(--border);border-radius:10px;overflow:hidden;">
+        <div id="progress-bar" style="height:100%;width:0%;background:var(--secondary);border-radius:10px;transition:width 0.8s ease;"></div>
+      </div>
+      <span id="progress-text" style="font-size:0.85rem;color:var(--text-muted);min-width:80px;">0/365</span>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- CALENDAR -->
+    <!-- ============================================ -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;flex-wrap:wrap;gap:0.5rem;" class="fade-in">
+      <span style="font-weight:600;color:var(--primary);font-size:1.1rem;" id="current-month-label">January</span>
+      <div style="display:flex;gap:0.5rem;">
+        <button onclick="changeMonth(-1)" class="btn btn-sm btn-outline" style="padding:0.2rem 1rem;font-size:0.8rem;">‹</button>
+        <button onclick="changeMonth(1)" class="btn btn-sm btn-outline" style="padding:0.2rem 1rem;font-size:0.8rem;">›</button>
+      </div>
+    </div>
+
+    <div class="calendar-grid fade-in" id="calendar-grid">
+      <!-- Calendar rendered by JavaScript -->
+    </div>
+
+    <!-- ============================================ -->
+    <!-- DAY DETAIL VIEW -->
+    <!-- ============================================ -->
+    <div class="day-detail fade-in" id="day-detail">
+      <div id="day-detail-content">
+        <!-- Rendered by JavaScript -->
+        <p style="text-align:center;padding:2rem;color:var(--text-muted);">Loading devotional...</p>
+      </div>
+      
+      <!-- Day Navigation -->
+      <div class="day-nav">
+        <a href="#" class="btn btn-sm btn-outline" id="prev-day" data-month="" data-day="">← previous day</a>
+        <div style="display:flex;gap:0.8rem;">
+          <a href="#" class="btn btn-sm btn-outline" id="bookmark-btn" data-month="" data-day="">☆ Bookmark</a>
+          <a href="#" class="btn btn-sm" id="next-day" data-month="" data-day="">next day →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer>
+      <div class="footer-links">
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="reading.html">reading</a>
+        <a href="community.html">community</a>
+        <a href="contact.html">contact</a>
+        <a href="index.html" style="font-weight:500;color:var(--primary);">home</a>
+      </div>
+      
+      <!-- Social Links -->
+      <div class="social-links">
+        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp">💬</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="YouTube">▶️</a>
+        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email">✉️</a>
+      </div>
+      
+      <div class="footer-bottom">
+        <span>© 2026 A Safe Place With Mma · all rights reserved</span>
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+          <span>asafeplacewithmma.com</span>
+          <span>@asafeplacewithmma</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ============================================ -->
+  <!-- JAVASCRIPT -->
+  <!-- ============================================ -->
+  <script src="js/main.js"></script>
+  
+  <!-- Additional Scripts -->
+  <script>
+    // ============================================
+    // SPARKLE EFFECT
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('sparkleContainer');
+      if (container) {
+        for (let i = 0; i < 25; i++) {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.left = Math.random() * 100 + '%';
+          sparkle.style.top = Math.random() * 100 + '%';
+          sparkle.style.width = (Math.random() * 4 + 2) + 'px';
+          sparkle.style.height = sparkle.style.width;
+          sparkle.style.animationDelay = (Math.random() * 6) + 's';
+          sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+          container.appendChild(sparkle);
+        }
+      }
+
+      // ============================================
+      // SCROLL ANIMATIONS
+      // ============================================
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
