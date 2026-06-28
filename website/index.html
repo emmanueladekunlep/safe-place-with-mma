@@ -57,16 +57,31 @@
       color: var(--secondary);
     }
 
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0.5rem auto 1rem;
+      font-weight: 300;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .hero-tagline strong {
+      color: var(--primary);
+      font-style: normal;
+    }
+
     .hero-subtitle {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
-      margin: 1rem 0 1.5rem;
+      margin: 1.5rem 0 1rem;
     }
 
     .hero-subtitle a {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 500;
       color: var(--text);
       text-decoration: none;
@@ -93,7 +108,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
-      margin-top: 0.5rem;
+      margin: 1.5rem 0 0.5rem;
     }
 
     .journey-badge {
@@ -324,10 +339,32 @@
         font-size: 2.5rem;
       }
 
+      .hero-tagline {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+
       .hero-subtitle {
         flex-direction: column;
         gap: 0.8rem;
         align-items: center;
+      }
+
+      .hero-subtitle a {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
       }
 
       .mission-vision {
@@ -358,6 +395,14 @@
 
       .image-wrapper img {
         max-height: 150px;
+      }
+
+      .devotional-preview {
+        padding: 1.2rem;
+      }
+
+      .devotional-preview h4 {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -412,31 +457,24 @@
     <!-- ============================================ -->
     <section class="hero-section fade-in">
       <h1>You're <span>Safe</span> Here</h1>
-      
-      <div class="hero-subtitle">
-        <a href="community.html"><i class="fas fa-hand-holding-heart"></i> Get Support</a>
-        <a href="community.html"><i class="fas fa-users"></i> Join the Community</a>
-        <a href="https://www.youtube.com/@asafeplacewithmma" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
-      </div>
 
       <!-- Hero Image -->
       <div class="image-wrapper">
         <img src="assets/images/You-don't-have-to-pretend-here.png" alt="You're Safe Here" />
       </div>
 
-      <div class="tagline">
-        A 365‑day journey of healing, restoration, and intimacy with God — 
-        written from the valley, not the mountain.
-        <span style="display:block;margin-top:0.5rem;font-weight:400;font-size:0.95rem;color:var(--text-muted);">
-          For the woman who needs a safe place to be real.
-        </span>
+      <!-- Tagline -->
+      <div class="hero-tagline">
+        <strong>You don't have to pretend here.</strong>
       </div>
 
+      <!-- Action Buttons -->
       <div class="hero-actions">
         <a href="reading.html" class="btn">Start Today's Reading</a>
         <a href="about.html" class="btn btn-outline">Begin the Journey</a>
       </div>
 
+      <!-- 365 Badge -->
       <div class="journey-badge">
         <i class="fas fa-calendar-alt"></i> 365 Days of Hope
       </div>
@@ -593,6 +631,13 @@
           and I keep coming back. Because here, I don't have to pretend."
         </p>
         <span class="author">— Sweetcare</span>
+      </div>
+
+      <!-- Get Support, Join Community, YouTube - MOVED TO BOTTOM -->
+      <div class="hero-subtitle">
+        <a href="community.html"><i class="fas fa-hand-holding-heart"></i> Get Support</a>
+        <a href="community.html"><i class="fas fa-users"></i> Join the Community</a>
+        <a href="https://www.youtube.com/@asafeplacewithmma" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
       </div>
     </section>
 
