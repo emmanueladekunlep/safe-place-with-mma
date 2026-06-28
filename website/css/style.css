@@ -68,7 +68,7 @@ img {
 .hero-img {
   width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 300px;
   object-fit: contain;
   border-radius: var(--radius, 12px);
   display: block;
