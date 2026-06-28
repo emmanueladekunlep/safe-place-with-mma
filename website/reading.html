@@ -21,22 +21,31 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   
   <style>
-    /* Additional styles */
     .reading-hero-img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
       border-radius: var(--radius, 12px);
       display: block;
+      background: var(--background, #f9f9f9);
     }
     
     .image-wrapper {
       overflow: hidden;
       border-radius: var(--radius, 12px);
       margin-bottom: 1rem;
+      background: var(--background, #f9f9f9);
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      display: block;
     }
     
-    /* Calendar grid styles */
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -89,6 +98,16 @@
       font-weight: 700;
     }
     
+    .calendar-grid .day-cell.future {
+      opacity: 0.5;
+      cursor: default;
+    }
+    
+    .calendar-grid .day-cell.future:hover {
+      transform: none;
+      background: var(--background, #f9f9f9);
+    }
+    
     .calendar-grid .day-cell.empty {
       background: transparent;
       cursor: default;
@@ -98,7 +117,6 @@
       transform: none;
     }
     
-    /* Day detail styles */
     .day-detail {
       background: var(--white, #fff);
       border-radius: var(--radius, 12px);
@@ -160,8 +178,7 @@
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-    
-    /* Monthly theme banner */
+
     .monthly-theme {
       background: var(--background, #f9f9f9);
       padding: 1rem 1.5rem;
@@ -173,12 +190,41 @@
     .monthly-theme strong {
       color: var(--primary, #b8860b);
     }
+
+    .month-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.5rem 0;
+    }
+
+    .month-nav a {
+      padding: 0.4rem 1.4rem;
+      border-radius: 30px;
+      background: var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+
+    .month-nav a:hover,
+    .month-nav a.active {
+      background: var(--primary);
+      color: var(--white);
+    }
     
     @media (max-width: 768px) {
       .reading-hero-img {
-        height: 150px;
+        max-height: 200px;
       }
       
+      .image-wrapper img {
+        max-height: 200px;
+      }
+
       .calendar-grid {
         gap: 3px;
         padding: 0.3rem;
@@ -209,7 +255,11 @@
 
     @media (max-width: 480px) {
       .reading-hero-img {
-        height: 120px;
+        max-height: 150px;
+      }
+      
+      .image-wrapper img {
+        max-height: 150px;
       }
     }
   </style>
@@ -263,7 +313,6 @@
     <!-- READING HEADER -->
     <!-- ============================================ -->
     <section class="reading-header fade-in" style="padding:1.5rem 0 0.5rem;">
-      <!-- The 365 Journey Image -->
       <div class="image-wrapper">
         <img src="assets/images/the-365-journey.jpg" alt="The 365 Journey" class="reading-hero-img" />
       </div>
@@ -347,11 +396,9 @@
     <!-- ============================================ -->
     <div class="day-detail fade-in" id="day-detail">
       <div id="day-detail-content">
-        <!-- Rendered by JavaScript -->
         <p style="text-align:center;padding:2rem;color:var(--text-muted);">Select a day to begin your journey.</p>
       </div>
       
-      <!-- Day Navigation -->
       <div class="day-nav">
         <a href="#" class="btn btn-sm btn-outline" id="prev-day" data-month="" data-day="">← Previous Day</a>
         <div style="display:flex;gap:0.8rem;">
@@ -374,7 +421,6 @@
         <a href="index.html" style="font-weight:500;color:var(--primary);">Home</a>
       </div>
       
-      <!-- Social Links with Font Awesome Icons -->
       <div class="social-links">
         <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; font-size:1.5rem;"></i></a>
         <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook" style="color:#1877F2; font-size:1.5rem;"></i></a>
@@ -399,11 +445,7 @@
   <!-- ============================================ -->
   <script src="js/main.js"></script>
   
-  <!-- Additional Scripts -->
   <script>
-    // ============================================
-    // SPARKLE EFFECT
-    // ============================================
     document.addEventListener('DOMContentLoaded', function() {
       const container = document.getElementById('sparkleContainer');
       if (container) {
@@ -420,9 +462,6 @@
         }
       }
 
-      // ============================================
-      // SCROLL ANIMATIONS
-      // ============================================
       const observerOptions = {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
@@ -440,13 +479,9 @@
         observer.observe(el);
       });
 
-      // ============================================
-      // CALENDAR FUNCTIONS
-      // ============================================
       let currentMonth = new Date().getMonth();
       let currentYear = new Date().getFullYear();
       
-      // Monthly themes
       const monthlyThemes = [
         'Finding Peace in God\'s Presence',
         'Healing from Within',
@@ -471,7 +506,6 @@
         
         document.getElementById('current-month-label').textContent = months[month];
         
-        // Update monthly theme
         const themeText = document.getElementById('theme-text');
         if (themeText) {
           themeText.textContent = monthlyThemes[month] || 'Finding Peace in God\'s Presence';
@@ -483,17 +517,14 @@
         let html = '';
         const dayHeaders = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
         
-        // Day headers
         dayHeaders.forEach(day => {
           html += `<div class="day-header">${day}</div>`;
         });
         
-        // Empty cells for days before month starts
         for (let i = 0; i < firstDay; i++) {
           html += `<div class="day-cell empty"></div>`;
         }
         
-        // Days of the month
         const today = new Date();
         const todayDate = today.getDate();
         const todayMonth = today.getMonth();
@@ -504,12 +535,10 @@
           if (todayYear === year && todayMonth === month && todayDate === day) {
             classes += ' today';
           }
-          // Check if day is in the future
           const dayDate = new Date(year, month, day);
           if (dayDate > today) {
             classes += ' future';
           }
-          // Add 'read' class for days that have been read (stored in localStorage)
           const readKey = `read_${year}_${month}_${day}`;
           if (localStorage.getItem(readKey) === 'true') {
             classes += ' read';
@@ -525,7 +554,6 @@
         const detailContent = document.getElementById('day-detail-content');
         if (!detailContent) return;
         
-        // Check if day is in the future
         const today = new Date();
         const dayDate = new Date(currentYear, month, day);
         const isFuture = dayDate > today;
@@ -543,7 +571,6 @@
           return;
         }
         
-        // Sample devotional content - replace with actual data
         const titles = [
           'Finding Peace in the Storm',
           'You Are Not Alone',
@@ -598,16 +625,12 @@
           </div>
         `;
         
-        // Update navigation buttons
         document.getElementById('prev-day').dataset.month = month;
         document.getElementById('prev-day').dataset.day = day - 1;
         document.getElementById('next-day').dataset.month = month;
         document.getElementById('next-day').dataset.day = day + 1;
         
-        // Scroll to detail
         document.getElementById('day-detail').scrollIntoView({ behavior: 'smooth' });
-        
-        // Store the current day in localStorage
         localStorage.setItem('currentDay', `${month}-${day}`);
       }
       
@@ -616,7 +639,6 @@
         localStorage.setItem(key, 'true');
         renderCalendar(currentMonth, currentYear);
         
-        // Show confirmation
         const detailContent = document.getElementById('day-detail-content');
         if (detailContent) {
           const markBtn = detailContent.querySelector('.btn');
@@ -646,7 +668,6 @@
         let readCount = 0;
         const totalDays = 365;
         
-        // Count read days from localStorage
         for (let i = 0; i < 12; i++) {
           const daysInMonth = new Date(currentYear, i + 1, 0).getDate();
           for (let d = 1; d <= daysInMonth; d++) {
@@ -666,10 +687,8 @@
         if (progressText) progressText.textContent = `${readCount}/${totalDays} days`;
       }
       
-      // Initial render
       renderCalendar(currentMonth, currentYear);
       
-      // Set current date display
       const dateDisplay = document.getElementById('current-date-display');
       if (dateDisplay) {
         dateDisplay.textContent = new Date().toLocaleDateString('en-US', { 
@@ -680,7 +699,6 @@
         });
       }
       
-      // Month navigation click handlers
       document.querySelectorAll('.month-nav a').forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
@@ -691,7 +709,6 @@
         });
       });
       
-      // Day navigation buttons
       document.getElementById('prev-day').addEventListener('click', function(e) {
         e.preventDefault();
         const month = parseInt(this.dataset.month);
@@ -711,7 +728,6 @@
         }
       });
       
-      // Bookmark button
       document.getElementById('bookmark-btn').addEventListener('click', function(e) {
         e.preventDefault();
         const month = parseInt(this.dataset.month);
@@ -731,7 +747,6 @@
         }
       });
       
-      // Search functionality
       const searchInput = document.getElementById('search-input');
       if (searchInput) {
         searchInput.addEventListener('input', function() {
@@ -744,7 +759,6 @@
             return;
           }
           
-          // Sample search results - expand this with actual data
           const sampleResults = [
             { day: 1, title: 'Finding Peace in the Storm', month: 0 },
             { day: 2, title: 'You Are Not Alone', month: 0 },

@@ -59,13 +59,23 @@
       margin-bottom: 1rem;
     }
 
-    /* About hero with MMA1 image */
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      display: block;
+      background: var(--background, #f9f9f9);
+    }
+
     .about-hero-img {
       width: 100%;
-      height: 300px;
-      object-fit: cover;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
       border-radius: var(--radius, 12px);
       display: block;
+      background: var(--background, #f9f9f9);
     }
 
     .mission-quote {
@@ -82,7 +92,62 @@
       font-size: 1rem;
       line-height: 1.9;
     }
-    
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 2rem 0;
+    }
+
+    .about-content p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-content h2 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .about-hero {
+      padding: 2rem 0 1rem;
+    }
+
+    .about-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .about-hero h1 span {
+      color: var(--primary);
+    }
+
+    .author-bio {
+      background: var(--background);
+      padding: 2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin: 0 0 1.5rem 0;
+    }
+
+    .author-bio h3 {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      text-align: center;
+    }
+
+    .author-bio p {
+      font-size: 0.98rem;
+      color: var(--text-light);
+    }
+
     @media (max-width: 768px) {
       .author-photo img {
         width: min(140px, 60%);
@@ -93,17 +158,26 @@
       }
 
       .about-hero-img {
-        height: 200px;
+        max-height: 200px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
     }
 
     @media (max-width: 480px) {
       .about-hero-img {
-        height: 150px;
+        max-height: 150px;
       }
 
       .values-image img {
         height: 120px;
+      }
+
+      .about-hero h1 {
+        font-size: 2rem;
       }
     }
   </style>
@@ -157,8 +231,7 @@
     <!-- ABOUT HERO -->
     <!-- ============================================ -->
     <section class="about-hero fade-in">
-      <!-- MMA1 Image -->
-      <div class="image-wrapper" style="margin-bottom: 1rem; border-radius: var(--radius, 12px); overflow: hidden;">
+      <div class="image-wrapper" style="margin-bottom: 1rem; border-radius: var(--radius, 12px); overflow: hidden; background: var(--background, #f9f9f9);">
         <img src="assets/images/mma1.jpeg" alt="A Safe Place With Mma Foundation" class="about-hero-img" />
       </div>
       
@@ -217,7 +290,6 @@
         
         <!-- Author Bio Card with Photo -->
         <div class="author-bio">
-          <!-- Mma Photo -->
           <div class="author-photo">
             <img src="assets/images/mma-photo.jpg" alt="MMA - Founder of A Safe Place" />
           </div>
@@ -260,7 +332,7 @@
         <!-- Values with Image -->
         <div style="background:var(--white);padding:1.8rem;border-radius:var(--radius);border:1px solid var(--border);margin-top:1.5rem;">
           <div class="image-wrapper">
-            <img src="assets/images/What-we-stand-for.jpg" alt="What we stand for" class="values-image" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius-sm,8px);" />
+            <img src="assets/images/What-we-stand-for.jpg" alt="What we stand for" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius-sm,8px);" />
           </div>
           <h3 style="font-family:var(--font-serif);color:var(--primary);margin-bottom:1rem;font-size:1.4rem;">
             What we stand for
@@ -339,7 +411,6 @@
         <a href="reading.html" style="font-weight:500;color:var(--primary);">Start Reading</a>
       </div>
       
-      <!-- Social Links with Font Awesome Icons -->
       <div class="social-links">
         <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; font-size:1.5rem;"></i></a>
         <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook" style="color:#1877F2; font-size:1.5rem;"></i></a>
@@ -364,12 +435,8 @@
   <!-- ============================================ -->
   <script src="js/main.js"></script>
   
-  <!-- Additional Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // ============================================
-      // SPARKLE EFFECT
-      // ============================================
       const container = document.getElementById('sparkleContainer');
       if (container) {
         for (let i = 0; i < 25; i++) {
@@ -385,9 +452,6 @@
         }
       }
 
-      // ============================================
-      // SCROLL ANIMATIONS
-      // ============================================
       const observerOptions = {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
