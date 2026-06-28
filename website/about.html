@@ -11,11 +11,51 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Georgia:ital@0;1&display=swap" rel="stylesheet" />
   
+  <!-- Font Awesome 6 (Free) for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  
+  <style>
+    /* Additional styles to fix image sizing */
+    .about-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .author-photo img {
+      width: 180px !important;
+      height: 180px !important;
+      border-radius: 50% !important;
+      object-fit: cover !important;
+      border: 4px solid var(--secondary, #e8d5b7) !important;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    }
+    
+    .values-image img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: var(--radius-sm, 8px);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .author-photo img {
+        width: 140px !important;
+        height: 140px !important;
+      }
+      
+      .values-image img {
+        height: 140px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -50,15 +90,15 @@
     <!-- ============================================ -->
     <nav>
       <div class="logo">
-        <img src="https://emmanueladekunlepeace.com.labelreach.com/wp-content/uploads/2026/06/mma_logo.png" alt="A Safe Place With Mma" class="logo-img" />
+        <img src="assets/images/logo.png" alt="A Safe Place With Mma" class="logo-img" />
       </div>
       <div class="nav-links">
-        <a href="index.html">home</a>
-        <a href="about.html" class="active">about</a>
-        <a href="reading.html">reading</a>
-        <a href="community.html">community</a>
-        <a href="contact.html">contact</a>
-        <a href="reading.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">start reading</a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="reading.html">Reading</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+        <a href="reading.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">Start Reading</a>
       </div>
     </nav>
 
@@ -66,7 +106,7 @@
     <!-- ABOUT HERO -->
     <!-- ============================================ -->
     <section class="about-hero fade-in">
-      <h1>about <span>mma</span></h1>
+      <h1>About <span>Mma</span></h1>
       <div class="accent-line"></div>
       <p style="color:var(--text-light);max-width:600px;font-size:1.05rem;">
         The woman behind the words. A fellow traveler, a fellow healer, 
@@ -81,13 +121,13 @@
       <!-- Left Column -->
       <div class="fade-in-left">
         <p>
-          <strong>MMA</strong> is the founder of A Safe Place, a global online community 
+          <strong>Mma</strong> is the founder of A Safe Place, a global online community 
           dedicated to honest faith, emotional healing, and restoration without the 
           pressure of religious performance.
         </p>
         
         <p>
-          Known for her gentle yet piercing voice, MMA writes from the space where 
+          Known for her gentle yet piercing voice, Mma writes from the space where 
           deep pain meets profound grace, and where the slow, unglamorous work of 
           becoming whole takes place.
         </p>
@@ -98,7 +138,7 @@
           honest, heartfelt experiences.
         </p>
 
-        <h2>the story behind the devotional</h2>
+        <h2>The story behind the devotional</h2>
         
         <p>
           This devotional was not written from a mountain top. It was written from 
@@ -129,11 +169,16 @@
 
       <!-- Right Column -->
       <div class="fade-in-right">
-        <!-- Author Bio Card -->
+        
+        <!-- Author Bio Card with Photo -->
         <div class="author-bio">
-          <h3>a fellow traveler</h3>
+          <!-- Mma Photo -->
+          <div class="author-photo" style="display:flex; justify-content:center; align-items:center; margin-bottom:1rem; width:100%;">
+  <img src="assets/images/mma-photo.jpg" alt="MMA - Founder of A Safe Place" style="width:min(180px, 80%); height:auto; aspect-ratio:1/1; border-radius:50%; object-fit:cover; border:4px solid var(--secondary); box-shadow: 0 4px 15px rgba(0,0,0,0.1);" />
+</div>
+          <h3>A fellow traveler</h3>
           <p>
-            MMA lives with her family and a very honest cat. She still cries in 
+            Mma lives with her family. She still cries in 
             worship, she still faces struggles, and she continues to believe that 
             God's love is often strongest in the silence, in moments of vulnerability, 
             and in the quiet, unseen work of transformation.
@@ -144,21 +189,24 @@
           </p>
           <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);">
             <p style="font-size:0.9rem;color:var(--text-muted);">
-              📧 info@asafeplacewithmma.com<br>
-              📷 @asafeplacewithmma
+              <i class="fas fa-envelope" style="margin-right:8px;"></i> info@asafeplacewithmma.com<br>
+              <i class="fab fa-instagram" style="margin-right:8px;"></i> @asafeplacewithmma
             </p>
           </div>
         </div>
 
-        <!-- Values -->
+        <!-- Values with Image -->
         <div style="background:var(--white);padding:1.8rem;border-radius:var(--radius);border:1px solid var(--border);">
+          <div class="values-image" style="text-align:center; margin-bottom:1rem;overflow:hidden;border-radius:var(--radius-sm,8px);">
+            <img src="assets/images/What-we-stand-for.jpg" alt="What we stand for" />
+          </div>
           <h3 style="font-family:var(--font-serif);color:var(--primary);margin-bottom:1rem;font-size:1.4rem;">
-            what we stand for
+            What we stand for
           </h3>
           
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
             <div class="card" style="padding:1.2rem;border-radius:var(--radius-sm);">
-              <h4 style="font-family:var(--font-serif);color:var(--primary);font-size:1.1rem;margin-bottom:0.3rem;">authenticity</h4>
+              <h4 style="font-family:var(--font-serif);color:var(--primary);font-size:1.1rem;margin-bottom:0.3rem;">Authenticity</h4>
               <p style="font-size:0.9rem;color:var(--text-light);">
                 A space where you can be real about struggles, doubts, and questions. 
                 No performance. No pretending.
@@ -166,7 +214,7 @@
             </div>
             
             <div class="card" style="padding:1.2rem;border-radius:var(--radius-sm);">
-              <h4 style="font-family:var(--font-serif);color:var(--primary);font-size:1.1rem;margin-bottom:0.3rem;">healing without judgment</h4>
+              <h4 style="font-family:var(--font-serif);color:var(--primary);font-size:1.1rem;margin-bottom:0.3rem;">Healing without judgment</h4>
               <p style="font-size:0.9rem;color:var(--text-light);">
                 Emotional, spiritual, and relational restoration at your own pace. 
                 No shame. No rush.
@@ -174,7 +222,7 @@
             </div>
             
             <div class="card" style="padding:1.2rem;border-radius:var(--radius-sm);">
-              <h4 style="font-family:var(--font-serif);color:var(--primary);font-size:1.1rem;margin-bottom:0.3rem;">grace &amp; encouragement</h4>
+              <h4 style="font-family:var(--font-serif);color:var(--primary);font-size:1.1rem;margin-bottom:0.3rem;">Grace &amp; encouragement</h4>
               <p style="font-size:0.9rem;color:var(--text-light);">
                 You are not too far gone. Love and restoration are always available. 
                 You are never beyond reach.
@@ -182,7 +230,7 @@
             </div>
             
             <div class="card" style="padding:1.2rem;border-radius:var(--radius-sm);">
-              <h4 style="font-family:var(--font-serif);color:var(--primary);font-size:1.1rem;margin-bottom:0.3rem;">community &amp; connection</h4>
+              <h4 style="font-family:var(--font-serif);color:var(--primary);font-size:1.1rem;margin-bottom:0.3rem;">Community &amp; connection</h4>
               <p style="font-size:0.9rem;color:var(--text-light);">
                 Sharing experiences so no one has to navigate life's challenges alone. 
                 You are not alone.
@@ -197,7 +245,7 @@
             You are welcome here. Just as you are.
           </p>
           <a href="reading.html" class="btn" style="margin-top:0.8rem;background:var(--text);color:var(--white);">
-            start the journey
+            Start the journey
           </a>
         </div>
       </div>
@@ -221,25 +269,25 @@
     <!-- ============================================ -->
     <footer>
       <div class="footer-links">
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="reading.html">reading</a>
-        <a href="community.html">community</a>
-        <a href="contact.html">contact</a>
-        <a href="reading.html" style="font-weight:500;color:var(--primary);">start reading</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="reading.html">Reading</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+        <a href="reading.html" style="font-weight:500;color:var(--primary);">Start Reading</a>
       </div>
       
-      <!-- Social Links -->
+      <!-- Social Links with Font Awesome Icons -->
       <div class="social-links">
-        <a<a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp">💬</a>
-        <a href="#" aria-label="Facebook">📘</a>
-        <a href="#" aria-label="Instagram">📷</a>
-        <a href="#" aria-label="YouTube">▶️</a>
-        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email">✉️</a>
+        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook" style="color:#1877F2; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram" style="color:#E4405F; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
+        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email"><i class="fas fa-envelope" style="color:var(--primary); font-size:1.5rem;"></i></a>
       </div>
       
       <div class="footer-bottom">
-        <span>© 2026 A Safe Place With Mma · all rights reserved</span>
+        <span>© 2026 A Safe Place With Mma · All rights reserved</span>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>

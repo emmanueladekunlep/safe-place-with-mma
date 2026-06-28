@@ -11,11 +11,189 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Georgia:ital@0;1&display=swap" rel="stylesheet" />
   
+  <!-- Font Awesome 6 (Free) for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  
+  <style>
+    /* Additional styles to fix image sizing */
+    .reading-hero-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius, 12px);
+      display: block;
+    }
+    
+    .image-wrapper {
+      overflow: hidden;
+      border-radius: var(--radius, 12px);
+      margin-bottom: 1rem;
+    }
+    
+    /* Calendar grid styles */
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin: 1rem 0;
+      background: var(--white, #fff);
+      border-radius: var(--radius, 12px);
+      padding: 0.5rem;
+      border: 1px solid var(--border, #ddd);
+    }
+    
+    .calendar-grid .day-header {
+      font-weight: 600;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted, #999);
+      padding: 0.5rem 0;
+      background: var(--background, #f9f9f9);
+      border-radius: var(--radius-sm, 6px);
+    }
+    
+    .calendar-grid .day-cell {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm, 6px);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: var(--background, #f9f9f9);
+      color: var(--text, #333);
+      border: 2px solid transparent;
+    }
+    
+    .calendar-grid .day-cell:hover {
+      background: var(--secondary, #e8d5b7);
+      transform: scale(1.05);
+    }
+    
+    .calendar-grid .day-cell.read {
+      background: var(--secondary, #e8d5b7);
+      color: var(--text, #333);
+    }
+    
+    .calendar-grid .day-cell.today {
+      border-color: var(--primary, #b8860b);
+      background: var(--white, #fff);
+      font-weight: 700;
+    }
+    
+    .calendar-grid .day-cell.empty {
+      background: transparent;
+      cursor: default;
+    }
+    
+    .calendar-grid .day-cell.empty:hover {
+      transform: none;
+    }
+    
+    /* Day detail styles */
+    .day-detail {
+      background: var(--white, #fff);
+      border-radius: var(--radius, 12px);
+      padding: 2rem;
+      border: 1px solid var(--border, #ddd);
+      margin: 1.5rem 0;
+    }
+    
+    .day-detail h2 {
+      font-family: var(--font-serif, Georgia, serif);
+      color: var(--primary, #b8860b);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .day-detail .day-meta {
+      color: var(--text-muted, #999);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .day-detail .opening {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    .day-detail .scripture {
+      font-style: italic;
+      color: var(--text-light, #666);
+      padding: 1rem;
+      background: var(--background, #f9f9f9);
+      border-radius: var(--radius-sm, 6px);
+      margin: 1rem 0;
+      border-left: 4px solid var(--secondary, #e8d5b7);
+    }
+    
+    .day-detail .prayer {
+      background: var(--background, #f9f9f9);
+      padding: 1rem;
+      border-radius: var(--radius-sm, 6px);
+      margin: 1rem 0;
+    }
+    
+    .day-detail .prayer-label {
+      font-weight: 600;
+      color: var(--primary, #b8860b);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    
+    .day-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border, #ddd);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .reading-hero-img {
+        height: 150px;
+      }
+      
+      .calendar-grid {
+        gap: 3px;
+        padding: 0.3rem;
+      }
+      
+      .calendar-grid .day-cell {
+        font-size: 0.75rem;
+      }
+      
+      .day-detail {
+        padding: 1.2rem;
+      }
+      
+      .day-detail h2 {
+        font-size: 1.4rem;
+      }
+      
+      .day-nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .day-nav > div {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -50,15 +228,15 @@
     <!-- ============================================ -->
     <nav>
       <div class="logo">
-        <img src="https://emmanueladekunlepeace.com.labelreach.com/wp-content/uploads/2026/06/mma_logo.png" alt="A Safe Place With Mma" class="logo-img" />
+        <img src="assets/images/logo.png" alt="A Safe Place With Mma" class="logo-img" />
       </div>
       <div class="nav-links">
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="reading.html" class="active">reading</a>
-        <a href="community.html">community</a>
-        <a href="contact.html">contact</a>
-        <a href="index.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">home</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="reading.html" class="active">Reading</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">Home</a>
       </div>
     </nav>
 
@@ -66,12 +244,16 @@
     <!-- READING HEADER -->
     <!-- ============================================ -->
     <section class="reading-header fade-in" style="padding:1.5rem 0 0.5rem;">
-      <h1>the <span>365</span> journey</h1>
+      <!-- The 365 Journey Image -->
+      <div class="image-wrapper">
+        <img src="assets/images/the-365-journey.jpg" alt="The 365 Journey" class="reading-hero-img" />
+      </div>
+      <h1>The <span>365</span> Journey</h1>
       <div class="accent-line"></div>
       <p style="color:var(--text-light);max-width:600px;font-size:1.05rem;">
         One day at a time. No performance. Just presence. 
         <span style="display:block;font-size:0.9rem;color:var(--text-muted);margin-top:0.3rem;">
-          📖 <span id="progress-text">0/365 days</span> · 
+          <i class="fas fa-book-open"></i> <span id="progress-text">0/365 days</span> · 
           <span id="current-date-display">Loading...</span>
         </span>
       </p>
@@ -145,10 +327,10 @@
       
       <!-- Day Navigation -->
       <div class="day-nav">
-        <a href="#" class="btn btn-sm btn-outline" id="prev-day" data-month="" data-day="">← previous day</a>
+        <a href="#" class="btn btn-sm btn-outline" id="prev-day" data-month="" data-day="">← Previous Day</a>
         <div style="display:flex;gap:0.8rem;">
-          <a href="#" class="btn btn-sm btn-outline" id="bookmark-btn" data-month="" data-day="">☆ Bookmark</a>
-          <a href="#" class="btn btn-sm" id="next-day" data-month="" data-day="">next day →</a>
+          <a href="#" class="btn btn-sm btn-outline" id="bookmark-btn" data-month="" data-day=""><i class="far fa-bookmark"></i> Bookmark</a>
+          <a href="#" class="btn btn-sm" id="next-day" data-month="" data-day="">Next Day →</a>
         </div>
       </div>
     </div>
@@ -158,25 +340,25 @@
     <!-- ============================================ -->
     <footer>
       <div class="footer-links">
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="reading.html">reading</a>
-        <a href="community.html">community</a>
-        <a href="contact.html">contact</a>
-        <a href="index.html" style="font-weight:500;color:var(--primary);">home</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="reading.html">Reading</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html" style="font-weight:500;color:var(--primary);">Home</a>
       </div>
       
-      <!-- Social Links -->
+      <!-- Social Links with Font Awesome Icons -->
       <div class="social-links">
-        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp">💬</a>
-        <a href="#" aria-label="Facebook">📘</a>
-        <a href="#" aria-label="Instagram">📷</a>
-        <a href="#" aria-label="YouTube">▶️</a>
-        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email">✉️</a>
+        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook" style="color:#1877F2; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram" style="color:#E4405F; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
+        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email"><i class="fas fa-envelope" style="color:var(--primary); font-size:1.5rem;"></i></a>
       </div>
       
       <div class="footer-bottom">
-        <span>© 2026 A Safe Place With Mma · all rights reserved</span>
+        <span>© 2026 A Safe Place With Mma · All rights reserved</span>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>
@@ -231,6 +413,175 @@
       document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
         observer.observe(el);
       });
+
+      // ============================================
+      // CALENDAR FUNCTIONS (Sample)
+      // ============================================
+      let currentMonth = new Date().getMonth();
+      let currentYear = new Date().getFullYear();
+      
+      // Sample devotional data
+      const devotionalData = {
+        // You would populate this with actual 365 devotionals
+        // For now, we'll use a sample
+      };
+      
+      function renderCalendar(month, year) {
+        const grid = document.getElementById('calendar-grid');
+        if (!grid) return;
+        
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                        'July', 'August', 'September', 'October', 'November', 'December'];
+        
+        document.getElementById('current-month-label').textContent = months[month];
+        
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        
+        let html = '';
+        const dayHeaders = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+        
+        // Day headers
+        dayHeaders.forEach(day => {
+          html += `<div class="day-header">${day}</div>`;
+        });
+        
+        // Empty cells for days before month starts
+        for (let i = 0; i < firstDay; i++) {
+          html += `<div class="day-cell empty"></div>`;
+        }
+        
+        // Days of the month
+        const today = new Date();
+        const todayDate = today.getDate();
+        const todayMonth = today.getMonth();
+        const todayYear = today.getFullYear();
+        
+        for (let day = 1; day <= daysInMonth; day++) {
+          let classes = 'day-cell';
+          if (todayYear === year && todayMonth === month && todayDate === day) {
+            classes += ' today';
+          }
+          // Add 'read' class for days that have been read (you'd store this in localStorage)
+          // For demo, we'll mark first 5 days as read
+          if (day <= 5 && month === 0 && year === 2026) {
+            classes += ' read';
+          }
+          html += `<div class="${classes}" data-day="${day}" onclick="openDay(${month}, ${day})">${day}</div>`;
+        }
+        
+        grid.innerHTML = html;
+        updateProgress();
+      }
+      
+      function openDay(month, day) {
+        // Open day detail view
+        const detailContent = document.getElementById('day-detail-content');
+        if (!detailContent) return;
+        
+        // Sample devotional content
+        detailContent.innerHTML = `
+          <h2>Day ${day} - Finding Peace</h2>
+          <div class="day-meta">${new Date(2026, month, day).toLocaleDateString('en-US', { 
+            weekday: 'long', 
+            month: 'long', 
+            day: 'numeric', 
+            year: 'numeric' 
+          })}</div>
+          <div class="opening">
+            When life feels overwhelming and you can't seem to catch your breath, 
+            remember that you are not alone. God sees you in the midst of your struggle...
+          </div>
+          <div class="scripture">
+            "The Lord is close to the brokenhearted and saves those who are crushed in spirit." 
+            — Psalm 34:18
+          </div>
+          <div class="prayer">
+            <span class="prayer-label">🙏 Prayer</span>
+            Lord, I come to you with my burdens. Help me to find rest in your presence...
+          </div>
+        `;
+        
+        // Scroll to detail
+        document.getElementById('day-detail').scrollIntoView({ behavior: 'smooth' });
+      }
+      
+      function changeMonth(delta) {
+        currentMonth += delta;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        } else if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        renderCalendar(currentMonth, currentYear);
+      }
+      
+      function updateProgress() {
+        // Sample progress update
+        const readDays = 5; // This would come from localStorage
+        const totalDays = 365;
+        const progress = (readDays / totalDays) * 100;
+        
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        
+        if (progressBar) progressBar.style.width = progress + '%';
+        if (progressText) progressText.textContent = `${readDays}/${totalDays} days`;
+      }
+      
+      // Initial render
+      renderCalendar(currentMonth, currentYear);
+      
+      // Set current date display
+      const dateDisplay = document.getElementById('current-date-display');
+      if (dateDisplay) {
+        dateDisplay.textContent = new Date().toLocaleDateString('en-US', { 
+          weekday: 'long', 
+          month: 'long', 
+          day: 'numeric', 
+          year: 'numeric' 
+        });
+      }
+      
+      // Month navigation click handlers
+      document.querySelectorAll('.month-nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.month-nav a').forEach(a => a.classList.remove('active'));
+          this.classList.add('active');
+          currentMonth = parseInt(this.dataset.month);
+          renderCalendar(currentMonth, currentYear);
+        });
+      });
+      
+      // Search functionality
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          const query = this.value.toLowerCase().trim();
+          const results = document.getElementById('search-results');
+          if (!results) return;
+          
+          if (query.length < 2) {
+            results.innerHTML = '';
+            return;
+          }
+          
+          // Sample search results
+          results.innerHTML = `
+            <div style="background:var(--white);border-radius:var(--radius-sm);padding:0.8rem;border:1px solid var(--border);">
+              <div style="padding:0.5rem;border-bottom:1px solid var(--border);cursor:pointer;" onclick="openDay(0, 1)">
+                <strong>Day 1</strong> - Finding Peace in the Storm
+              </div>
+              <div style="padding:0.5rem;cursor:pointer;" onclick="openDay(0, 2)">
+                <strong>Day 2</strong> - You Are Not Alone
+              </div>
+            </div>
+          `;
+        });
+      }
     });
   </script>
 </body>

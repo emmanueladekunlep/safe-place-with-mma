@@ -11,11 +11,234 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Georgia:ital@0;1&display=swap" rel="stylesheet" />
   
+  <!-- Font Awesome 6 (Free) for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  
+  <style>
+    /* Additional styles for contact page */
+    .contact-hero-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius, 12px);
+      display: block;
+    }
+    
+    .image-wrapper {
+      overflow: hidden;
+      border-radius: var(--radius, 12px);
+      margin-bottom: 1rem;
+    }
+    
+    .whatsapp-card {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      padding: 2.5rem;
+      border-radius: var(--radius, 12px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .whatsapp-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    
+    .whatsapp-card .whatsapp-icon {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      display: block;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .whatsapp-card h2 {
+      font-family: var(--font-serif, Georgia, serif);
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    
+    .whatsapp-card p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .whatsapp-btn {
+      display: inline-block;
+      background: white;
+      color: #25D366;
+      padding: 0.8rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .whatsapp-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    
+    .whatsapp-btn i {
+      margin-right: 10px;
+    }
+    
+    .quick-responses {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+    
+    .quick-response-btn {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius-sm, 8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .quick-response-btn:hover {
+      background: rgba(255,255,255,0.25);
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    
+    .contact-info-item .icon {
+      min-width: 2rem;
+      font-size: 1.2rem;
+      text-align: center;
+      padding-top: 0.2rem;
+    }
+    
+    .contact-info-item a {
+      text-decoration: none;
+      word-break: break-all;
+    }
+    
+    .contact-info-item a:hover {
+      text-decoration: underline;
+    }
+    
+    .email-card {
+      background: var(--white, #fff);
+      padding: 2rem;
+      border-radius: var(--radius, 12px);
+      border: 1px solid var(--border, #ddd);
+    }
+    
+    .email-card h3 {
+      font-family: var(--font-serif, Georgia, serif);
+      color: var(--primary, #b8860b);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .email-card input,
+    .email-card textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border, #ddd);
+      border-radius: var(--radius-sm, 8px);
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      font-size: 0.95rem;
+      transition: border-color 0.3s ease;
+      background: var(--background, #f9f9f9);
+    }
+    
+    .email-card input:focus,
+    .email-card textarea:focus {
+      outline: none;
+      border-color: var(--primary, #b8860b);
+      box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+      background: var(--white, #fff);
+    }
+    
+    .email-card textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .email-card .btn {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      background: #4CAF50;
+      color: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+    
+    .status-badge i {
+      margin-right: 4px;
+    }
+    
+    @media (max-width: 768px) {
+      .contact-hero-img {
+        height: 150px;
+      }
+      
+      .whatsapp-card {
+        padding: 1.5rem;
+      }
+      
+      .whatsapp-card h2 {
+        font-size: 1.5rem;
+      }
+      
+      .quick-responses {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info-item {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -50,15 +273,15 @@
     <!-- ============================================ -->
     <nav>
       <div class="logo">
-        <img src="https://emmanueladekunlepeace.com.labelreach.com/wp-content/uploads/2026/06/mma_logo.png" alt="A Safe Place With Mma" class="logo-img" />
+        <img src="assets/images/logo.png" alt="A Safe Place With Mma" class="logo-img" />
       </div>
       <div class="nav-links">
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="reading.html">reading</a>
-        <a href="community.html">community</a>
-        <a href="contact.html" class="active">contact</a>
-        <a href="reading.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">start reading</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="reading.html">Reading</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="reading.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">Start Reading</a>
       </div>
     </nav>
 
@@ -66,8 +289,11 @@
     <!-- CONTACT HERO -->
     <!-- ============================================ -->
     <section style="padding:2rem 0 1rem;" class="fade-in">
+      <div class="image-wrapper">
+        <img src="assets/images/reach-out.jpg" alt="Reach out to us" class="contact-hero-img" />
+      </div>
       <h1 style="font-family:var(--font-serif);font-size:2.8rem;font-weight:400;color:var(--text);">
-        reach <span style="color:var(--primary);">out</span>
+        Reach <span style="color:var(--primary);">Out</span>
       </h1>
       <div class="accent-line"></div>
       <p style="color:var(--text-light);max-width:600px;font-size:1.05rem;">
@@ -77,15 +303,68 @@
     </section>
 
     <!-- ============================================ -->
-    <!-- CONTACT FORM & INFO -->
+    <!-- WHATSAPP SECTION (IMMEDIATE RESPONSE) -->
+    <!-- ============================================ -->
+    <div class="whatsapp-card fade-in">
+      <span class="whatsapp-icon">
+        <i class="fab fa-whatsapp"></i>
+      </span>
+      <h2>Message Us on WhatsApp</h2>
+      <p>
+        <span class="status-badge"><i class="fas fa-circle"></i> Online Now</span><br>
+        Get an immediate response. Click the button below to start a conversation.
+      </p>
+      
+      <a href="https://wa.me/447492950853?text=Hello%20A%20Safe%20Place%20With%20Mma%2C%20I%27d%20like%20to%20reach%20out..." 
+         class="whatsapp-btn" 
+         target="_blank">
+        <i class="fab fa-whatsapp"></i> Send Message Now
+      </a>
+      
+      <div class="quick-responses">
+        <a href="https://wa.me/447492950853?text=I%20need%20prayer%20support..." 
+           class="quick-response-btn" 
+           target="_blank">
+          <i class="fas fa-praying-hands"></i> Prayer Request
+        </a>
+        <a href="https://wa.me/447492950853?text=I%20want%20to%20share%20my%20testimony..." 
+           class="quick-response-btn" 
+           target="_blank">
+          <i class="fas fa-heart"></i> Share Testimony
+        </a>
+        <a href="https://wa.me/447492950853?text=I%20have%20a%20question%20about%20the%20devotional..." 
+           class="quick-response-btn" 
+           target="_blank">
+          <i class="fas fa-question-circle"></i> Ask a Question
+        </a>
+        <a href="https://wa.me/447492950853?text=I%20want%20to%20join%20the%20community..." 
+           class="quick-response-btn" 
+           target="_blank">
+          <i class="fas fa-users"></i> Join Community
+        </a>
+      </div>
+      
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.7);margin-top:1.5rem;">
+        <i class="fas fa-lock"></i> Private & Secure · 
+        <i class="fas fa-clock"></i> Response within minutes
+      </p>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TWO COLUMN LAYOUT: EMAIL + CONTACT INFO -->
     <!-- ============================================ -->
     <div style="display:grid;grid-template-columns:2fr 1fr;gap:2.5rem;margin:2rem 0;">
       
-      <!-- Contact Form -->
-      <div class="contact-form fade-in-left">
-        <h3 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--primary);margin-bottom:1rem;">
-          send a message
+      <!-- Email Form -->
+      <div class="email-card fade-in-left">
+        <h3>
+          <i class="fas fa-envelope" style="color:var(--primary);"></i> 
+          Send an Email
         </h3>
+        <p style="color:var(--text-light);font-size:0.95rem;margin-bottom:1.5rem;">
+          For detailed messages, prayer requests, or if you prefer email.
+          We respond within 24-48 hours.
+        </p>
         
         <form id="contact-form" action="#" method="POST">
           <div style="margin-bottom:1rem;">
@@ -117,12 +396,11 @@
           </div>
           
           <button type="submit" class="btn" style="width:100%;">
-            ✉️ Send Message
+            <i class="fas fa-paper-plane"></i> Send Email
           </button>
           
           <p style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:0.8rem;">
-            💬 For general inquiries: info@asafeplacewithmma.com<br>
-            🙏 For support & programs: support@asafeplacewithmma.com
+            <i class="fas fa-envelope"></i> info@asafeplacewithmma.com
           </p>
         </form>
         
@@ -138,14 +416,14 @@
       <div class="fade-in-right">
         <div style="background:var(--white);padding:2rem;border-radius:var(--radius);border:1px solid var(--border);">
           <h3 style="font-family:var(--font-serif);color:var(--primary);font-size:1.2rem;margin-bottom:1rem;">
-            connect with us
+            Other Ways to Connect
           </h3>
           
           <div class="contact-info">
             <div class="contact-info-item">
-              <span class="icon">✉️</span>
+              <span class="icon"><i class="fas fa-envelope"></i></span>
               <div>
-                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">General Inquiries</div>
+                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">Email</div>
                 <a href="mailto:info@asafeplacewithmma.com" style="color:var(--primary);">
                   info@asafeplacewithmma.com
                 </a>
@@ -153,34 +431,16 @@
             </div>
             
             <div class="contact-info-item">
-              <span class="icon">🙏</span>
-              <div>
-                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">Support & Programs</div>
-                <a href="mailto:support@asafeplacewithmma.com" style="color:var(--primary);">
-                  support@asafeplacewithmma.com
-                </a>
-              </div>
-            </div>
-            
-            <div class="contact-info-item">
-              <span class="icon">🔒</span>
-              <div>
-                <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">Administrative</div>
-                <span style="color:var(--text-muted);font-size:0.85rem;">admin@asafeplacewithmma.com</span>
-                <p style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Private · Secure</p>
-              </div>
-            </div>
-            
-            <div class="contact-info-item">
-              <span class="icon">💬</span>
+              <span class="icon"><i class="fab fa-whatsapp" style="color:#25D366;"></i></span>
               <div>
                 <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">WhatsApp</div>
-                <a href="#" style="color:var(--primary);">@asafeplacewithmma</a>
+                <a href="https://wa.me/447492950853" style="color:var(--primary);">+44 7492 950853</a>
+                <p style="font-size:0.7rem;color:var(--text-muted);">Immediate response</p>
               </div>
             </div>
             
             <div class="contact-info-item">
-              <span class="icon">📘</span>
+              <span class="icon"><i class="fab fa-facebook" style="color:#1877F2;"></i></span>
               <div>
                 <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">Facebook</div>
                 <a href="#" style="color:var(--primary);">@asafeplacewithmma</a>
@@ -188,7 +448,7 @@
             </div>
             
             <div class="contact-info-item">
-              <span class="icon">📷</span>
+              <span class="icon"><i class="fab fa-instagram" style="color:#E4405F;"></i></span>
               <div>
                 <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">Instagram</div>
                 <a href="#" style="color:var(--primary);">@asafeplacewithmma</a>
@@ -196,7 +456,7 @@
             </div>
             
             <div class="contact-info-item">
-              <span class="icon">▶️</span>
+              <span class="icon"><i class="fab fa-youtube" style="color:#FF0000;"></i></span>
               <div>
                 <div style="font-weight:500;font-size:0.85rem;color:var(--text-light);">YouTube</div>
                 <a href="#" style="color:var(--primary);">@asafeplacewithmma</a>
@@ -205,22 +465,24 @@
           </div>
 
           <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
-            <h4 style="font-weight:600;color:var(--text);font-size:0.95rem;">response time</h4>
-            <p style="font-size:0.9rem;color:var(--text-light);">
-              We typically respond within 24-48 hours. For urgent matters, please 
-              reach out via WhatsApp or Facebook.
-            </p>
-          </div>
-
-          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
-            <h4 style="font-weight:600;color:var(--text);font-size:0.95rem;">prayer requests</h4>
-            <p style="font-size:0.9rem;color:var(--text-light);">
-              If you need prayer, please share your request. You are not alone. 
-              We will pray with you.
-            </p>
-            <a href="mailto:support@asafeplacewithmma.com" style="color:var(--primary);font-weight:500;font-size:0.9rem;display:inline-block;margin-top:0.3rem;">
-              Send prayer request →
-            </a>
+            <h4 style="font-weight:600;color:var(--text);font-size:0.95rem;">📋 Quick Links</h4>
+            <ul style="list-style:none;padding:0;font-size:0.9rem;">
+              <li style="margin-bottom:0.5rem;">
+                <a href="community.html" style="color:var(--text-light);text-decoration:none;">
+                  → Join the Community
+                </a>
+              </li>
+              <li style="margin-bottom:0.5rem;">
+                <a href="reading.html" style="color:var(--text-light);text-decoration:none;">
+                  → Start Today's Reading
+                </a>
+              </li>
+              <li>
+                <a href="about.html" style="color:var(--text-light);text-decoration:none;">
+                  → About Mma
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -236,7 +498,7 @@
           "I reached out when I was at my lowest. The response was immediate 
           and full of love. I felt seen, heard, and held."
         </p>
-        <span class="author">— A grateful reader</span>
+        <span class="author">— E.A. Peace</span>
       </div>
     </section>
 
@@ -245,25 +507,25 @@
     <!-- ============================================ -->
     <footer>
       <div class="footer-links">
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="reading.html">reading</a>
-        <a href="community.html">community</a>
-        <a href="contact.html">contact</a>
-        <a href="reading.html" style="font-weight:500;color:var(--primary);">start reading</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="reading.html">Reading</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+        <a href="reading.html" style="font-weight:500;color:var(--primary);">Start Reading</a>
       </div>
       
-      <!-- Social Links -->
+      <!-- Social Links with Font Awesome Icons -->
       <div class="social-links">
-        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp">💬</a>
-        <a href="#" aria-label="Facebook">📘</a>
-        <a href="#" aria-label="Instagram">📷</a>
-        <a href="#" aria-label="YouTube">▶️</a>
-        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email">✉️</a>
+        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook" style="color:#1877F2; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram" style="color:#E4405F; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
+        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email"><i class="fas fa-envelope" style="color:var(--primary); font-size:1.5rem;"></i></a>
       </div>
       
       <div class="footer-bottom">
-        <span>© 2026 A Safe Place With Mma · all rights reserved</span>
+        <span>© 2026 A Safe Place With Mma · All rights reserved</span>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>
@@ -333,7 +595,7 @@
           form.style.display = 'none';
           successDiv.style.display = 'block';
           
-          // Log form data (replace with actual email sending later)
+          // Log form data
           console.log('Form submitted:', {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,

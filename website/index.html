@@ -14,11 +14,50 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Georgia:ital@0;1&display=swap" rel="stylesheet" />
   
+  <!-- Font Awesome 6 (Free) for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  
+  <style>
+    /* Additional styles to fix image sizing */
+    .hero-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: var(--radius, 12px);
+      display: block;
+    }
+    
+    .about-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius, 12px);
+      display: block;
+    }
+    
+    .image-wrapper {
+      overflow: hidden;
+      border-radius: var(--radius, 12px);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-img {
+        height: 200px;
+      }
+      
+      .about-img {
+        height: 150px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -53,15 +92,15 @@
     <!-- ============================================ -->
     <nav>
       <div class="logo">
-        <img src="https://emmanueladekunlepeace.com.labelreach.com/wp-content/uploads/2026/06/mma_logo.png" alt="A Safe Place With Mma" class="logo-img" />
+        <img src="assets/images/logo.png" alt="A Safe Place With Mma" class="logo-img" />
       </div>
       <div class="nav-links">
-        <a href="index.html" class="active">home</a>
-        <a href="about.html">about</a>
-        <a href="reading.html">reading</a>
-        <a href="community.html">community</a>
-        <a href="contact.html">contact</a>
-        <a href="reading.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">start reading</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="reading.html">Reading</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+        <a href="reading.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">Start Reading</a>
       </div>
     </nav>
 
@@ -69,6 +108,10 @@
     <!-- HERO SECTION -->
     <!-- ============================================ -->
     <section class="hero fade-in">
+      <!-- Hero Image -->
+      <div class="image-wrapper" style="margin-bottom: 1rem; border-radius: var(--radius, 12px); overflow: hidden;">
+  <img src="assets/images/You-don't-have-to-pretend-here.jpg" alt="You don't have to pretend here" style="width: 100%; height: 180px; object-fit: cover; display: block;" />
+</div>
       <h1>You don't have to <em>pretend</em> here.</h1>
       <div class="tagline">
         A 365‑day journey of healing, restoration, and intimacy with God — 
@@ -78,8 +121,8 @@
         </span>
       </div>
       <div class="hero-actions">
-        <a href="reading.html" class="btn">start today's reading</a>
-        <a href="about.html" class="btn btn-outline">begin the journey</a>
+        <a href="reading.html" class="btn">Start Today's Reading</a>
+        <a href="about.html" class="btn btn-outline">Begin the Journey</a>
       </div>
     </section>
 
@@ -92,8 +135,8 @@
       <p class="opening-preview" id="preview-opening">Loading today's devotional...</p>
       <p class="scripture-preview" id="preview-scripture"></p>
       <div style="margin-top:0.8rem;display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="reading.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1rem;font-size:0.8rem;">read full</a>
-        <span style="font-size:0.85rem;color:var(--text-muted);align-self:center;">🙏 honest prayer · declaration</span>
+        <a href="reading.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1rem;font-size:0.8rem;">Read Full</a>
+        <span style="font-size:0.85rem;color:var(--text-muted);align-self:center;"><i class="fas fa-praying-hands"></i> Honest Prayer · Declaration</span>
       </div>
     </div>
 
@@ -101,22 +144,28 @@
     <!-- ABOUT PREVIEW / VALUES -->
     <!-- ============================================ -->
     <section id="about-preview">
-      <h2 class="section-title fade-in">about <span>this place</span></h2>
+      <h2 class="section-title fade-in">About <span>This Place</span></h2>
+      
+      <!-- About This Place Image -->
+      <div class="image-wrapper">
+        <img src="assets/images/about-this-place.jpg" alt="About this place" class="about-img" />
+      </div>
+      
       <div class="grid-2">
         <div class="card fade-in-left">
-          <h3>authenticity</h3>
+          <h3>Authenticity</h3>
           <p>A space where you can be real about struggles, doubts, and questions. No performance. No pretending.</p>
         </div>
         <div class="card fade-in-right">
-          <h3>healing without judgment</h3>
+          <h3>Healing Without Judgment</h3>
           <p>Emotional, spiritual, and relational restoration at your own pace. No shame. No rush.</p>
         </div>
         <div class="card fade-in-left">
-          <h3>grace &amp; encouragement</h3>
+          <h3>Grace &amp; Encouragement</h3>
           <p>You are not too far gone. Love and restoration are always available. You are never beyond reach.</p>
         </div>
         <div class="card fade-in-right">
-          <h3>community &amp; connection</h3>
+          <h3>Community &amp; Connection</h3>
           <p>Sharing experiences so no one has to navigate life's challenges alone. You are not alone.</p>
         </div>
       </div>
@@ -129,7 +178,7 @@
           that God's love is strongest in the silence.
         </p>
         <a href="about.html" style="color:var(--primary);font-weight:500;text-decoration:none;display:inline-block;margin-top:0.5rem;">
-          read the full story →
+          Read the full story →
         </a>
       </div>
     </section>
@@ -138,15 +187,15 @@
     <!-- COMMUNITY TEASER -->
     <!-- ============================================ -->
     <section style="margin:3rem 0 1rem;" class="fade-in">
-      <h2 class="section-title">join the <span>community</span></h2>
+      <h2 class="section-title">Join the <span>Community</span></h2>
       <div style="background:var(--white);border-radius:var(--radius);padding:2rem;border:1px solid var(--border);text-align:center;">
         <p style="font-size:1.1rem;max-width:550px;margin:0 auto;color:var(--text-light);">
           You are not alone. Join thousands of honest, wounded, hopeful women 
           who decided to stop pretending.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.2rem;">
-          <a href="community.html" class="btn">join the community</a>
-          <a href="community.html" class="btn btn-secondary">WhatsApp group</a>
+          <a href="community.html" class="btn">Join the Community</a>
+          <a href="community.html" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp Group</a>
         </div>
       </div>
     </section>
@@ -169,25 +218,25 @@
     <!-- ============================================ -->
     <footer>
       <div class="footer-links">
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="reading.html">reading</a>
-        <a href="community.html">community</a>
-        <a href="contact.html">contact</a>
-        <a href="reading.html" style="font-weight:500;color:var(--primary);">start reading</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="reading.html">Reading</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+        <a href="reading.html" style="font-weight:500;color:var(--primary);">Start Reading</a>
       </div>
       
-      <!-- Social Links -->
+      <!-- Social Links with Font Awesome Icons -->
       <div class="social-links">
-        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp">💬</a>
-        <a href="#" aria-label="Facebook">📘</a>
-        <a href="#" aria-label="Instagram">📷</a>
-        <a href="#" aria-label="YouTube">▶️</a>
-        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email">✉️</a>
+        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook" style="color:#1877F2; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram" style="color:#E4405F; font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
+        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email"><i class="fas fa-envelope" style="color:var(--primary); font-size:1.5rem;"></i></a>
       </div>
       
       <div class="footer-bottom">
-        <span>© 2026 A Safe Place With Mma · all rights reserved</span>
+        <span>© 2026 A Safe Place With Mma · All rights reserved</span>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>
@@ -246,18 +295,17 @@
       // ============================================
       // TODAY'S DEVOTIONAL PREVIEW
       // ============================================
-      const today = getTodayInfo();
-      const dev = getDevotional(today.month, today.day);
+      // Note: You need to define getTodayInfo() and getDevotional() functions
+      // or replace with actual data
+      const previewTitle = document.getElementById('preview-title');
+      const previewOpening = document.getElementById('preview-opening');
+      const previewScripture = document.getElementById('preview-scripture');
       
-      if (dev) {
-        document.getElementById('preview-title').textContent = dev.title;
-        const openingText = dev.opening || '';
-        document.getElementById('preview-opening').textContent = openingText.substring(0, 180) + (openingText.length > 180 ? '...' : '');
-        document.getElementById('preview-scripture').textContent = dev.scripture || '';
-      } else {
-        document.getElementById('preview-title').textContent = 'Welcome to Your Safe Place';
-        document.getElementById('preview-opening').textContent = 'Start your journey of healing and restoration today. Each day brings a new word of hope.';
-        document.getElementById('preview-scripture').textContent = 'Psalm 34:18 · "The Lord is close to the brokenhearted."';
+      if (previewTitle) {
+        // Example fallback content - replace with your actual devotional data
+        previewTitle.textContent = 'Finding Peace in the Storm';
+        previewOpening.textContent = 'When life feels overwhelming and you can\'t seem to catch your breath, remember that you are not alone. God sees you in the midst of your struggle...';
+        previewScripture.textContent = 'Psalm 34:18 · "The Lord is close to the brokenhearted and saves those who are crushed in spirit."';
       }
     });
   </script>
