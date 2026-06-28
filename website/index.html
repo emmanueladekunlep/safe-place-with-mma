@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Safe Place With Mma · You don't have to pretend here.</title>
-  <meta name="description" content="A Safe Place With Mma - A 365-day journey of healing, restoration, and intimacy with God. You don't have to pretend here." />
+  <title>A Safe Place With Mma · You're Safe Here</title>
+  <meta name="description" content="A Safe Place With Mma Foundation - A Christ-centered community for hope, healing, belonging, and authentic connection. You're safe here." />
   <meta property="og:title" content="A Safe Place With Mma" />
-  <meta property="og:description" content="365 days of healing, restoration, and intimacy with God. Written for the woman who needs a safe place to be real." />
+  <meta property="og:description" content="A Christian charity creating safe spaces where people can find hope, healing, encouragement, and genuine community." />
   <meta property="og:url" content="https://asafeplacewithmma.com" />
   
   <!-- Fonts -->
@@ -24,7 +24,7 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   
   <style>
-    /* Additional styles to fix image sizing */
+    /* Additional styles */
     .hero-img {
       width: 100%;
       height: 300px;
@@ -46,14 +46,257 @@
       border-radius: var(--radius, 12px);
       margin-bottom: 1.5rem;
     }
-    
-    /* Responsive adjustments */
+
+    .hero-section {
+      text-align: center;
+      padding: 2rem 0 1rem;
+    }
+
+    .hero-section h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    .hero-section h1 span {
+      color: var(--secondary);
+    }
+
+    .hero-subtitle {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .hero-subtitle a {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      transition: all var(--transition);
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .hero-subtitle a:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(90, 42, 95, 0.2);
+    }
+
+    .hero-subtitle a i {
+      margin-right: 8px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .journey-badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--text);
+      padding: 0.3rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Mission & Vision */
+    .mission-vision {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .mission-card, .vision-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all var(--transition);
+    }
+
+    .mission-card:hover, .vision-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 40px rgba(90, 42, 95, 0.10);
+    }
+
+    .mission-card h3, .vision-card h3 {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .mission-card p, .vision-card p {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* Podcast Section */
+    .podcast-section {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .podcast-section h2 {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .podcast-section .podcast-sub {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .podcast-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .podcast-item {
+      background: var(--background);
+      padding: 1.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .podcast-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    .podcast-item .podcast-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .podcast-item h4 {
+      font-family: var(--font-serif);
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .podcast-item p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Bottom 3 Images */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .bottom-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .bottom-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 40px rgba(90, 42, 95, 0.10);
+    }
+
+    .bottom-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bottom-card .bottom-content {
+      padding: 1.2rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .bottom-card .bottom-content h4 {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .bottom-card .bottom-content p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .bottom-card .bottom-content .btn-sm {
+      font-size: 0.8rem;
+      padding: 0.3rem 1.2rem;
+    }
+
     @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+      }
+
+      .mission-vision {
+        grid-template-columns: 1fr;
+      }
+
+      .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .podcast-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero-img {
         height: 200px;
       }
       
       .about-img {
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .bottom-card img {
         height: 150px;
       }
     }
@@ -107,22 +350,35 @@
     <!-- ============================================ -->
     <!-- HERO SECTION -->
     <!-- ============================================ -->
-    <section class="hero fade-in">
+    <section class="hero-section fade-in">
+      <h1>You're <span>Safe</span> Here</h1>
+      
+      <div class="hero-subtitle">
+        <a href="community.html"><i class="fas fa-hand-holding-heart"></i> Get Support</a>
+        <a href="community.html"><i class="fas fa-users"></i> Join the Community</a>
+        <a href="https://www.youtube.com/@asafeplacewithmma" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+      </div>
+
       <!-- Hero Image -->
       <div class="image-wrapper" style="margin-bottom: 1rem; border-radius: var(--radius, 12px); overflow: hidden;">
-  <img src="assets/images/You-don't-have-to-pretend-here.jpg" alt="You don't have to pretend here" style="width: 100%; height: 180px; object-fit: cover; display: block;" />
-</div>
-      <h1>You don't have to <em>pretend</em> here.</h1>
-      <div class="tagline">
+        <img src="assets/images/You-don't-have-to-pretend-here.png" alt="You're Safe Here" style="width: 100%; height: 250px; object-fit: cover; display: block;" />
+      </div>
+
+      <div class="tagline" style="text-align:center; border-left: none; padding-left: 0;">
         A 365‑day journey of healing, restoration, and intimacy with God — 
-        written from the valley, not the mountain. 
-        <span style="display:block;margin-top:0.5rem;font-weight:400;border-left:0;padding-left:0;font-size:0.95rem;color:var(--text-muted);">
+        written from the valley, not the mountain.
+        <span style="display:block;margin-top:0.5rem;font-weight:400;font-size:0.95rem;color:var(--text-muted);">
           For the woman who needs a safe place to be real.
         </span>
       </div>
+
       <div class="hero-actions">
         <a href="reading.html" class="btn">Start Today's Reading</a>
         <a href="about.html" class="btn btn-outline">Begin the Journey</a>
+      </div>
+
+      <div class="journey-badge">
+        <i class="fas fa-calendar-alt"></i> 365 Days of Hope
       </div>
     </section>
 
@@ -141,61 +397,128 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- ABOUT PREVIEW / VALUES -->
+    <!-- MISSION & VISION -->
     <!-- ============================================ -->
-    <section id="about-preview">
-      <h2 class="section-title fade-in">About <span>This Place</span></h2>
+    <section class="fade-in">
+      <h2 class="section-title" style="text-align:center;">Our <span>Mission & Vision</span></h2>
       
-      <!-- About This Place Image -->
-      <div class="image-wrapper">
-        <img src="assets/images/about-this-place.jpg" alt="About this place" class="about-img" />
-      </div>
-      
-      <div class="grid-2">
-        <div class="card fade-in-left">
-          <h3>Authenticity</h3>
-          <p>A space where you can be real about struggles, doubts, and questions. No performance. No pretending.</p>
+      <div class="mission-vision">
+        <div class="mission-card fade-in-left">
+          <h3><i class="fas fa-bullseye" style="color:var(--secondary);margin-right:10px;"></i> Mission</h3>
+          <p>To create Christ-centred spaces where people experience hope, healing, belonging, education, practical support, and authentic community.</p>
         </div>
-        <div class="card fade-in-right">
-          <h3>Healing Without Judgment</h3>
-          <p>Emotional, spiritual, and relational restoration at your own pace. No shame. No rush.</p>
+        
+        <div class="vision-card fade-in-right">
+          <h3><i class="fas fa-eye" style="color:var(--secondary);margin-right:10px;"></i> Vision</h3>
+          <p>A world where every individual knows they are loved, valued, supported, and never have to face life's challenges alone.</p>
         </div>
-        <div class="card fade-in-left">
-          <h3>Grace &amp; Encouragement</h3>
-          <p>You are not too far gone. Love and restoration are always available. You are never beyond reach.</p>
-        </div>
-        <div class="card fade-in-right">
-          <h3>Community &amp; Connection</h3>
-          <p>Sharing experiences so no one has to navigate life's challenges alone. You are not alone.</p>
-        </div>
-      </div>
-      
-      <div style="margin-top:1.5rem;background:var(--white);border-radius:var(--radius);padding:1.8rem 2.2rem;border:1px solid var(--border);" class="fade-in">
-        <p style="font-size:1.05rem;max-width:650px;">
-          <span style="font-weight:600;color:var(--primary);">MMA</span> 
-          writes from the space where deep pain meets profound grace. 
-          She is a fellow traveler, a fellow healer, and still believes 
-          that God's love is strongest in the silence.
-        </p>
-        <a href="about.html" style="color:var(--primary);font-weight:500;text-decoration:none;display:inline-block;margin-top:0.5rem;">
-          Read the full story →
-        </a>
       </div>
     </section>
 
     <!-- ============================================ -->
-    <!-- COMMUNITY TEASER -->
+    <!-- ABOUT PREVIEW -->
     <!-- ============================================ -->
-    <section style="margin:3rem 0 1rem;" class="fade-in">
-      <h2 class="section-title">Join the <span>Community</span></h2>
-      <div style="background:var(--white);border-radius:var(--radius);padding:2rem;border:1px solid var(--border);text-align:center;">
-        <p style="font-size:1.1rem;max-width:550px;margin:0 auto;color:var(--text-light);">
-          You are not alone. Join thousands of honest, wounded, hopeful women 
-          who decided to stop pretending.
+    <section id="about-preview" class="fade-in">
+      <h2 class="section-title">About <span>A Safe Place with MMA Foundation</span></h2>
+      
+      <div style="background:var(--white);border-radius:var(--radius);padding:2rem;border:1px solid var(--border);">
+        <p style="font-size:1.05rem;color:var(--text-light);line-height:1.9;margin-bottom:1rem;">
+          At <strong>A Safe Place with MMA Foundation</strong>, we believe that everyone deserves a place where they can be seen, heard, and valued.
         </p>
-        <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.2rem;">
-          <a href="community.html" class="btn">Join the Community</a>
-          <a href="community.html" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp Group</a>
+        
+        <p style="font-size:1.05rem;color:var(--text-light);line-height:1.9;margin-bottom:1rem;">
+          We are a Christian charity committed to creating safe spaces where people can find hope, healing, encouragement, and genuine community. Through faith, compassionate support, meaningful conversations, prayer, outreach, and practical resources, we walk alongside individuals navigating life's challenges.
+        </p>
+        
+        <p style="font-size:1.05rem;color:var(--text-light);line-height:1.9;margin-bottom:1rem;">
+          Whether you're carrying grief, battling loneliness, rebuilding after disappointment, or simply looking for a community where you can be yourself, <strong>you are welcome here.</strong>
+        </p>
+        
+        <p style="font-size:1.05rem;color:var(--text-light);line-height:1.9;margin-bottom:1rem;">
+          Our mission is to remind every person that they are deeply loved by God, worthy of compassion, and never alone.
+        </p>
+        
+        <div style="background:var(--background);padding:1.5rem;border-radius:var(--radius-sm);border-left:4px solid var(--secondary);margin-top:1rem;">
+          <p style="font-style:italic;color:var(--text-light);font-size:1.05rem;line-height:1.8;">
+            This is more than an organisation.<br>
+            It's a place to breathe.<br>
+            A place to belong.<br>
+            A place to heal.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PODCAST SECTION -->
+    <!-- ============================================ -->
+    <section class="podcast-section fade-in">
+      <h2><i class="fas fa-podcast" style="color:var(--secondary);margin-right:10px;"></i> Podcast</h2>
+      <p class="podcast-sub">Listen to honest conversations about faith, healing, and finding hope in the midst of struggle.</p>
+      
+      <div class="podcast-grid">
+        <div class="podcast-item">
+          <div class="podcast-icon"><i class="fas fa-headphones"></i></div>
+          <h4>Finding Peace in the Storm</h4>
+          <p>Episode 1 · 28 min</p>
+          <a href="#" style="color:var(--primary);font-weight:500;font-size:0.9rem;">Listen Now →</a>
+        </div>
+        
+        <div class="podcast-item">
+          <div class="podcast-icon"><i class="fas fa-headphones"></i></div>
+          <h4>You Are Not Alone</h4>
+          <p>Episode 2 · 32 min</p>
+          <a href="#" style="color:var(--primary);font-weight:500;font-size:0.9rem;">Listen Now →</a>
+        </div>
+        
+        <div class="podcast-item">
+          <div class="podcast-icon"><i class="fas fa-headphones"></i></div>
+          <h4>Healing From Within</h4>
+          <p>Episode 3 · 25 min</p>
+          <a href="#" style="color:var(--primary);font-weight:500;font-size:0.9rem;">Listen Now →</a>
+        </div>
+      </div>
+      
+      <a href="#" style="display:inline-block;margin-top:1.5rem;color:var(--primary);font-weight:500;">
+        View All Episodes <i class="fas fa-arrow-right"></i>
+      </a>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BOTTOM 3 IMAGES: Find Rest, Praying Woman, Join Community -->
+    <!-- ============================================ -->
+    <section class="fade-in">
+      <h2 class="section-title" style="text-align:center;">Find Your <span>Place</span></h2>
+      
+      <div class="bottom-grid">
+        <!-- Find Rest -->
+        <div class="bottom-card fade-in-left">
+          <img src="assets/images/find-rest.png" alt="Find Rest" />
+          <div class="bottom-content">
+            <h4>Find Rest</h4>
+            <p>Take a moment to breathe. You are welcome to rest here.</p>
+            <a href="about.html" class="btn btn-sm btn-outline">Learn More</a>
+          </div>
+        </div>
+        
+        <!-- Praying Woman -->
+        <div class="bottom-card fade-in">
+          <img src="assets/images/praying-woman.png" alt="Prayer & Support" />
+          <div class="bottom-content">
+            <h4>Prayer & Support</h4>
+            <p>You are not alone. We're here to pray with you.</p>
+            <a href="contact.html" class="btn btn-sm btn-outline">Send Prayer Request</a>
+          </div>
+        </div>
+        
+        <!-- Join Community -->
+        <div class="bottom-card fade-in-right">
+          <img src="assets/images/join-our-community.png" alt="Join Our Community" />
+          <div class="bottom-content">
+            <h4>Join Our Community</h4>
+            <p>A place where you belong. You are welcome here.</p>
+            <a href="community.html" class="btn btn-sm btn-outline">Join Now</a>
+          </div>
         </div>
       </div>
     </section>
@@ -231,12 +554,12 @@
         <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; font-size:1.5rem;"></i></a>
         <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook" style="color:#1877F2; font-size:1.5rem;"></i></a>
         <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram" style="color:#E4405F; font-size:1.5rem;"></i></a>
-        <a href="#" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
+        <a href="https://www.youtube.com/@asafeplacewithmma" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
         <a href="mailto:info@asafeplacewithmma.com" aria-label="Email"><i class="fas fa-envelope" style="color:var(--primary); font-size:1.5rem;"></i></a>
       </div>
       
       <div class="footer-bottom">
-        <span>© 2026 A Safe Place With Mma · All rights reserved</span>
+        <span>© 2026 A Safe Place With Mma Foundation · All rights reserved</span>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>
@@ -295,14 +618,11 @@
       // ============================================
       // TODAY'S DEVOTIONAL PREVIEW
       // ============================================
-      // Note: You need to define getTodayInfo() and getDevotional() functions
-      // or replace with actual data
       const previewTitle = document.getElementById('preview-title');
       const previewOpening = document.getElementById('preview-opening');
       const previewScripture = document.getElementById('preview-scripture');
       
       if (previewTitle) {
-        // Example fallback content - replace with your actual devotional data
         previewTitle.textContent = 'Finding Peace in the Storm';
         previewOpening.textContent = 'When life feels overwhelming and you can\'t seem to catch your breath, remember that you are not alone. God sees you in the midst of your struggle...';
         previewScripture.textContent = 'Psalm 34:18 · "The Lord is close to the brokenhearted and saves those who are crushed in spirit."';

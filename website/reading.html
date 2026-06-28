@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reading · A Safe Place With Mma</title>
+  <title>Reading · A Safe Place With Mma Foundation</title>
   <meta name="description" content="365 days of healing, restoration, and intimacy with God. Start your journey today." />
   
   <!-- Fonts -->
@@ -21,7 +21,7 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   
   <style>
-    /* Additional styles to fix image sizing */
+    /* Additional styles */
     .reading-hero-img {
       width: 100%;
       height: 200px;
@@ -161,6 +161,19 @@
       gap: 0.5rem;
     }
     
+    /* Monthly theme banner */
+    .monthly-theme {
+      background: var(--background, #f9f9f9);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm, 8px);
+      margin: 0.5rem 0 1rem;
+      border-left: 4px solid var(--secondary, #e8d5b7);
+    }
+    
+    .monthly-theme strong {
+      color: var(--primary, #b8860b);
+    }
+    
     @media (max-width: 768px) {
       .reading-hero-img {
         height: 150px;
@@ -191,6 +204,12 @@
       .day-nav > div {
         flex-direction: column;
         align-items: stretch;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .reading-hero-img {
+        height: 120px;
       }
     }
   </style>
@@ -228,7 +247,7 @@
     <!-- ============================================ -->
     <nav>
       <div class="logo">
-        <img src="assets/images/logo.png" alt="A Safe Place With Mma" class="logo-img" />
+        <img src="assets/images/logo.png" alt="A Safe Place With Mma Foundation" class="logo-img" />
       </div>
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -270,6 +289,13 @@
         style="width:100%;max-width:500px;padding:0.7rem 1.2rem;border:1px solid var(--border);border-radius:50px;font-family:var(--font-sans);font-size:0.95rem;background:var(--white);color:var(--text);transition:border var(--transition);"
       />
       <div id="search-results" style="margin-top:0.5rem;max-width:500px;"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MONTHLY THEME -->
+    <!-- ============================================ -->
+    <div class="monthly-theme fade-in" id="monthly-theme">
+      <strong>📖 Monthly Theme:</strong> <span id="theme-text">Finding Peace in God's Presence</span>
     </div>
 
     <!-- ============================================ -->
@@ -322,7 +348,7 @@
     <div class="day-detail fade-in" id="day-detail">
       <div id="day-detail-content">
         <!-- Rendered by JavaScript -->
-        <p style="text-align:center;padding:2rem;color:var(--text-muted);">Loading devotional...</p>
+        <p style="text-align:center;padding:2rem;color:var(--text-muted);">Select a day to begin your journey.</p>
       </div>
       
       <!-- Day Navigation -->
@@ -358,7 +384,7 @@
       </div>
       
       <div class="footer-bottom">
-        <span>© 2026 A Safe Place With Mma · All rights reserved</span>
+        <span>© 2026 A Safe Place With Mma Foundation · All rights reserved</span>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>
@@ -415,16 +441,26 @@
       });
 
       // ============================================
-      // CALENDAR FUNCTIONS (Sample)
+      // CALENDAR FUNCTIONS
       // ============================================
       let currentMonth = new Date().getMonth();
       let currentYear = new Date().getFullYear();
       
-      // Sample devotional data
-      const devotionalData = {
-        // You would populate this with actual 365 devotionals
-        // For now, we'll use a sample
-      };
+      // Monthly themes
+      const monthlyThemes = [
+        'Finding Peace in God\'s Presence',
+        'Healing from Within',
+        'Walking in Faith',
+        'Hope in the Storm',
+        'Restoration and Renewal',
+        'Strength in Weakness',
+        'Joy in the Journey',
+        'Trusting God\'s Plan',
+        'Grace for Today',
+        'Overcoming Fear',
+        'Gratitude and Thanksgiving',
+        'Waiting with Expectancy'
+      ];
       
       function renderCalendar(month, year) {
         const grid = document.getElementById('calendar-grid');
@@ -434,6 +470,12 @@
                         'July', 'August', 'September', 'October', 'November', 'December'];
         
         document.getElementById('current-month-label').textContent = months[month];
+        
+        // Update monthly theme
+        const themeText = document.getElementById('theme-text');
+        if (themeText) {
+          themeText.textContent = monthlyThemes[month] || 'Finding Peace in God\'s Presence';
+        }
         
         const firstDay = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -462,9 +504,14 @@
           if (todayYear === year && todayMonth === month && todayDate === day) {
             classes += ' today';
           }
-          // Add 'read' class for days that have been read (you'd store this in localStorage)
-          // For demo, we'll mark first 5 days as read
-          if (day <= 5 && month === 0 && year === 2026) {
+          // Check if day is in the future
+          const dayDate = new Date(year, month, day);
+          if (dayDate > today) {
+            classes += ' future';
+          }
+          // Add 'read' class for days that have been read (stored in localStorage)
+          const readKey = `read_${year}_${month}_${day}`;
+          if (localStorage.getItem(readKey) === 'true') {
             classes += ' read';
           }
           html += `<div class="${classes}" data-day="${day}" onclick="openDay(${month}, ${day})">${day}</div>`;
@@ -475,14 +522,59 @@
       }
       
       function openDay(month, day) {
-        // Open day detail view
         const detailContent = document.getElementById('day-detail-content');
         if (!detailContent) return;
         
-        // Sample devotional content
+        // Check if day is in the future
+        const today = new Date();
+        const dayDate = new Date(currentYear, month, day);
+        const isFuture = dayDate > today;
+        
+        if (isFuture) {
+          detailContent.innerHTML = `
+            <div style="text-align:center;padding:2rem;">
+              <i class="fas fa-clock" style="font-size:3rem;color:var(--text-muted);margin-bottom:1rem;display:block;"></i>
+              <h2 style="font-family:var(--font-serif);color:var(--text-muted);font-size:1.5rem;">Day ${day} is Coming</h2>
+              <p style="color:var(--text-light);">This day is not yet available. Come back when it arrives.</p>
+              <p style="color:var(--text-muted);font-size:0.85rem;margin-top:0.5rem;">📅 ${dayDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</p>
+            </div>
+          `;
+          document.getElementById('day-detail').scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
+        
+        // Sample devotional content - replace with actual data
+        const titles = [
+          'Finding Peace in the Storm',
+          'You Are Not Alone',
+          'Strength for Today',
+          'Hope in the Darkness',
+          'Rest for Your Soul',
+          'Walking in Faith',
+          'The Power of Surrender'
+        ];
+        
+        const scriptures = [
+          '"The Lord is close to the brokenhearted and saves those who are crushed in spirit." — Psalm 34:18',
+          '"Come to me, all you who are weary and burdened, and I will give you rest." — Matthew 11:28',
+          '"I can do all this through him who gives me strength." — Philippians 4:13',
+          '"For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future." — Jeremiah 29:11',
+          '"Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid." — John 14:27'
+        ];
+        
+        const prayers = [
+          'Lord, I come to you with my burdens. Help me to find rest in your presence...',
+          'Father, remind me that I am not alone. You are with me always...',
+          'God, give me strength for today. Help me to trust in your plan...'
+        ];
+        
+        const randomTitle = titles[day % titles.length];
+        const randomScripture = scriptures[day % scriptures.length];
+        const randomPrayer = prayers[day % prayers.length];
+        
         detailContent.innerHTML = `
-          <h2>Day ${day} - Finding Peace</h2>
-          <div class="day-meta">${new Date(2026, month, day).toLocaleDateString('en-US', { 
+          <h2>Day ${day} - ${randomTitle}</h2>
+          <div class="day-meta">${new Date(currentYear, month, day).toLocaleDateString('en-US', { 
             weekday: 'long', 
             month: 'long', 
             day: 'numeric', 
@@ -493,17 +585,49 @@
             remember that you are not alone. God sees you in the midst of your struggle...
           </div>
           <div class="scripture">
-            "The Lord is close to the brokenhearted and saves those who are crushed in spirit." 
-            — Psalm 34:18
+            ${randomScripture}
           </div>
           <div class="prayer">
             <span class="prayer-label">🙏 Prayer</span>
-            Lord, I come to you with my burdens. Help me to find rest in your presence...
+            ${randomPrayer}
+          </div>
+          <div style="margin-top:0.8rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button onclick="markAsRead(${month}, ${day})" class="btn btn-sm" style="background:var(--primary);color:var(--white);">
+              <i class="fas fa-check"></i> Mark as Read
+            </button>
           </div>
         `;
         
+        // Update navigation buttons
+        document.getElementById('prev-day').dataset.month = month;
+        document.getElementById('prev-day').dataset.day = day - 1;
+        document.getElementById('next-day').dataset.month = month;
+        document.getElementById('next-day').dataset.day = day + 1;
+        
         // Scroll to detail
         document.getElementById('day-detail').scrollIntoView({ behavior: 'smooth' });
+        
+        // Store the current day in localStorage
+        localStorage.setItem('currentDay', `${month}-${day}`);
+      }
+      
+      function markAsRead(month, day) {
+        const key = `read_${currentYear}_${month}_${day}`;
+        localStorage.setItem(key, 'true');
+        renderCalendar(currentMonth, currentYear);
+        
+        // Show confirmation
+        const detailContent = document.getElementById('day-detail-content');
+        if (detailContent) {
+          const markBtn = detailContent.querySelector('.btn');
+          if (markBtn) {
+            markBtn.innerHTML = '<i class="fas fa-check-circle"></i> Read ✓';
+            markBtn.style.background = 'var(--secondary)';
+            markBtn.style.cursor = 'default';
+            markBtn.onclick = null;
+          }
+        }
+        updateProgress();
       }
       
       function changeMonth(delta) {
@@ -519,16 +643,27 @@
       }
       
       function updateProgress() {
-        // Sample progress update
-        const readDays = 5; // This would come from localStorage
+        let readCount = 0;
         const totalDays = 365;
-        const progress = (readDays / totalDays) * 100;
+        
+        // Count read days from localStorage
+        for (let i = 0; i < 12; i++) {
+          const daysInMonth = new Date(currentYear, i + 1, 0).getDate();
+          for (let d = 1; d <= daysInMonth; d++) {
+            const key = `read_${currentYear}_${i}_${d}`;
+            if (localStorage.getItem(key) === 'true') {
+              readCount++;
+            }
+          }
+        }
+        
+        const progress = (readCount / totalDays) * 100;
         
         const progressBar = document.getElementById('progress-bar');
         const progressText = document.getElementById('progress-text');
         
-        if (progressBar) progressBar.style.width = progress + '%';
-        if (progressText) progressText.textContent = `${readDays}/${totalDays} days`;
+        if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
+        if (progressText) progressText.textContent = `${readCount}/${totalDays} days`;
       }
       
       // Initial render
@@ -556,6 +691,46 @@
         });
       });
       
+      // Day navigation buttons
+      document.getElementById('prev-day').addEventListener('click', function(e) {
+        e.preventDefault();
+        const month = parseInt(this.dataset.month);
+        const day = parseInt(this.dataset.day);
+        if (day > 0) {
+          openDay(month, day);
+        }
+      });
+      
+      document.getElementById('next-day').addEventListener('click', function(e) {
+        e.preventDefault();
+        const month = parseInt(this.dataset.month);
+        const day = parseInt(this.dataset.day);
+        const daysInMonth = new Date(currentYear, month + 1, 0).getDate();
+        if (day <= daysInMonth) {
+          openDay(month, day);
+        }
+      });
+      
+      // Bookmark button
+      document.getElementById('bookmark-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        const month = parseInt(this.dataset.month);
+        const day = parseInt(this.dataset.day);
+        if (day) {
+          const bookmarkKey = `bookmark_${currentYear}_${month}_${day}`;
+          const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+          if (isBookmarked) {
+            localStorage.removeItem(bookmarkKey);
+            this.innerHTML = '<i class="far fa-bookmark"></i> Bookmark';
+            this.style.color = '';
+          } else {
+            localStorage.setItem(bookmarkKey, 'true');
+            this.innerHTML = '<i class="fas fa-bookmark"></i> Bookmarked';
+            this.style.color = 'var(--primary)';
+          }
+        }
+      });
+      
       // Search functionality
       const searchInput = document.getElementById('search-input');
       if (searchInput) {
@@ -569,17 +744,46 @@
             return;
           }
           
-          // Sample search results
-          results.innerHTML = `
+          // Sample search results - expand this with actual data
+          const sampleResults = [
+            { day: 1, title: 'Finding Peace in the Storm', month: 0 },
+            { day: 2, title: 'You Are Not Alone', month: 0 },
+            { day: 3, title: 'Strength for Today', month: 0 },
+            { day: 4, title: 'Hope in the Darkness', month: 0 },
+            { day: 5, title: 'Rest for Your Soul', month: 0 }
+          ];
+          
+          const filtered = sampleResults.filter(item => 
+            item.title.toLowerCase().includes(query) || 
+            `day ${item.day}`.includes(query)
+          );
+          
+          if (filtered.length === 0) {
+            results.innerHTML = `
+              <div style="background:var(--white);border-radius:var(--radius-sm);padding:0.8rem;border:1px solid var(--border);text-align:center;color:var(--text-muted);">
+                No results found
+              </div>
+            `;
+            return;
+          }
+          
+          let html = `
             <div style="background:var(--white);border-radius:var(--radius-sm);padding:0.8rem;border:1px solid var(--border);">
-              <div style="padding:0.5rem;border-bottom:1px solid var(--border);cursor:pointer;" onclick="openDay(0, 1)">
-                <strong>Day 1</strong> - Finding Peace in the Storm
-              </div>
-              <div style="padding:0.5rem;cursor:pointer;" onclick="openDay(0, 2)">
-                <strong>Day 2</strong> - You Are Not Alone
-              </div>
-            </div>
           `;
+          
+          filtered.forEach(item => {
+            html += `
+              <div style="padding:0.5rem;border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.2s;" 
+                   onclick="openDay(${item.month}, ${item.day})"
+                   onmouseover="this.style.background='var(--background)'"
+                   onmouseout="this.style.background='transparent'">
+                <strong>Day ${item.day}</strong> - ${item.title}
+              </div>
+            `;
+          });
+          
+          html += `</div>`;
+          results.innerHTML = html;
         });
       }
     });

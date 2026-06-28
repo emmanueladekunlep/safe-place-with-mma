@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact · A Safe Place With Mma</title>
+  <title>Contact · A Safe Place With Mma Foundation</title>
   <meta name="description" content="Reach out to us. Whether it's a prayer request, testimony, or just to say hello - you are welcome here." />
   
   <!-- Fonts -->
@@ -216,6 +216,15 @@
       margin-right: 4px;
     }
     
+    /* Prayer request image */
+    .prayer-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius-sm, 8px);
+      display: block;
+    }
+    
     @media (max-width: 768px) {
       .contact-hero-img {
         height: 150px;
@@ -236,6 +245,16 @@
       .contact-info-item {
         flex-direction: column;
         gap: 0.3rem;
+      }
+
+      .prayer-img {
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .prayer-img {
+        height: 120px;
       }
     }
   </style>
@@ -315,7 +334,7 @@
         Get an immediate response. Click the button below to start a conversation.
       </p>
       
-      <a href="https://wa.me/447492950853?text=Hello%20A%20Safe%20Place%20With%20Mma%2C%20I%27d%20like%20to%20reach%20out..." 
+      <a href="https://wa.me/447492950853?text=Hello%20A%20Safe%20Place%20With%20Mma%20Foundation%2C%20I%27d%20like%20to%20reach%20out..." 
          class="whatsapp-btn" 
          target="_blank">
         <i class="fab fa-whatsapp"></i> Send Message Now
@@ -332,7 +351,7 @@
            target="_blank">
           <i class="fas fa-heart"></i> Share Testimony
         </a>
-        <a href="https://wa.me/447492950853?text=I%20have%20a%20question%20about%20the%20devotional..." 
+        <a href="https://wa.me/447492950853?text=I%20have%20a%20question..." 
            class="quick-response-btn" 
            target="_blank">
           <i class="fas fa-question-circle"></i> Ask a Question
@@ -349,6 +368,15 @@
         <i class="fas fa-clock"></i> Response within minutes
       </p>
     </div>
+
+    <!-- ============================================ -->
+    <!-- PRAYER REQUEST IMAGE SECTION -->
+    <!-- ============================================ -->
+    <section style="margin:2rem 0;" class="fade-in">
+      <div class="image-wrapper" style="border-radius: var(--radius, 12px); overflow: hidden;">
+        <img src="assets/images/praying-woman.png" alt="Prayer & Support" class="prayer-img" />
+      </div>
+    </section>
 
     <!-- ============================================ -->
     <!-- TWO COLUMN LAYOUT: EMAIL + CONTACT INFO -->
@@ -479,7 +507,7 @@
               </li>
               <li>
                 <a href="about.html" style="color:var(--text-light);text-decoration:none;">
-                  → About Mma
+                  → About the Foundation
                 </a>
               </li>
             </ul>
@@ -525,7 +553,7 @@
       </div>
       
       <div class="footer-bottom">
-        <span>© 2026 A Safe Place With Mma · All rights reserved</span>
+        <span>© 2026 A Safe Place With Mma Foundation · All rights reserved</span>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>

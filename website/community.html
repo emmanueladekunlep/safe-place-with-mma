@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Community · A Safe Place With Mma</title>
-  <meta name="description" content="Join a community of women on a journey of healing, restoration, and honest faith. You don't have to walk alone." />
+  <title>Community · A Safe Place With Mma Foundation</title>
+  <meta name="description" content="Join a community of people on a journey of healing, restoration, and honest faith. You don't have to walk alone." />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,7 +21,7 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   
   <style>
-    /* Additional styles to fix image sizing */
+    /* Additional styles */
     .card-img {
       width: 100%;
       height: 180px;
@@ -51,6 +51,15 @@
       border-radius: var(--radius-sm, 8px);
       margin-bottom: 0.5rem;
     }
+
+    /* Community Hero */
+    .community-hero-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: var(--radius, 12px);
+      display: block;
+    }
     
     /* Responsive adjustments */
     @media (max-width: 768px) {
@@ -64,6 +73,16 @@
       
       .banner-img {
         height: 120px;
+      }
+
+      .community-hero-img {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .community-hero-img {
+        height: 140px;
       }
     }
   </style>
@@ -117,13 +136,18 @@
     <!-- COMMUNITY HERO -->
     <!-- ============================================ -->
     <section style="padding:2rem 0 1rem;" class="fade-in">
+      <!-- Join Our Community Image -->
+      <div class="image-wrapper" style="margin-bottom: 1rem; border-radius: var(--radius, 12px); overflow: hidden;">
+        <img src="assets/images/join-our-community.png" alt="Join Our Community" class="community-hero-img" />
+      </div>
+      
       <h1 style="font-family:var(--font-serif);font-size:2.8rem;font-weight:400;color:var(--text);">
         Join the <span style="color:var(--primary);">Community</span>
       </h1>
       <div class="accent-line"></div>
       <p style="color:var(--text-light);max-width:600px;font-size:1.05rem;">
-        You are not alone. Join thousands of honest, wounded, hopeful women 
-        who decided to stop pretending.
+        You are not alone. Join a community of honest, wounded, hopeful people 
+        who decided to stop pretending. A place where you belong.
       </p>
     </section>
 
@@ -139,14 +163,14 @@
         </div>
         <h3>WhatsApp Community</h3>
         <p>
-          Connect with other women on the journey. Share prayer requests, 
+          Connect with others on the journey. Share prayer requests, 
           encouragement, and real talk. No judgment. Just presence.
         </p>
         <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" class="btn btn-secondary" style="background:#25D366;color:white;">
           <i class="fab fa-whatsapp"></i> Join WhatsApp Group
         </a>
         <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.5rem;">
-          Private · Safe Space · For Women Only
+          Private · Safe Space · For Everyone
         </p>
         <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.3rem;">
           <i class="fas fa-envelope"></i> support@asafeplacewithmma.com
@@ -167,7 +191,7 @@
           <i class="fab fa-facebook"></i> Join Facebook Group
         </a>
         <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.5rem;">
-          Private · Safe Space · For Women Only
+          Private · Safe Space · For Everyone
         </p>
         <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.3rem;">
           <i class="fas fa-envelope"></i> info@asafeplacewithmma.com
@@ -193,7 +217,7 @@
           </div>
           <h3 style="font-size:1.1rem;">Real Connection</h3>
           <p style="font-size:0.9rem;">
-            No performance. No pretending. Just real women sharing real life.
+            No performance. No pretending. Just real people sharing real life.
           </p>
         </div>
         
@@ -260,13 +284,13 @@
     <!-- ============================================ -->
     <section style="margin:3rem 0;">
       <h2 style="font-family:var(--font-serif);font-size:1.8rem;color:var(--text);text-align:center;">
-        What Women Are <span style="color:var(--primary);">Saying</span>
+        What People Are <span style="color:var(--primary);">Saying</span>
       </h2>
       <div class="accent-line" style="margin:0.5rem auto 1.5rem;"></div>
       
       <!-- Testimonial Image -->
       <div style="text-align:center; margin-bottom:1.5rem;overflow:hidden;border-radius:var(--radius,12px);">
-        <img src="assets/images/what women are saying.jpg" alt="What women are saying" class="testimonial-img" />
+        <img src="assets/images/what women are saying.jpg" alt="What people are saying" class="testimonial-img" />
       </div>
       
       <div class="grid-2">
@@ -280,7 +304,7 @@
         
         <div class="testimonial fade-in-right">
           <p>
-            "I found my safe place. The women here have carried me through 
+            "I found my safe place. The people here have carried me through 
             the darkest season of my life."
           </p>
           <span class="author">— Gloria</span>
@@ -317,7 +341,7 @@
           You Belong Here
         </h2>
         <p style="font-size:1.05rem;max-width:550px;margin:0 auto 1.2rem;opacity:0.9;">
-          You don't have to walk this journey alone. Join a community of women 
+          You don't have to walk this journey alone. Join a community of people 
           who are healing, growing, and becoming whole together.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
@@ -357,7 +381,7 @@
       </div>
       
       <div class="footer-bottom">
-        <span>© 2026 A Safe Place With Mma · All rights reserved</span>
+        <span>© 2026 A Safe Place With Mma Foundation · All rights reserved</span>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>

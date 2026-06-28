@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About · A Safe Place With Mma</title>
-  <meta name="description" content="Learn about MMA and the heart behind A Safe Place - a community for honest faith, healing, and restoration." />
+  <title>About · A Safe Place With Mma Foundation</title>
+  <meta name="description" content="Learn about A Safe Place with MMA Foundation - a Christian charity creating safe spaces for hope, healing, belonging, and authentic community." />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,38 +21,89 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   
   <style>
-    /* Additional styles to fix image sizing */
+    /* Additional styles */
     .about-content img {
       width: 100%;
       height: auto;
       display: block;
     }
     
+    .author-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    
     .author-photo img {
-      width: 180px !important;
-      height: 180px !important;
-      border-radius: 50% !important;
-      object-fit: cover !important;
-      border: 4px solid var(--secondary, #e8d5b7) !important;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+      width: min(180px, 70%);
+      height: auto;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--secondary);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     
     .values-image img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
       border-radius: var(--radius-sm, 8px);
     }
     
-    /* Responsive adjustments */
+    .image-wrapper {
+      overflow: hidden;
+      border-radius: var(--radius-sm, 8px);
+      margin-bottom: 1rem;
+    }
+
+    /* About hero with MMA1 image */
+    .about-hero-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: var(--radius, 12px);
+      display: block;
+    }
+
+    .mission-quote {
+      background: var(--background);
+      padding: 1.5rem;
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--secondary);
+      margin-top: 1.5rem;
+    }
+
+    .mission-quote p {
+      font-style: italic;
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+    
     @media (max-width: 768px) {
       .author-photo img {
-        width: 140px !important;
-        height: 140px !important;
+        width: min(140px, 60%);
       }
       
       .values-image img {
-        height: 140px;
+        height: 150px;
+      }
+
+      .about-hero-img {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-hero-img {
+        height: 150px;
+      }
+
+      .values-image img {
+        height: 120px;
       }
     }
   </style>
@@ -106,11 +157,16 @@
     <!-- ABOUT HERO -->
     <!-- ============================================ -->
     <section class="about-hero fade-in">
-      <h1>About <span>Mma</span></h1>
+      <!-- MMA1 Image -->
+      <div class="image-wrapper" style="margin-bottom: 1rem; border-radius: var(--radius, 12px); overflow: hidden;">
+        <img src="assets/images/mma1.jpeg" alt="A Safe Place With Mma Foundation" class="about-hero-img" />
+      </div>
+      
+      <h1>About <span>A Safe Place with MMA Foundation</span></h1>
       <div class="accent-line"></div>
-      <p style="color:var(--text-light);max-width:600px;font-size:1.05rem;">
-        The woman behind the words. A fellow traveler, a fellow healer, 
-        and still believing that God's love is strongest in the silence.
+      <p style="color:var(--text-light);max-width:650px;font-size:1.05rem;line-height:1.8;">
+        A Christian charity creating safe spaces where people can find hope, healing, 
+        encouragement, and genuine community. You are welcome here.
       </p>
     </section>
 
@@ -121,50 +177,39 @@
       <!-- Left Column -->
       <div class="fade-in-left">
         <p>
-          <strong>Mma</strong> is the founder of A Safe Place, a global online community 
-          dedicated to honest faith, emotional healing, and restoration without the 
-          pressure of religious performance.
+          At <strong>A Safe Place with MMA Foundation</strong>, we believe that everyone deserves a place where they can be seen, heard, and valued.
         </p>
         
         <p>
-          Known for her gentle yet piercing voice, Mma writes from the space where 
-          deep pain meets profound grace, and where the slow, unglamorous work of 
-          becoming whole takes place.
+          We are a Christian charity committed to creating safe spaces where people can find hope, healing, encouragement, and genuine community. Through faith, compassionate support, meaningful conversations, prayer, outreach, and practical resources, we walk alongside individuals navigating life's challenges.
         </p>
         
         <p>
-          She is not a pastor or theologian, and her focus isn't on fame or marketing. 
-          Instead, she is committed to helping people, building community, and sharing 
-          honest, heartfelt experiences.
+          Whether you're carrying grief, battling loneliness, rebuilding after disappointment, or simply looking for a community where you can be yourself, <strong>you are welcome here.</strong>
+        </p>
+        
+        <p>
+          Our mission is to remind every person that they are deeply loved by God, worthy of compassion, and never alone.
         </p>
 
-        <h2>The story behind the devotional</h2>
-        
-        <p>
-          This devotional was not written from a mountain top. It was written from 
-          the valley. From the floor. From the space between the last tear and the 
-          next one. From the honest moments when she told God she was angry, confused, 
-          disappointed, and barely hanging on.
-        </p>
-        
-        <p>
-          And He stayed. He always stayed.
-        </p>
-        
-        <p>
-          That is what this book is about—not a God who demands you get better before 
-          you come closer, but a God who is already close to the brokenhearted. 
-          A safe place when nowhere else feels safe.
-        </p>
-
-        <div style="background:var(--background);padding:1.5rem;border-radius:var(--radius-sm);border-left:4px solid var(--secondary);margin-top:1.5rem;">
-          <p style="font-style:italic;color:var(--text-light);font-size:1rem;">
-            "The woman behind 'Safe Place with MMA' is not a superstar Christian. 
-            I am a fellow traveler. A fellow healer. A fellow failure who keeps 
-            getting back up because Someone keeps reaching for my hand."
+        <div class="mission-quote">
+          <p>
+            "This is more than an organisation.<br>
+            It's a place to breathe.<br>
+            A place to belong.<br>
+            A place to heal."
           </p>
-          <p style="font-weight:600;color:var(--primary);margin-top:0.5rem;">— MMA</p>
         </div>
+
+        <h2 style="font-family:var(--font-serif);font-size:1.6rem;color:var(--primary);margin:1.5rem 0 0.5rem;">The heart behind the foundation</h2>
+        
+        <p>
+          A Safe Place with MMA Foundation was born from a deep understanding of what it means to struggle, to hurt, and to feel alone. It was created for the ones who have been told they're too much or not enough. For the ones who have been wounded by religion but still long for God.
+        </p>
+        
+        <p>
+          This foundation exists because we believe that <strong>everyone deserves a safe place</strong> — a place where they can be real, be heard, and be loved without condition.
+        </p>
       </div>
 
       <!-- Right Column -->
@@ -173,15 +218,15 @@
         <!-- Author Bio Card with Photo -->
         <div class="author-bio">
           <!-- Mma Photo -->
-          <div class="author-photo" style="display:flex; justify-content:center; align-items:center; margin-bottom:1rem; width:100%;">
-  <img src="assets/images/mma-photo.jpg" alt="MMA - Founder of A Safe Place" style="width:min(180px, 80%); height:auto; aspect-ratio:1/1; border-radius:50%; object-fit:cover; border:4px solid var(--secondary); box-shadow: 0 4px 15px rgba(0,0,0,0.1);" />
-</div>
-          <h3>A fellow traveler</h3>
+          <div class="author-photo">
+            <img src="assets/images/mma-photo.jpg" alt="MMA - Founder of A Safe Place" />
+          </div>
+          <h3>Meet the Founder</h3>
           <p>
-            Mma lives with her family. She still cries in 
-            worship, she still faces struggles, and she continues to believe that 
-            God's love is often strongest in the silence, in moments of vulnerability, 
-            and in the quiet, unseen work of transformation.
+            <strong>Mma</strong> is the heart behind A Safe Place with MMA Foundation. She is a fellow traveler, a fellow healer, and still believes that God's love is strongest in the silence.
+          </p>
+          <p style="margin-top:0.8rem;">
+            Known for her gentle yet piercing voice, Mma writes and speaks from the space where deep pain meets profound grace. She is not a pastor or theologian — she is simply a woman who has experienced God's faithfulness in her darkest moments and wants others to know they are not alone.
           </p>
           <p style="margin-top:1rem;font-style:italic;color:var(--primary);">
             "I know you're tired. Not the kind of tired that sleep fixes. 
@@ -195,10 +240,27 @@
           </div>
         </div>
 
+        <!-- Mission & Vision Quick View -->
+        <div style="background:var(--white);padding:1.8rem;border-radius:var(--radius);border:1px solid var(--border);margin-top:1.5rem;">
+          <h3 style="font-family:var(--font-serif);color:var(--primary);margin-bottom:0.5rem;font-size:1.4rem;">
+            <i class="fas fa-bullseye" style="color:var(--secondary);margin-right:10px;"></i> Mission
+          </h3>
+          <p style="color:var(--text-light);font-size:0.95rem;margin-bottom:1.2rem;">
+            To create Christ-centred spaces where people experience hope, healing, belonging, education, practical support, and authentic community.
+          </p>
+          
+          <h3 style="font-family:var(--font-serif);color:var(--primary);margin-bottom:0.5rem;font-size:1.4rem;">
+            <i class="fas fa-eye" style="color:var(--secondary);margin-right:10px;"></i> Vision
+          </h3>
+          <p style="color:var(--text-light);font-size:0.95rem;">
+            A world where every individual knows they are loved, valued, supported, and never have to face life's challenges alone.
+          </p>
+        </div>
+
         <!-- Values with Image -->
-        <div style="background:var(--white);padding:1.8rem;border-radius:var(--radius);border:1px solid var(--border);">
-          <div class="values-image" style="text-align:center; margin-bottom:1rem;overflow:hidden;border-radius:var(--radius-sm,8px);">
-            <img src="assets/images/What-we-stand-for.jpg" alt="What we stand for" />
+        <div style="background:var(--white);padding:1.8rem;border-radius:var(--radius);border:1px solid var(--border);margin-top:1.5rem;">
+          <div class="image-wrapper">
+            <img src="assets/images/What-we-stand-for.jpg" alt="What we stand for" class="values-image" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius-sm,8px);" />
           </div>
           <h3 style="font-family:var(--font-serif);color:var(--primary);margin-bottom:1rem;font-size:1.4rem;">
             What we stand for
@@ -287,7 +349,7 @@
       </div>
       
       <div class="footer-bottom">
-        <span>© 2026 A Safe Place With Mma · All rights reserved</span>
+        <span>© 2026 A Safe Place With Mma Foundation · All rights reserved</span>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>
