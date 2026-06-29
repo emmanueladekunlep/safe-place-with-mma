@@ -870,10 +870,15 @@
       
       function loadFromMainJS() {
         try {
-          let source = window.DEVOTIONALS || window.DEVOTIONALS;
+          // Try different ways to access the data
+          let source = null;
           
-          if (!source && typeof DEVOTIONALS !== 'undefined') {
+          if (typeof DEVOTIONALS !== 'undefined') {
             source = DEVOTIONALS;
+            console.log('Found DEVOTIONALS directly');
+          } else if (typeof window.DEVOTIONALS !== 'undefined') {
+            source = window.DEVOTIONALS;
+            console.log('Found window.DEVOTIONALS');
           }
           
           if (source) {
@@ -1409,3 +1414,44 @@
   </script>
 </body>
 </html>
+
+<!-- Additional Scripts for Animations -->
+  <script>
+    // ============================================
+    // SPARKLE EFFECT
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('sparkleContainer');
+      if (container) {
+        for (let i = 0; i < 30; i++) {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.left = Math.random() * 100 + '%';
+          sparkle.style.top = Math.random() * 100 + '%';
+          sparkle.style.width = (Math.random() * 4 + 2) + 'px';
+          sparkle.style.height = sparkle.style.width;
+          sparkle.style.animationDelay = (Math.random() * 6) + 's';
+          sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+          container.appendChild(sparkle);
+        }
+      }
+
+      // ============================================
+      // SCROLL ANIMATIONS (Intersection Observer)
+      // ============================================
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
+        observer.observe(el);
+      });

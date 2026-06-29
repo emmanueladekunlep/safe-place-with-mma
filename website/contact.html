@@ -578,11 +578,13 @@
         <a href="reading.html" style="font-weight:500;color:var(--primary);">Start Reading</a>
       </div>
       
+       <!-- Social Links with Font Awesome Icons -->
       <div class="social-links">
         <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; font-size:1.5rem;"></i></a>
-        <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook" style="color:#1877F2; font-size:1.5rem;"></i></a>
-        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram" style="color:#E4405F; font-size:1.5rem;"></i></a>
-        <a href="#" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
+        <a href="https://teams.live.com/l/community/FEAFlCBUdxFGT8qXg?v=g1" aria-label="Microsoft Teams" target="_blank"><i class="fab fa-microsoft" style="color:#6264A7; font-size:1.5rem;"></i></a>
+        <a href="https://www.tiktok.com/@asafeplacewithmma7?_r=1&_t=ZS-97cQnuE5kcm" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok" style="color:#000000; font-size:1.5rem;"></i></a>
+        <a href="https://youtube.com/@asafeplacewithmma?si=AjO1Ku7wc0fPVwqH" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
+        <a href="https://open.spotify.com/show/0ON8oxmkRJpr3S7rQXiW1G?si=dKve_UY-Q5W2GLnHL8E5OA" aria-label="Spotify" target="_blank"><i class="fab fa-spotify" style="color:#1DB954; font-size:1.5rem;"></i></a>
         <a href="mailto:info@asafeplacewithmma.com" aria-label="Email"><i class="fas fa-envelope" style="color:var(--primary); font-size:1.5rem;"></i></a>
       </div>
       
@@ -591,6 +593,9 @@
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>
+          <div class="design-credit">
+          <span>Website designed by <a href="http://emmanueladekunlepeace.com/" target="_blank">E.A.Peace</a></span>
+        </div>
         </div>
       </div>
     </footer>
@@ -661,3 +666,44 @@
   </script>
 </body>
 </html>
+
+<!-- Additional Scripts for Animations -->
+  <script>
+    // ============================================
+    // SPARKLE EFFECT
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('sparkleContainer');
+      if (container) {
+        for (let i = 0; i < 30; i++) {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.left = Math.random() * 100 + '%';
+          sparkle.style.top = Math.random() * 100 + '%';
+          sparkle.style.width = (Math.random() * 4 + 2) + 'px';
+          sparkle.style.height = sparkle.style.width;
+          sparkle.style.animationDelay = (Math.random() * 6) + 's';
+          sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+          container.appendChild(sparkle);
+        }
+      }
+
+      // ============================================
+      // SCROLL ANIMATIONS (Intersection Observer)
+      // ============================================
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
+        observer.observe(el);
+      });

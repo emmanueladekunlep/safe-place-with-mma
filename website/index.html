@@ -89,8 +89,8 @@
 
     .journey-badge {
       display: inline-block;
-      background: var(--secondary);
-      color: var(--text);
+      background: var(--primary);
+      color: #fff;
       padding: 0.3rem 1.5rem;
       border-radius: 50px;
       font-weight: 600;
@@ -372,7 +372,7 @@
   <!-- ============================================ -->
   <!-- FLOATING AFFIRMATIONS - SLIDING WORDS -->
   <!-- ============================================ -->
-  <div class="floating-affirmations">
+  <div class="floating-affirmations" id="floatingAffirmations">
     <div class="floating-word">You are loved</div>
     <div class="floating-word">You are enough</div>
     <div class="floating-word">You are not alone</div>
@@ -519,25 +519,25 @@
           <div class="podcast-icon"><i class="fas fa-headphones"></i></div>
           <h4>Finding Peace in the Storm</h4>
           <p>Episode 1 · 28 min</p>
-          <a href="#" style="color:var(--primary);font-weight:500;font-size:0.9rem;">Listen Now →</a>
+          <a href="https://open.spotify.com/show/0ON8oxmkRJpr3S7rQXiW1G?si=dKve_UY-Q5W2GLnHL8E5OA" target="_blank" style="color:var(--primary);font-weight:500;font-size:0.9rem;">Listen on Spotify →</a>
         </div>
         
         <div class="podcast-item">
           <div class="podcast-icon"><i class="fas fa-headphones"></i></div>
           <h4>You Are Not Alone</h4>
           <p>Episode 2 · 32 min</p>
-          <a href="#" style="color:var(--primary);font-weight:500;font-size:0.9rem;">Listen Now →</a>
+          <a href="https://open.spotify.com/show/0ON8oxmkRJpr3S7rQXiW1G?si=dKve_UY-Q5W2GLnHL8E5OA" target="_blank" style="color:var(--primary);font-weight:500;font-size:0.9rem;">Listen on Spotify →</a>
         </div>
         
         <div class="podcast-item">
           <div class="podcast-icon"><i class="fas fa-headphones"></i></div>
           <h4>Healing From Within</h4>
           <p>Episode 3 · 25 min</p>
-          <a href="#" style="color:var(--primary);font-weight:500;font-size:0.9rem;">Listen Now →</a>
+          <a href="https://open.spotify.com/show/0ON8oxmkRJpr3S7rQXiW1G?si=dKve_UY-Q5W2GLnHL8E5OA" target="_blank" style="color:var(--primary);font-weight:500;font-size:0.9rem;">Listen on Spotify →</a>
         </div>
       </div>
       
-      <a href="#" style="display:inline-block;margin-top:1.5rem;color:var(--primary);font-weight:500;">
+      <a href="https://open.spotify.com/show/0ON8oxmkRJpr3S7rQXiW1G?si=dKve_UY-Q5W2GLnHL8E5OA" target="_blank" style="display:inline-block;margin-top:1.5rem;color:var(--primary);font-weight:500;">
         View All Episodes <i class="fas fa-arrow-right"></i>
       </a>
     </section>
@@ -555,7 +555,7 @@
           <div class="bottom-content">
             <h4>Find Rest</h4>
             <p>Take a moment to breathe. You are welcome to rest here.</p>
-            <a href="about.html" class="btn btn-sm btn-outline">Learn More</a>
+            <a href="#" class="btn btn-sm btn-outline" id="random-devotional-link">Read a Devotional</a>
           </div>
         </div>
         
@@ -610,9 +610,10 @@
       <!-- Social Links with Font Awesome Icons -->
       <div class="social-links">
         <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; font-size:1.5rem;"></i></a>
-        <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook" style="color:#1877F2; font-size:1.5rem;"></i></a>
-        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram" style="color:#E4405F; font-size:1.5rem;"></i></a>
-        <a href="https://www.youtube.com/@asafeplacewithmma" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
+        <a href="https://teams.live.com/l/community/FEAFlCBUdxFGT8qXg?v=g1" aria-label="Microsoft Teams" target="_blank"><i class="fab fa-microsoft" style="color:#6264A7; font-size:1.5rem;"></i></a>
+        <a href="https://www.tiktok.com/@asafeplacewithmma7?_r=1&_t=ZS-97cQnuE5kcm" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok" style="color:#000000; font-size:1.5rem;"></i></a>
+        <a href="https://youtube.com/@asafeplacewithmma?si=AjO1Ku7wc0fPVwqH" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
+        <a href="https://open.spotify.com/show/0ON8oxmkRJpr3S7rQXiW1G?si=dKve_UY-Q5W2GLnHL8E5OA" aria-label="Spotify" target="_blank"><i class="fab fa-spotify" style="color:#1DB954; font-size:1.5rem;"></i></a>
         <a href="mailto:info@asafeplacewithmma.com" aria-label="Email"><i class="fas fa-envelope" style="color:var(--primary); font-size:1.5rem;"></i></a>
       </div>
       
@@ -621,6 +622,10 @@
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>
+          <div class="design-credit">
+          <span>Website designed by <a href="http://emmanueladekunlepeace.com/" target="_blank">E.A.Peace</a></span>
+        </div>
+      </div>
         </div>
       </div>
     </footer>
@@ -674,24 +679,84 @@
       });
 
       // ============================================
-      // TODAY'S DEVOTIONAL PREVIEW
+      // TODAY'S DEVOTIONAL PREVIEW - LOAD FROM DEVOTIONALS
       // ============================================
-      const previewTitle = document.getElementById('preview-title');
-      const previewOpening = document.getElementById('preview-opening');
-      const previewScripture = document.getElementById('preview-scripture');
-      
-      // Sample devotional data - will be replaced by actual data from main.js
-      const sampleDevotional = {
-        title: 'Finding Peace in the Storm',
-        opening: 'When life feels overwhelming and you can\'t seem to catch your breath, remember that you are not alone. God sees you in the midst of your struggle...',
-        scripture: 'Psalm 34:18 · "The Lord is close to the brokenhearted and saves those who are crushed in spirit."'
-      };
-      
-      if (previewTitle) {
-        previewTitle.textContent = sampleDevotional.title;
-        previewOpening.textContent = sampleDevotional.opening;
-        previewScripture.textContent = sampleDevotional.scripture;
+      function loadTodayDevotional() {
+        const previewTitle = document.getElementById('preview-title');
+        const previewOpening = document.getElementById('preview-opening');
+        const previewScripture = document.getElementById('preview-scripture');
+        
+        try {
+          // Get today's date
+          const now = new Date();
+          const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 
+                              'july', 'august', 'september', 'october', 'november', 'december'];
+          const currentMonth = monthNames[now.getMonth()];
+          const currentDay = now.getDate();
+          
+          // Try to get data from DEVOTIONALS
+          let devotionalData = null;
+          
+          if (typeof window.DEVOTIONALS !== 'undefined' && window.DEVOTIONALS) {
+            const monthData = window.DEVOTIONALS[currentMonth];
+            if (monthData && monthData.days && monthData.days[currentDay]) {
+              devotionalData = monthData.days[currentDay];
+            }
+          } else if (typeof DEVOTIONALS !== 'undefined' && DEVOTIONALS) {
+            const monthData = DEVOTIONALS[currentMonth];
+            if (monthData && monthData.days && monthData.days[currentDay]) {
+              devotionalData = monthData.days[currentDay];
+            }
+          }
+          
+          if (devotionalData) {
+            previewTitle.textContent = devotionalData.title || 'Today\'s Devotional';
+            previewOpening.textContent = devotionalData.opening || '';
+            previewScripture.textContent = devotionalData.scripture || '';
+          }
+          // If no data, keep the existing sample
+        } catch (e) {
+          console.log('Error loading devotional preview:', e);
+          // Keep existing sample data
+        }
       }
+
+      // ============================================
+      // RANDOM DEVOTIONAL LINK FOR "Find Rest"
+      // ============================================
+      const randomLink = document.getElementById('random-devotional-link');
+      if (randomLink) {
+        randomLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          const randomDay = Math.floor(Math.random() * 365) + 1;
+          window.location.href = 'reading.html?day=' + randomDay;
+        });
+      }
+
+      // Load the devotional preview
+      loadTodayDevotional();
+
+      // ============================================
+      // FLOATING AFFIRMATIONS - FIX VISIBILITY
+      // ============================================
+      const affirmations = document.getElementById('floatingAffirmations');
+      if (affirmations) {
+        affirmations.style.display = 'block';
+        affirmations.style.opacity = '1';
+        affirmations.style.pointerEvents = 'none';
+        
+        const words = affirmations.querySelectorAll('.floating-word');
+        words.forEach((word, index) => {
+          const leftPos = 5 + Math.random() * 90;
+          const delay = index * 1.5 + Math.random() * 2;
+          const duration = 18 + Math.random() * 8;
+          word.style.left = leftPos + '%';
+          word.style.animationDelay = delay + 's';
+          word.style.animationDuration = duration + 's';
+        });
+      }
+
+      console.log('✅ Homepage loaded with live devotional preview!');
     });
   </script>
 </body>
