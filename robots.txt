@@ -1,0 +1,8 @@
+# robots.txt for A Safe Place With Mma
+User-agent: *
+Allow: /
+Sitemap: https://asafeplacewithmma.com/sitemap.xml
+
+# Disallow admin or private areas (if any)
+# Disallow: /admin/
+# Disallow: /private/
