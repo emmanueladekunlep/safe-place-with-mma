@@ -1407,7 +1407,7 @@ const DEVOTIONALS = {
         prayer: "God, I've asked You to forgive me. And I believe You have. But I haven't forgiven myself. I keep punishing myself for something You've already forgotten. I hold a grudge that You don't hold. Today I stop. I release myself. I agree with Your verdict: I am forgiven, clean, free. Help me live like it. Amen.",
         declaration: "If God has forgiven me, I can forgive myself. Self-condemnation is not humility—it is unbelief. I agree with God's verdict, not my feelings. Today, I release myself."
       },
-};
+
       16: {
         title: "The Fear That If You Stop Hating Yourself, You'll Stop Trying to Change",
         opening: "You've been using shame as motivation, terrified that without it you'd never get better. You tell yourself that the guilt keeps you accountable. That if you stop feeling bad about what you've done, you'll just go back to doing it. That shame is the engine of your improvement. So you hold onto the self-loathing like a lifeline. 'If I forgive myself, I'll let myself off the hook. I need to feel this pain—it's the only thing keeping me from going back.'",
@@ -1602,7 +1602,7 @@ const DEVOTIONALS = {
         ],
         prayer: "God, I've been asking You to break what is already broken. I've been begging for what is already given. Forgive my unbelief. Help me see that the chain lost its power at the cross. Today I stop striving. I start believing. I am free—not because I feel it, but because You say so. Help me walk in that freedom. Amen.",
         declaration: "The chain is already broken. I am already free. Freedom is not a feeling—it is a fact established at the cross. I stop asking and start thanking. Today, I walk as a free person—not perfectly, but truly."
-    
+        }
     }
   },
       // ========== MAY: Learning to Receive Love ==========
@@ -4838,3 +4838,331 @@ const DEVOTIONALS = {
     }
   }
 };
+// ============================================
+// APPLICATION STATE
+// ============================================
+
+const state = {
+  currentMonth: 'january',
+  currentDay: 1,
+  currentPage: 'devotional'
+};
+
+// ============================================
+// DOM REFERENCES
+// ============================================
+
+const dom = {
+  title: document.getElementById('devotional-title'),
+  opening: document.getElementById('devotional-opening'),
+  message: document.getElementById('devotional-message'),
+  scripture: document.getElementById('devotional-scripture'),
+  reflection: document.getElementById('devotional-reflection'),
+  prayer: document.getElementById('devotional-prayer'),
+  declaration: document.getElementById('devotional-declaration'),
+  monthYear: document.getElementById('month-year'),
+  daySelector: document.getElementById('day-selector'),
+  prevDayBtn: document.getElementById('prev-day'),
+  nextDayBtn: document.getElementById('next-day'),
+  prevMonthBtn: document.getElementById('prev-month'),
+  nextMonthBtn: document.getElementById('next-month'),
+  todayBtn: document.getElementById('today-btn'),
+  pageTitle: document.getElementById('page-title'),
+  mainContent: document.getElementById('main-content'),
+  devotionalView: document.getElementById('devotional-view'),
+  calendarView: document.getElementById('calendar-view'),
+  navCalendar: document.getElementById('nav-calendar'),
+  navDevotional: document.getElementById('nav-devotional'),
+  calendarGrid: document.getElementById('calendar-grid')
+};
+
+// ============================================
+// HELPER FUNCTIONS
+// ============================================
+
+function getMonthNames() {
+  return {
+    january: 'January',
+    february: 'February',
+    march: 'March',
+    april: 'April',
+    may: 'May',
+    june: 'June',
+    july: 'July',
+    august: 'August',
+    september: 'September',
+    october: 'October',
+    november: 'November',
+    december: 'December'
+  };
+}
+
+function getDaysInMonth(monthKey) {
+  const month = DEVOTIONALS[monthKey];
+  if (!month) return 31;
+  return Object.keys(month.days).length;
+}
+
+function getCurrentDate() {
+  const now = new Date();
+  const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 
+                      'july', 'august', 'september', 'october', 'november', 'december'];
+  return {
+    month: monthNames[now.getMonth()],
+    day: now.getDate(),
+    year: now.getFullYear()
+  };
+}
+
+// ============================================
+// RENDER FUNCTIONS
+// ============================================
+
+function renderDevotional() {
+  const monthData = DEVOTIONALS[state.currentMonth];
+  if (!monthData) {
+    console.error('Month not found:', state.currentMonth);
+    return;
+  }
+  
+  const dayData = monthData.days[state.currentDay];
+  if (!dayData) {
+    console.error('Day not found:', state.currentDay);
+    return;
+  }
+  
+  const monthNames = getMonthNames();
+  dom.monthYear.textContent = `${monthNames[state.currentMonth]} ${state.currentDay}`;
+  
+  dom.title.textContent = dayData.title || 'Untitled';
+  dom.opening.textContent = dayData.opening || '';
+  dom.message.textContent = dayData.message || '';
+  dom.scripture.textContent = dayData.scripture || '';
+  
+  if (dayData.reflection && Array.isArray(dayData.reflection)) {
+    dom.reflection.innerHTML = dayData.reflection.map((item) => 
+      `<li>${item}</li>`
+    ).join('');
+  } else {
+    dom.reflection.innerHTML = '';
+  }
+  
+  dom.prayer.textContent = dayData.prayer || '';
+  dom.declaration.textContent = dayData.declaration || '';
+  
+  const totalDays = getDaysInMonth(state.currentMonth);
+  dom.daySelector.textContent = `${state.currentDay} / ${totalDays}`;
+  
+  dom.prevDayBtn.disabled = state.currentDay <= 1;
+  dom.nextDayBtn.disabled = state.currentDay >= totalDays;
+}
+
+function renderCalendar() {
+  const monthData = DEVOTIONALS[state.currentMonth];
+  if (!monthData) return;
+  
+  const monthNames = getMonthNames();
+  const totalDays = getDaysInMonth(state.currentMonth);
+  
+  dom.monthYear.textContent = monthNames[state.currentMonth];
+  
+  let html = '';
+  const today = new Date();
+  const todayDate = today.getDate();
+  const currentMonthNum = new Date(Date.parse(`${monthNames[state.currentMonth]} 1, 2024`)).getMonth();
+  const currentYear = 2024;
+  
+  const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  weekdays.forEach(day => {
+    html += `<div class="weekday">${day}</div>`;
+  });
+  
+  const firstDay = new Date(currentYear, currentMonthNum, 1).getDay();
+  
+  for (let i = 0; i < firstDay; i++) {
+    html += `<div class="calendar-day empty"></div>`;
+  }
+  
+  for (let day = 1; day <= totalDays; day++) {
+    const isToday = (day === todayDate && currentMonthNum === today.getMonth());
+    const isActive = (day === state.currentDay);
+    const dayData = monthData.days[day];
+    const hasContent = !!dayData;
+    
+    html += `
+      <div class="calendar-day ${isToday ? 'today' : ''} ${isActive ? 'active' : ''} ${!hasContent ? 'empty' : ''}" 
+           data-day="${day}" 
+           data-month="${state.currentMonth}"
+           onclick="navigateToDay('${state.currentMonth}', ${day})">
+        ${day}
+        ${hasContent ? '<span class="dot"></span>' : ''}
+      </div>
+    `;
+  }
+  
+  dom.calendarGrid.innerHTML = html;
+}
+
+function renderView() {
+  if (state.currentPage === 'devotional') {
+    dom.devotionalView.style.display = 'block';
+    dom.calendarView.style.display = 'none';
+    dom.navDevotional.classList.add('active');
+    dom.navCalendar.classList.remove('active');
+    renderDevotional();
+  } else {
+    dom.devotionalView.style.display = 'none';
+    dom.calendarView.style.display = 'block';
+    dom.navCalendar.classList.add('active');
+    dom.navDevotional.classList.remove('active');
+    renderCalendar();
+  }
+}
+
+// ============================================
+// NAVIGATION FUNCTIONS
+// ============================================
+
+function navigateToDay(monthKey, day) {
+  state.currentMonth = monthKey;
+  state.currentDay = day;
+  state.currentPage = 'devotional';
+  renderView();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function navigateMonth(direction) {
+  const monthKeys = Object.keys(DEVOTIONALS);
+  const currentIndex = monthKeys.indexOf(state.currentMonth);
+  let newIndex = currentIndex + direction;
+  
+  if (newIndex < 0) newIndex = monthKeys.length - 1;
+  if (newIndex >= monthKeys.length) newIndex = 0;
+  
+  const newMonth = monthKeys[newIndex];
+  const totalDays = getDaysInMonth(newMonth);
+  
+  state.currentMonth = newMonth;
+  state.currentDay = Math.min(state.currentDay, totalDays);
+  state.currentPage = 'devotional';
+  renderView();
+}
+
+function navigateDay(direction) {
+  const totalDays = getDaysInMonth(state.currentMonth);
+  let newDay = state.currentDay + direction;
+  
+  if (newDay < 1) {
+    const monthKeys = Object.keys(DEVOTIONALS);
+    const currentIndex = monthKeys.indexOf(state.currentMonth);
+    if (currentIndex > 0) {
+      state.currentMonth = monthKeys[currentIndex - 1];
+      state.currentDay = getDaysInMonth(state.currentMonth);
+    }
+  } else if (newDay > totalDays) {
+    const monthKeys = Object.keys(DEVOTIONALS);
+    const currentIndex = monthKeys.indexOf(state.currentMonth);
+    if (currentIndex < monthKeys.length - 1) {
+      state.currentMonth = monthKeys[currentIndex + 1];
+      state.currentDay = 1;
+    }
+  } else {
+    state.currentDay = newDay;
+  }
+  
+  renderView();
+}
+
+function goToToday() {
+  const today = getCurrentDate();
+  state.currentMonth = today.month;
+  state.currentDay = today.day;
+  state.currentPage = 'devotional';
+  renderView();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function switchView(view) {
+  if (view === 'calendar') {
+    state.currentPage = 'calendar';
+  } else {
+    state.currentPage = 'devotional';
+  }
+  renderView();
+}
+
+// ============================================
+// SHARE FUNCTION
+// ============================================
+
+function shareDevotional() {
+  const monthData = DEVOTIONALS[state.currentMonth];
+  const dayData = monthData?.days[state.currentDay];
+  if (!dayData) return;
+  
+  const monthNames = getMonthNames();
+  const title = `${monthNames[state.currentMonth]} ${state.currentDay}: ${dayData.title}`;
+  const url = window.location.href;
+  
+  if (navigator.share) {
+    navigator.share({
+      title: title,
+      text: `"${dayData.opening?.substring(0, 100)}..." - Safe Place with MMA`,
+      url: url
+    }).catch(() => {});
+  } else {
+    const text = `${title}\n\n${dayData.opening?.substring(0, 200)}...\n\nRead more at ${url}`;
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Devotional link copied to clipboard!');
+    }).catch(() => {
+      prompt('Copy this link to share:', url);
+    });
+  }
+}
+
+// ============================================
+// INITIALIZATION
+// ============================================
+
+function init() {
+  const today = getCurrentDate();
+  state.currentMonth = today.month;
+  state.currentDay = today.day;
+  state.currentPage = 'devotional';
+  
+  if (dom.prevDayBtn) dom.prevDayBtn.addEventListener('click', () => navigateDay(-1));
+  if (dom.nextDayBtn) dom.nextDayBtn.addEventListener('click', () => navigateDay(1));
+  if (dom.prevMonthBtn) dom.prevMonthBtn.addEventListener('click', () => navigateMonth(-1));
+  if (dom.nextMonthBtn) dom.nextMonthBtn.addEventListener('click', () => navigateMonth(1));
+  if (dom.todayBtn) dom.todayBtn.addEventListener('click', goToToday);
+  if (dom.navDevotional) dom.navDevotional.addEventListener('click', () => switchView('devotional'));
+  if (dom.navCalendar) dom.navCalendar.addEventListener('click', () => switchView('calendar'));
+  
+  const shareBtn = document.getElementById('share-btn');
+  if (shareBtn) shareBtn.addEventListener('click', shareDevotional);
+  
+  document.addEventListener('keydown', (e) => {
+    if (state.currentPage === 'devotional') {
+      if (e.key === 'ArrowLeft') navigateDay(-1);
+      if (e.key === 'ArrowRight') navigateDay(1);
+    }
+  });
+  
+  renderView();
+  
+  console.log('Safe Place with MMA Devotional loaded successfully!');
+  console.log(`Currently showing: ${state.currentMonth} ${state.currentDay}`);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+// ============================================
+// MAKE DEVOTIONALS AVAILABLE GLOBALLY
+// ============================================
+window.DEVOTIONALS = DEVOTIONALS;
+// Make DEVOTIONALS available globally
+window.DEVOTIONALS = DEVOTIONALS;

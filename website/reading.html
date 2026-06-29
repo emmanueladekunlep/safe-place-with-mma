@@ -4,102 +4,239 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reading · A Safe Place With Mma Foundation</title>
-  <meta name="description" content="365 days of healing, restoration, and intimacy with God. Start your journey today." />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Georgia:ital@0;1&display=swap" rel="stylesheet" />
   
-  <!-- Font Awesome 6 (Free) for Social Icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css" />
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
   
   <style>
-    /* FULL WIDTH HERO IMAGE - READING PAGE */
-    .reading-image-wrapper {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-      overflow: hidden;
-      background: var(--background, #f9f9f9);
+    /* ============================================
+       ADDITIONAL STYLES FOR READING PAGE
+       ============================================ */
+    * {
+      margin: 0;
       padding: 0;
-    }
-
-    .reading-image-wrapper img {
-      width: 100%;
-      height: auto;
-      max-height: 500px;
-      object-fit: contain;
-      display: block;
-      background: var(--background, #f9f9f9);
+      box-sizing: border-box;
     }
     
+    :root {
+      --primary: #8B5A2B;
+      --primary-light: #A87B4A;
+      --primary-dark: #5C3A1E;
+      --secondary: #2C3E50;
+      --bg: #FAF8F5;
+      --white: #FFFFFF;
+      --text: #2C2C2C;
+      --text-light: #6B6B6B;
+      --text-muted: #999;
+      --border: #E8E0D8;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      --transition: 0.3s ease;
+      --font-serif: 'Georgia', 'Times New Roman', serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    body {
+      font-family: var(--font-serif);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+    }
+    
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+    
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-sm {
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+    }
+    
+    /* Header */
+    .reading-header {
+      text-align: center;
+      padding: 10px 0;
+    }
+    
+    .reading-header h1 {
+      font-size: 2.2rem;
+      color: var(--primary-dark);
+      margin: 10px 0 5px;
+    }
+    
+    .reading-header h1 span {
+      color: var(--primary-light);
+    }
+    
+    .reading-header p {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+    
+    /* Calendar */
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 4px;
       margin: 1rem 0;
-      background: var(--white, #fff);
-      border-radius: var(--radius, 12px);
+      background: var(--white);
+      border-radius: var(--radius);
       padding: 0.5rem;
-      border: 1px solid var(--border, #ddd);
+      border: 1px solid var(--border);
     }
     
     .calendar-grid .day-header {
       font-weight: 600;
       text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-muted, #999);
+      font-size: 0.7rem;
+      color: var(--text-muted);
       padding: 0.5rem 0;
-      background: var(--background, #f9f9f9);
-      border-radius: var(--radius-sm, 6px);
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     
     .calendar-grid .day-cell {
       aspect-ratio: 1;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      border-radius: var(--radius-sm, 6px);
-      font-size: 0.9rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.3s ease;
-      background: var(--background, #f9f9f9);
-      color: var(--text, #333);
+      transition: var(--transition);
+      background: var(--bg);
+      color: var(--text);
       border: 2px solid transparent;
+      font-family: var(--font-sans);
+      position: relative;
+    }
+    
+    .calendar-grid .day-cell .day-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      margin-top: 2px;
+      opacity: 0.4;
     }
     
     .calendar-grid .day-cell:hover:not(.empty):not(.future) {
-      background: var(--secondary, #e8d5b7);
+      background: #E8D5B7;
       transform: scale(1.05);
     }
     
     .calendar-grid .day-cell.read {
-      background: var(--secondary, #e8d5b7);
-      color: var(--text, #333);
+      background: #E8D5B7;
+    }
+    
+    .calendar-grid .day-cell.read .day-dot {
+      opacity: 1;
+      background: var(--primary);
     }
     
     .calendar-grid .day-cell.today {
-      border-color: var(--primary, #b8860b);
-      background: var(--white, #fff);
+      border-color: var(--primary);
+      background: var(--white);
       font-weight: 700;
     }
     
     .calendar-grid .day-cell.future {
-      opacity: 0.5;
+      opacity: 0.35;
       cursor: default;
     }
     
     .calendar-grid .day-cell.future:hover {
       transform: none;
-      background: var(--background, #f9f9f9);
+      background: var(--bg);
     }
     
     .calendar-grid .day-cell.empty {
@@ -111,65 +248,166 @@
       transform: none;
     }
     
+    /* Month Navigation */
+    .month-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 1rem 0;
+    }
+    
+    .month-nav a {
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      background: var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      border: 1px solid transparent;
+    }
+    
+    .month-nav a:hover,
+    .month-nav a.active {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Monthly Theme */
+    .monthly-theme {
+      background: var(--bg);
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--radius-sm);
+      margin: 0.5rem 0 1rem;
+      border-left: 4px solid var(--primary-light);
+    }
+    
+    .monthly-theme strong {
+      color: var(--primary);
+    }
+    
+    /* Day Detail */
     .day-detail {
-      background: var(--white, #fff);
-      border-radius: var(--radius, 12px);
+      background: var(--white);
+      border-radius: var(--radius);
       padding: 2rem;
-      border: 1px solid var(--border, #ddd);
+      border: 1px solid var(--border);
       margin: 1.5rem 0;
     }
     
     .day-detail h2 {
-      font-family: var(--font-serif, Georgia, serif);
-      color: var(--primary, #b8860b);
+      font-family: var(--font-serif);
+      color: var(--primary-dark);
       font-size: 1.8rem;
       margin-bottom: 0.5rem;
     }
     
-    .day-detail .day-meta {
-      color: var(--text-muted, #999);
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
+    .day-detail .day-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.15rem 1rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: var(--font-sans);
+    }
+    
+    .day-detail .today-highlight {
+      background: #E8D5B7;
+      color: var(--text);
+      padding: 0.15rem 1rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      display: inline-block;
     }
     
     .day-detail .opening {
       font-size: 1.05rem;
       line-height: 1.8;
+      margin: 0.8rem 0;
+      font-style: italic;
+      color: var(--text-light);
+    }
+    
+    .day-detail .message {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin: 1rem 0;
+      color: var(--text);
+    }
+    
+    .day-detail .message p {
       margin-bottom: 1rem;
     }
     
     .day-detail .scripture {
       font-style: italic;
-      color: var(--text-light, #666);
+      color: var(--text-light);
       padding: 1rem;
-      background: var(--background, #f9f9f9);
-      border-radius: var(--radius-sm, 6px);
+      background: var(--bg);
+      border-radius: var(--radius-sm);
       margin: 1rem 0;
-      border-left: 4px solid var(--secondary, #e8d5b7);
+      border-left: 4px solid var(--primary-light);
+    }
+    
+    .day-detail .reflection-section {
+      background: var(--bg);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm);
+      margin: 1rem 0;
+    }
+    
+    .day-detail .reflection-section h4 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-family: var(--font-serif);
+    }
+    
+    .day-detail .reflection-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .day-detail .reflection-section ul li {
+      padding: 0.4rem 0 0.4rem 1.8rem;
+      position: relative;
+      line-height: 1.7;
+    }
+    
+    .day-detail .reflection-section ul li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--primary-light);
     }
     
     .day-detail .prayer {
-      background: var(--background, #f9f9f9);
-      padding: 1rem;
-      border-radius: var(--radius-sm, 6px);
+      background: var(--bg);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm);
       margin: 1rem 0;
     }
     
     .day-detail .prayer-label {
       font-weight: 600;
-      color: var(--primary, #b8860b);
+      color: var(--primary);
       display: block;
       margin-bottom: 0.3rem;
     }
     
     .day-detail .declaration {
-      background: var(--primary, #5A2A5F);
-      color: var(--white, #fff);
+      background: var(--primary-dark);
+      color: white;
       padding: 1rem 1.5rem;
-      border-radius: var(--radius-sm, 6px);
+      border-radius: var(--radius-sm);
       margin: 1rem 0;
       text-align: center;
-      font-weight: 500;
     }
     
     .day-nav {
@@ -178,75 +416,248 @@
       align-items: center;
       margin-top: 1.5rem;
       padding-top: 1.5rem;
-      border-top: 1px solid var(--border, #ddd);
+      border-top: 1px solid var(--border);
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-
-    .monthly-theme {
-      background: var(--background, #f9f9f9);
-      padding: 1rem 1.5rem;
-      border-radius: var(--radius-sm, 8px);
-      margin: 0.5rem 0 1rem;
-      border-left: 4px solid var(--secondary, #e8d5b7);
-    }
     
-    .monthly-theme strong {
-      color: var(--primary, #b8860b);
-    }
-
-    .month-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin: 1.5rem 0;
-    }
-
-    .month-nav a {
-      padding: 0.4rem 1.4rem;
-      border-radius: 30px;
-      background: var(--border);
-      color: var(--text);
+    .day-nav a {
       text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
-      transition: all var(--transition);
-      cursor: pointer;
-    }
-
-    .month-nav a:hover,
-    .month-nav a.active {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .today-highlight {
-      background: var(--secondary);
-      color: var(--text);
-      padding: 0.3rem 1rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-block;
     }
     
+    /* Progress Bar */
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0.5rem 0 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .progress-container .progress-label {
+      font-weight: 500;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+    }
+    
+    .progress-track {
+      flex: 1;
+      min-width: 100px;
+      height: 6px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .progress-track .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--primary-light);
+      border-radius: 10px;
+      transition: width 0.8s ease;
+    }
+    
+    .progress-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      min-width: 80px;
+      font-family: var(--font-sans);
+    }
+    
+    /* Month header */
+    .month-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .month-header .month-label {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-family: var(--font-serif);
+    }
+    
+    /* Search */
+    .search-input {
+      width: 100%;
+      max-width: 500px;
+      padding: 0.7rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      background: var(--white);
+      color: var(--text);
+      transition: border var(--transition);
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    
+    .search-results {
+      margin-top: 0.5rem;
+      max-width: 500px;
+    }
+    
+    .search-result-item {
+      padding: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .search-result-item:hover {
+      background: var(--bg);
+    }
+    
+    .search-result-item strong {
+      color: var(--primary);
+    }
+    
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding: 2rem 0 1rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 1rem 0;
+    }
+    
+    .social-links a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      transform: scale(1.1);
+    }
+    
+    .footer-bottom {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    /* Floating Affirmations */
+    .floating-affirmations {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    
+    .floating-word {
+      position: absolute;
+      font-family: var(--font-serif);
+      font-size: 0.8rem;
+      color: rgba(139, 90, 43, 0.04);
+      white-space: nowrap;
+      animation: floatWord 20s linear infinite;
+      font-weight: 400;
+    }
+    
+    @keyframes floatWord {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+    
+    /* Sparkles */
+    .sparkle-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    
+    .sparkle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 90, 43, 0.15), transparent);
+      animation: sparkleFloat 6s ease-in-out infinite;
+    }
+    
+    @keyframes sparkleFloat {
+      0%, 100% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(-30px) scale(1);
+        opacity: 1;
+      }
+    }
+    
+    /* Responsive */
     @media (max-width: 768px) {
-      .reading-image-wrapper {
-        max-height: 300px;
+      .container {
+        padding: 12px;
       }
       
-      .reading-image-wrapper img {
-        max-height: 300px;
-        object-fit: contain;
-      }
-
-      .calendar-grid {
-        gap: 3px;
-        padding: 0.3rem;
+      nav {
+        flex-direction: column;
+        align-items: center;
       }
       
-      .calendar-grid .day-cell {
-        font-size: 0.75rem;
+      .nav-links {
+        justify-content: center;
       }
       
       .day-detail {
@@ -257,34 +668,52 @@
         font-size: 1.4rem;
       }
       
+      .calendar-grid {
+        gap: 3px;
+        padding: 0.3rem;
+      }
+      
+      .calendar-grid .day-cell {
+        font-size: 0.7rem;
+      }
+      
       .day-nav {
         flex-direction: column;
         align-items: stretch;
       }
       
-      .day-nav > div {
-        flex-direction: column;
-        align-items: stretch;
+      .reading-header h1 {
+        font-size: 1.6rem;
       }
     }
-
+    
     @media (max-width: 480px) {
-      .reading-image-wrapper {
-        max-height: 200px;
+      .calendar-grid .day-cell {
+        font-size: 0.6rem;
+        border-radius: 4px;
       }
       
-      .reading-image-wrapper img {
-        max-height: 200px;
-        object-fit: contain;
+      .day-detail h2 {
+        font-size: 1.2rem;
       }
+    }
+    
+    /* Fade in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
 
-  <!-- ============================================ -->
-  <!-- FLOATING AFFIRMATIONS -->
-  <!-- ============================================ -->
+  <!-- ========== FLOATING AFFIRMATIONS ========== -->
   <div class="floating-affirmations">
     <div class="floating-word">You are loved</div>
     <div class="floating-word">You are enough</div>
@@ -298,19 +727,13 @@
     <div class="floating-word">You are home</div>
   </div>
 
-  <!-- ============================================ -->
-  <!-- SPARKLES -->
-  <!-- ============================================ -->
+  <!-- ========== SPARKLES ========== -->
   <div class="sparkle-container" id="sparkleContainer"></div>
 
-  <!-- ============================================ -->
-  <!-- MAIN CONTENT -->
-  <!-- ============================================ -->
+  <!-- ========== MAIN CONTENT ========== -->
   <div class="container">
     
-    <!-- ============================================ -->
-    <!-- NAVIGATION -->
-    <!-- ============================================ -->
+    <!-- ========== NAVIGATION ========== -->
     <nav>
       <div class="logo">
         <img src="assets/images/logo.png" alt="A Safe Place With Mma Foundation" class="logo-img" />
@@ -321,25 +744,15 @@
         <a href="reading.html" class="active">Reading</a>
         <a href="community.html">Community</a>
         <a href="contact.html">Contact</a>
-        <a href="index.html" class="btn btn-sm btn-outline" style="padding:0.3rem 1.2rem;font-size:0.8rem;">Home</a>
+        <a href="index.html" class="btn btn-sm btn-outline">Home</a>
       </div>
     </nav>
 
-    <!-- ============================================ -->
-    <!-- READING HEADER - FULL WIDTH IMAGE -->
-    <!-- ============================================ -->
-    <section class="reading-header fade-in" style="padding:1.5rem 0 0.5rem;">
-      <!-- Full Width Hero Image -->
-      <div class="reading-image-wrapper">
-         <div class="hero-image-wrapper">
-        <img src="assets/images/You-don't-have-to-pretend-here.png" alt="You're Safe Here" />
-      </div>
-
-      </div>
+    <!-- ========== HEADER ========== -->
+    <section class="reading-header fade-in">
       <h1>The <span>365</span> Journey</h1>
-      <div class="accent-line"></div>
-      <p style="color:var(--text-light);max-width:600px;font-size:1.05rem;">
-        One day at a time. No performance. Just presence. 
+      <p>
+        One day at a time. No performance. Just presence.
         <span style="display:block;font-size:0.9rem;color:var(--text-muted);margin-top:0.3rem;">
           <i class="fas fa-book-open"></i> <span id="progress-text">0/365 days</span> · 
           <span id="current-date-display">Loading...</span>
@@ -347,90 +760,76 @@
       </p>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SEARCH BAR -->
-    <!-- ============================================ -->
-    <div style="margin:1rem 0 0.5rem;" class="fade-in">
+    <!-- ========== SEARCH ========== -->
+    <div style="margin:1rem 0;">
       <input 
         type="text" 
         id="search-input" 
+        class="search-input"
         placeholder="🔍 Search devotionals by title, scripture, or topic..." 
-        style="width:100%;max-width:500px;padding:0.7rem 1.2rem;border:1px solid var(--border);border-radius:50px;font-family:var(--font-sans);font-size:0.95rem;background:var(--white);color:var(--text);transition:border var(--transition);"
       />
-      <div id="search-results" style="margin-top:0.5rem;max-width:500px;"></div>
+      <div class="search-results" id="search-results"></div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- MONTHLY THEME -->
-    <!-- ============================================ -->
-    <div class="monthly-theme fade-in" id="monthly-theme">
-      <strong>📖 Monthly Theme:</strong> <span id="theme-text">Finding Peace in God's Presence</span>
+    <!-- ========== MONTHLY THEME ========== -->
+    <div class="monthly-theme fade-in">
+      <strong>📖 Monthly Theme:</strong> <span id="theme-text">Loading...</span>
     </div>
 
-    <!-- ============================================ -->
-    <!-- MONTH NAVIGATION -->
-    <!-- ============================================ -->
+    <!-- ========== MONTH NAV ========== -->
     <div class="month-nav fade-in">
-      <a href="#" data-month="0" class="active">January</a>
-      <a href="#" data-month="1">February</a>
-      <a href="#" data-month="2">March</a>
-      <a href="#" data-month="3">April</a>
+      <a href="#" data-month="0" class="active">Jan</a>
+      <a href="#" data-month="1">Feb</a>
+      <a href="#" data-month="2">Mar</a>
+      <a href="#" data-month="3">Apr</a>
       <a href="#" data-month="4">May</a>
-      <a href="#" data-month="5">June</a>
-      <a href="#" data-month="6">July</a>
-      <a href="#" data-month="7">August</a>
-      <a href="#" data-month="8">September</a>
-      <a href="#" data-month="9">October</a>
-      <a href="#" data-month="10">November</a>
-      <a href="#" data-month="11">December</a>
+      <a href="#" data-month="5">Jun</a>
+      <a href="#" data-month="6">Jul</a>
+      <a href="#" data-month="7">Aug</a>
+      <a href="#" data-month="8">Sep</a>
+      <a href="#" data-month="9">Oct</a>
+      <a href="#" data-month="10">Nov</a>
+      <a href="#" data-month="11">Dec</a>
     </div>
 
-    <!-- ============================================ -->
-    <!-- PROGRESS BAR -->
-    <!-- ============================================ -->
-    <div style="display:flex;align-items:center;gap:1rem;margin:0.5rem 0 1rem;flex-wrap:wrap;" class="fade-in">
-      <span style="font-weight:500;color:var(--text-light);font-size:0.9rem;">Progress:</span>
-      <div style="flex:1;min-width:100px;height:6px;background:var(--border);border-radius:10px;overflow:hidden;">
-        <div id="progress-bar" style="height:100%;width:0%;background:var(--secondary);border-radius:10px;transition:width 0.8s ease;"></div>
+    <!-- ========== PROGRESS ========== -->
+    <div class="progress-container fade-in">
+      <span class="progress-label">Progress:</span>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-bar"></div>
       </div>
-      <span id="progress-text" style="font-size:0.85rem;color:var(--text-muted);min-width:80px;">0/365</span>
+      <span class="progress-text" id="progress-text2">0/365</span>
     </div>
 
-    <!-- ============================================ -->
-    <!-- CALENDAR -->
-    <!-- ============================================ -->
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;flex-wrap:wrap;gap:0.5rem;" class="fade-in">
-      <span style="font-weight:600;color:var(--primary);font-size:1.1rem;" id="current-month-label">January</span>
-      <div style="display:flex;gap:0.5rem;">
-        <button onclick="changeMonth(-1)" class="btn btn-sm btn-outline" style="padding:0.2rem 1rem;font-size:0.8rem;">‹</button>
-        <button onclick="changeMonth(1)" class="btn btn-sm btn-outline" style="padding:0.2rem 1rem;font-size:0.8rem;">›</button>
+    <!-- ========== CALENDAR ========== -->
+    <div class="month-header fade-in">
+      <span class="month-label" id="current-month-label">January</span>
+      <div>
+        <button onclick="changeMonth(-1)" class="btn btn-sm btn-outline">‹</button>
+        <button onclick="changeMonth(1)" class="btn btn-sm btn-outline">›</button>
       </div>
     </div>
 
     <div class="calendar-grid fade-in" id="calendar-grid">
-      <!-- Calendar rendered by JavaScript -->
+      <div style="text-align:center;padding:2rem;color:var(--text-muted);">Loading calendar...</div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- DAY DETAIL VIEW -->
-    <!-- ============================================ -->
+    <!-- ========== DAY DETAIL ========== -->
     <div class="day-detail fade-in" id="day-detail">
       <div id="day-detail-content">
         <p style="text-align:center;padding:2rem;color:var(--text-muted);">📖 Select a day to begin your journey.</p>
       </div>
       
       <div class="day-nav">
-        <a href="#" class="btn btn-sm btn-outline" id="prev-day" data-month="" data-day="">← Previous Day</a>
-        <div style="display:flex;gap:0.8rem;">
-          <a href="#" class="btn btn-sm btn-outline" id="bookmark-btn" data-month="" data-day=""><i class="far fa-bookmark"></i> Bookmark</a>
-          <a href="#" class="btn btn-sm" id="next-day" data-month="" data-day="">Next Day →</a>
+        <a href="#" class="btn btn-sm btn-outline" id="prev-day">← Previous</a>
+        <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
+          <a href="#" class="btn btn-sm btn-outline" id="bookmark-btn"><i class="far fa-bookmark"></i> Bookmark</a>
+          <a href="#" class="btn btn-sm btn-primary" id="next-day">Next →</a>
         </div>
       </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- FOOTER -->
-    <!-- ============================================ -->
+    <!-- ========== FOOTER ========== -->
     <footer>
       <div class="footer-links">
         <a href="index.html">Home</a>
@@ -438,165 +837,107 @@
         <a href="reading.html">Reading</a>
         <a href="community.html">Community</a>
         <a href="contact.html">Contact</a>
-        <a href="index.html" style="font-weight:500;color:var(--primary);">Home</a>
       </div>
       
       <div class="social-links">
-        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; font-size:1.5rem;"></i></a>
-        <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook" style="color:#1877F2; font-size:1.5rem;"></i></a>
-        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram" style="color:#E4405F; font-size:1.5rem;"></i></a>
-        <a href="#" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000; font-size:1.5rem;"></i></a>
-        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email"><i class="fas fa-envelope" style="color:var(--primary); font-size:1.5rem;"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp" style="color:#25D366;"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook" style="color:#1877F2;"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" style="color:#E4405F;"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube" style="color:#FF0000;"></i></a>
+        <a href="mailto:info@asafeplacewithmma.com" aria-label="Email"><i class="fas fa-envelope" style="color:var(--primary);"></i></a>
       </div>
       
       <div class="footer-bottom">
-        <span>© 2026 A Safe Place With Mma Foundation · All rights reserved</span>
-        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
-          <span>asafeplacewithmma.com</span>
-          <span>@asafeplacewithmma</span>
-        </div>
+        <span>© 2026 A Safe Place With Mma Foundation</span>
+        <span>asafeplacewithmma.com</span>
       </div>
     </footer>
 
   </div>
 
-  <!-- ============================================ -->
-  <!-- JAVASCRIPT -->
-  <!-- ============================================ -->
+  <!-- ========== LOAD MAIN.JS ========== -->
   <script src="js/main.js"></script>
-  
-  <script>
-    // ============================================
-    // COMPLETE DEVOTIONAL DATA (BUILT-IN FALLBACK)
-    // ============================================
-    
-    // Create sample devotional data if main.js doesn't load
-    const DEVOTIONAL_DATA = {};
-    
-    function generateDevotionalData() {
-      const titles = [
-        'A New Beginning', 'Walking in Faith', 'God\'s Unfailing Love', 'Finding Peace',
-        'Strength for Today', 'Hope in the Darkness', 'Rest for Your Soul', 'The Power of Surrender',
-        'Grace That Saves', 'Faith Over Fear', 'Trust in the Lord', 'Healing for the Broken',
-        'Joy in the Morning', 'God\'s Faithfulness', 'Walking in the Light', 'The Peace of God',
-        'Standing Strong', 'His Grace is Sufficient', 'Hope That Does Not Disappoint',
-        'The Lord is My Shepherd', 'Still Waters', 'Restoration and Renewal', 'Casting Your Cares',
-        'The Power of Prayer', 'Faith Like a Mustard Seed', 'God\'s Perfect Timing',
-        'Love That Never Fails', 'The Gift of Today', 'Walking in Victory', 'The Joy of the Lord',
-        'His Presence is With You', 'Fear Not', 'Be Strong and Courageous', 'God is for You',
-        'Nothing Can Separate Us', 'The Peace of Christ', 'Hope in God', 'He Will Never Leave You',
-        'The Lord is Good', 'His Mercies Are New', 'Every Morning', 'Trust and Obey',
-        'Walking with God', 'The Spirit of Wisdom', 'Understanding God\'s Will', 'Living in Freedom'
-      ];
-      
-      const scriptures = [
-        '2 Corinthians 5:17', 'Hebrews 11:1', 'Romans 8:38-39', 'John 14:27',
-        'Isaiah 40:31', 'Psalm 34:18', 'Matthew 11:28-30', 'James 4:7',
-        'Ephesians 2:8-9', 'Isaiah 41:10', 'Proverbs 3:5-6', 'Psalm 147:3',
-        'Psalm 30:5', 'Lamentations 3:22-23', '1 John 1:7', 'Philippians 4:7',
-        'Ephesians 6:10', '2 Corinthians 12:9', 'Romans 5:5', 'Psalm 23:1',
-        'Psalm 23:2', 'Psalm 23:3', '1 Peter 5:7', 'Philippians 4:6',
-        'Matthew 17:20', 'Ecclesiastes 3:11', '1 Corinthians 13:8', 'Psalm 118:24',
-        '1 Corinthians 15:57', 'Nehemiah 8:10', 'Psalm 16:11', 'Isaiah 43:1',
-        'Joshua 1:9', 'Romans 8:31', 'Romans 8:39', 'Colossians 3:15',
-        'Psalm 42:5', 'Deuteronomy 31:8', 'Psalm 34:8', 'Lamentations 3:23',
-        'Psalm 5:3', 'Proverbs 3:5', 'Genesis 5:24', 'Ephesians 1:17',
-        'Colossians 1:9', 'Galatians 5:1'
-      ];
-      
-      const openings = [
-        'Today marks the beginning of something new. God is doing a fresh work in your heart...',
-        'Faith is the confidence that God is who He says He is. Trust Him today...',
-        'Nothing can separate you from the love of God. Rest in that truth...',
-        'Peace I leave with you; my peace I give you. Not as the world gives...',
-        'Those who hope in the Lord will renew their strength. They will soar on wings like eagles...',
-        'The Lord is near to the brokenhearted and saves those who are crushed in spirit...',
-        'Come to me, all you who are weary and burdened, and I will give you rest...',
-        'Submit yourselves to God. Resist the devil, and he will flee from you...',
-        'For it is by grace you have been saved, through faith—and this is not from yourselves...',
-        'So do not fear, for I am with you; do not be dismayed, for I am your God...',
-        'Trust in the Lord with all your heart and lean not on your own understanding...',
-        'He heals the brokenhearted and binds up their wounds...',
-        'Weeping may stay for the night, but rejoicing comes in the morning...',
-        'The steadfast love of the Lord never ceases; his mercies never come to an end...',
-        'If we walk in the light, as he is in the light, we have fellowship with one another...'
-      ];
-      
-      const prayers = [
-        'Father, I thank you for this new day. Help me to walk in the newness of life...',
-        'Lord, I ask for stronger faith today. Help me to trust you even when I cannot see...',
-        'Thank you that nothing can separate me from your love. Help me to rest in this truth...',
-        'Prince of Peace, I ask for your peace to guard my heart and mind...',
-        'Lord, renew my strength today. Help me to soar on wings like eagles...',
-        'Father, you are near to the brokenhearted. Heal my brokenness and restore my soul...',
-        'Jesus, you promised rest for the weary. I come to you with my burdens today...',
-        'Lord, I submit myself to you today. Help me to resist the enemy and stand firm...',
-        'Thank you for your amazing grace. Help me to live in the freedom you have given me...',
-        'Father, I will not fear because you are with me. Help me to trust in your presence...'
-      ];
-      
-      for (let i = 1; i <= 365; i++) {
-        const idx = (i - 1) % titles.length;
-        DEVOTIONAL_DATA[i] = {
-          title: titles[idx],
-          scripture: scriptures[idx % scriptures.length],
-          opening: openings[idx % openings.length],
-          prayer: prayers[idx % prayers.length],
-          declaration: 'I am loved. I am chosen. I am a child of God. Today, I walk in the freedom and victory that Christ has won for me.'
-        };
-      }
-    }
-    
-    generateDevotionalData();
 
-    // ============================================
-    // MAIN INITIALIZATION
-    // ============================================
+  <!-- ========== APP LOGIC ========== -->
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
       
-      // Use DEVOTIONALS from main.js if available, otherwise use DEVOTIONAL_DATA
-      const devotionals = (typeof DEVOTIONALS !== 'undefined') ? DEVOTIONALS : DEVOTIONAL_DATA;
+      // ============================================
+      // LOAD DATA FROM main.js
+      // ============================================
+      let DEVOTIONALS_DATA = {};
+      let dataLoaded = false;
       
-      // ============================================
-      // SPARKLE EFFECT
-      // ============================================
-      const container = document.getElementById('sparkleContainer');
-      if (container) {
-        for (let i = 0; i < 25; i++) {
-          const sparkle = document.createElement('div');
-          sparkle.className = 'sparkle';
-          sparkle.style.left = Math.random() * 100 + '%';
-          sparkle.style.top = Math.random() * 100 + '%';
-          sparkle.style.width = (Math.random() * 4 + 2) + 'px';
-          sparkle.style.height = sparkle.style.width;
-          sparkle.style.animationDelay = (Math.random() * 6) + 's';
-          sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-          container.appendChild(sparkle);
+      function loadFromMainJS() {
+        try {
+          let source = window.DEVOTIONALS || window.DEVOTIONALS;
+          
+          if (!source && typeof DEVOTIONALS !== 'undefined') {
+            source = DEVOTIONALS;
+          }
+          
+          if (source) {
+            const monthKeys = ['january', 'february', 'march', 'april', 'may', 'june', 
+                               'july', 'august', 'september', 'october', 'november', 'december'];
+            let dayCounter = 1;
+            
+            for (let m = 0; m < 12; m++) {
+              const monthKey = monthKeys[m];
+              if (source[monthKey] && source[monthKey].days) {
+                const days = source[monthKey].days;
+                for (let d = 1; d <= 31; d++) {
+                  if (days[d]) {
+                    DEVOTIONALS_DATA[dayCounter] = days[d];
+                    dayCounter++;
+                  }
+                }
+              }
+            }
+            
+            if (Object.keys(DEVOTIONALS_DATA).length > 0) {
+              dataLoaded = true;
+              console.log('✅ Loaded ' + Object.keys(DEVOTIONALS_DATA).length + ' devotionals from main.js');
+              return true;
+            }
+          }
+          
+          console.log('⚠️ No data found in main.js');
+          return false;
+        } catch (e) {
+          console.error('Error loading from main.js:', e);
+          return false;
         }
       }
-
+      
       // ============================================
-      // SCROLL ANIMATIONS
+      // GET DEVOTIONAL
       // ============================================
-      const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
-        observer.observe(el);
-      });
-
+      function getDevotional(dayNumber) {
+        if (DEVOTIONALS_DATA[dayNumber]) {
+          const data = DEVOTIONALS_DATA[dayNumber];
+          return {
+            title: data.title || 'Day ' + dayNumber,
+            scripture: data.scripture || 'Psalm 34:18',
+            opening: data.opening || 'You don\'t have to pretend here.',
+            message: data.message || '',
+            reflection: data.reflection || ['Reflect on this.'],
+            prayer: data.prayer || 'God, I trust You. Amen.',
+            declaration: data.declaration || 'I am loved.'
+          };
+        }
+        return {
+          title: 'Day ' + dayNumber,
+          scripture: 'Psalm 34:18',
+          opening: 'You don\'t have to pretend here.',
+          message: 'God is with you.',
+          reflection: ['Reflect on this.'],
+          prayer: 'God, I trust You. Amen.',
+          declaration: 'I am loved.'
+        };
+      }
+      
       // ============================================
-      // CALENDAR FUNCTIONS
+      // APP VARIABLES
       // ============================================
       let currentMonth = new Date().getMonth();
       let currentYear = new Date().getFullYear();
@@ -606,54 +947,56 @@
                           'July', 'August', 'September', 'October', 'November', 'December'];
       
       const monthlyThemes = [
-        'New Beginnings in Christ',
-        'Walking in God\'s Love',
-        'Faith Over Fear',
-        'Hope in the Resurrection',
-        'Living in the Spirit',
-        'Trusting God\'s Timing',
-        'Freedom in Christ',
-        'Resting in His Presence',
-        'Grace for Today',
-        'Overcoming by the Word',
-        'Gratitude and Thanksgiving',
-        'Celebrating Emmanuel'
+        'Coming Home to Yourself',
+        'The Wounds We Hide',
+        'When God Feels Far',
+        'Breaking Old Chains',
+        'Learning to Receive Love',
+        'Relationships and Boundaries',
+        'Identity and Purpose',
+        'The Discipline of Staying',
+        'Forgiveness and Release',
+        'Strength Through Fire',
+        'Gratitude That Heals',
+        'Alignment and Sending'
       ];
       
-      // Get devotional for a specific day
-      function getDevotionalForDay(dayNumber) {
-        // Try flat structure first
-        if (devotionals[dayNumber]) {
-          return devotionals[dayNumber];
+      // ============================================
+      // HELPER FUNCTIONS
+      // ============================================
+      function getDayOfYear(month, day) {
+        let dayOfYear = 0;
+        for (let m = 0; m < month; m++) {
+          dayOfYear += new Date(currentYear, m + 1, 0).getDate();
         }
-        
-        // Try month-based structure
-        const monthNamesLower = ['january', 'february', 'march', 'april', 'may', 'june', 
-                                'july', 'august', 'september', 'october', 'november', 'december'];
-        let daysPassed = 0;
-        for (let m = 0; m < 12; m++) {
-          const daysInM = new Date(currentYear, m + 1, 0).getDate();
-          if (dayNumber <= daysPassed + daysInM) {
-            const dayInMonth = dayNumber - daysPassed;
-            const monthKey = monthNamesLower[m];
-            if (devotionals[monthKey] && devotionals[monthKey].days && devotionals[monthKey].days[dayInMonth]) {
-              return devotionals[monthKey].days[dayInMonth];
-            }
-            break;
-          }
-          daysPassed += daysInM;
-        }
-        
-        // Return fallback if nothing found
-        return {
-          title: 'Finding Peace in the Storm',
-          scripture: 'Psalm 34:18 · "The Lord is close to the brokenhearted."',
-          opening: 'When life feels overwhelming and you can\'t seem to catch your breath, remember that you are not alone. God sees you in the midst of your struggle...',
-          prayer: 'Lord, I come to you with my burdens. Help me to find rest in your presence...',
-          declaration: 'I am loved. I am chosen. I am a child of God.'
-        };
+        return dayOfYear + day;
       }
       
+      function getDaysInMonth(month) {
+        return new Date(currentYear, month + 1, 0).getDate();
+      }
+      
+      // ============================================
+      // SPARKLE EFFECT
+      // ============================================
+      const sparkleContainer = document.getElementById('sparkleContainer');
+      if (sparkleContainer) {
+        for (let i = 0; i < 25; i++) {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.left = Math.random() * 100 + '%';
+          sparkle.style.top = Math.random() * 100 + '%';
+          sparkle.style.width = (Math.random() * 4 + 2) + 'px';
+          sparkle.style.height = sparkle.style.width;
+          sparkle.style.animationDelay = (Math.random() * 6) + 's';
+          sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+          sparkleContainer.appendChild(sparkle);
+        }
+      }
+      
+      // ============================================
+      // RENDER CALENDAR
+      // ============================================
       function renderCalendar(month, year) {
         const grid = document.getElementById('calendar-grid');
         if (!grid) return;
@@ -666,10 +1009,10 @@
         }
         
         const firstDay = new Date(year, month, 1).getDay();
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const daysInMonth = getDaysInMonth(month);
         
         let html = '';
-        const dayHeaders = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+        const dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         
         dayHeaders.forEach(day => {
           html += `<div class="day-header">${day}</div>`;
@@ -683,37 +1026,37 @@
         const todayMonth = today.getMonth();
         const todayYear = today.getFullYear();
         
-        let dayOfYear = 0;
-        for (let m = 0; m < month; m++) {
-          dayOfYear += new Date(year, m + 1, 0).getDate();
-        }
-        
         for (let day = 1; day <= daysInMonth; day++) {
           let classes = 'day-cell';
-          const currentDayOfYear = dayOfYear + day;
+          const dayOfYear = getDayOfYear(month, day);
           
-          if (todayYear === year && todayMonth === month && todayDate === day) {
-            classes += ' today';
-          }
+          const isToday = todayYear === year && todayMonth === month && todayDate === day;
+          if (isToday) classes += ' today';
           
           const dayDate = new Date(year, month, day);
-          if (dayDate > today) {
-            classes += ' future';
-          }
+          const isFuture = dayDate > today;
+          if (isFuture) classes += ' future';
           
           const readKey = `read_${year}_${month}_${day}`;
-          if (localStorage.getItem(readKey) === 'true') {
-            classes += ' read';
-          }
+          const isRead = localStorage.getItem(readKey) === 'true';
+          if (isRead) classes += ' read';
           
-          html += `<div class="${classes}" data-day="${day}" data-dayofyear="${currentDayOfYear}" onclick="openDay(${month}, ${day}, ${currentDayOfYear})">${day}</div>`;
+          html += `
+            <div class="${classes}" data-day="${day}" data-month="${month}" data-dayofyear="${dayOfYear}" onclick="openDay(${month}, ${day})">
+              ${day}
+              <span class="day-dot"></span>
+            </div>
+          `;
         }
         
         grid.innerHTML = html;
         updateProgress();
       }
       
-      function openDay(month, day, dayOfYear) {
+      // ============================================
+      // OPEN DAY
+      // ============================================
+      window.openDay = function(month, day) {
         const detailContent = document.getElementById('day-detail-content');
         if (!detailContent) return;
         
@@ -733,55 +1076,62 @@
           return;
         }
         
-        // Get devotional for this day
-        const dayNum = dayOfYear || (() => {
-          let d = 0;
-          for (let m = 0; m < month; m++) {
-            d += new Date(currentYear, m + 1, 0).getDate();
-          }
-          return d + day;
-        })();
+        const dayOfYear = getDayOfYear(month, day);
+        const dev = getDevotional(dayOfYear);
         
-        const dev = getDevotionalForDay(dayNum);
-        
-        const dateStr = dayDate.toLocaleDateString('en-US', { 
-          weekday: 'long', 
-          month: 'long', 
-          day: 'numeric', 
-          year: 'numeric' 
+        const dateStr = dayDate.toLocaleDateString('en-US', {
+          weekday: 'long',
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric'
         });
         
+        let reflectionHTML = '';
+        if (dev.reflection && Array.isArray(dev.reflection)) {
+          reflectionHTML = dev.reflection.map(item => `<li>${item}</li>`).join('');
+        }
+        
+        let messageHTML = dev.message || '';
+        if (messageHTML) {
+          const paragraphs = messageHTML.split('\n').filter(p => p.trim());
+          messageHTML = paragraphs.map(p => `<p>${p.trim()}</p>`).join('');
+        }
+        
         detailContent.innerHTML = `
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
-            <span style="font-size:0.85rem;color:var(--text-muted);">Day ${dayNum} of 365</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;">
+            <span class="day-badge">Day ${dayOfYear} of 365</span>
             <span class="today-highlight">${dateStr}</span>
           </div>
-          <h2>${dev.title || 'Finding Peace'}</h2>
-          <div style="margin-bottom:0.5rem;font-weight:500;color:var(--primary);">📖 ${dev.scripture || 'Psalm 34:18'}</div>
-          <div class="opening">${dev.opening || 'Trust in the Lord with all your heart...'}</div>
-          <div class="scripture">"${dev.scripture || 'The Lord is close to the brokenhearted.'}"</div>
+          <h2>${dev.title}</h2>
+          <div class="scripture">📖 ${dev.scripture}</div>
+          <div class="opening">${dev.opening}</div>
+          ${messageHTML ? `<div class="message">${messageHTML}</div>` : ''}
+          ${dev.reflection && dev.reflection.length > 0 ? `
+            <div class="reflection-section">
+              <h4>✧ Reflection</h4>
+              <ul>${reflectionHTML}</ul>
+            </div>
+          ` : ''}
           <div class="prayer">
             <span class="prayer-label">🙏 Prayer</span>
-            ${dev.prayer || 'Lord, hear my prayer...'}
+            ${dev.prayer}
           </div>
           <div class="declaration">
             ✨ <strong>Declaration</strong><br>
-            ${dev.declaration || 'I am loved. I am chosen. I am a child of God.'}
+            ${dev.declaration}
           </div>
-          <div style="margin-top:0.8rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
-            <button onclick="markAsRead(${month}, ${day})" class="btn btn-sm" style="background:var(--primary);color:var(--white);">
+          <div style="margin-top:1rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button onclick="markAsRead(${month}, ${day})" class="btn btn-primary btn-sm">
               <i class="fas fa-check"></i> Mark as Read
             </button>
           </div>
         `;
         
-        // Update navigation buttons
         document.getElementById('prev-day').dataset.month = month;
         document.getElementById('prev-day').dataset.day = day - 1;
         document.getElementById('next-day').dataset.month = month;
         document.getElementById('next-day').dataset.day = day + 1;
         
-        // Update bookmark button
         const bookmarkKey = `bookmark_${currentYear}_${month}_${day}`;
         const bookmarkBtn = document.getElementById('bookmark-btn');
         if (localStorage.getItem(bookmarkKey) === 'true') {
@@ -793,27 +1143,38 @@
         }
         
         document.getElementById('day-detail').scrollIntoView({ behavior: 'smooth' });
-      }
+        localStorage.setItem('currentDay', `${month}-${day}`);
+        
+        const url = new URL(window.location);
+        url.searchParams.set('day', dayOfYear);
+        window.history.pushState({}, '', url);
+      };
       
-      function markAsRead(month, day) {
+      // ============================================
+      // MARK AS READ
+      // ============================================
+      window.markAsRead = function(month, day) {
         const key = `read_${currentYear}_${month}_${day}`;
         localStorage.setItem(key, 'true');
         renderCalendar(currentMonth, currentYear);
+        updateProgress();
         
         const detailContent = document.getElementById('day-detail-content');
         if (detailContent) {
           const markBtn = detailContent.querySelector('.btn');
           if (markBtn) {
             markBtn.innerHTML = '<i class="fas fa-check-circle"></i> Read ✓';
-            markBtn.style.background = 'var(--secondary)';
+            markBtn.style.background = '#27ae60';
             markBtn.style.cursor = 'default';
             markBtn.onclick = null;
           }
         }
-        updateProgress();
-      }
+      };
       
-      function changeMonth(delta) {
+      // ============================================
+      // CHANGE MONTH
+      // ============================================
+      window.changeMonth = function(delta) {
         currentMonth += delta;
         if (currentMonth > 11) {
           currentMonth = 0;
@@ -823,14 +1184,17 @@
           currentYear--;
         }
         renderCalendar(currentMonth, currentYear);
-      }
+      };
       
+      // ============================================
+      // UPDATE PROGRESS
+      // ============================================
       function updateProgress() {
         let readCount = 0;
         const totalDays = 365;
         
         for (let i = 0; i < 12; i++) {
-          const daysInMonth = new Date(currentYear, i + 1, 0).getDate();
+          const daysInMonth = getDaysInMonth(i);
           for (let d = 1; d <= daysInMonth; d++) {
             const key = `read_${currentYear}_${i}_${d}`;
             if (localStorage.getItem(key) === 'true') {
@@ -842,29 +1206,17 @@
         const progress = (readCount / totalDays) * 100;
         
         const progressBar = document.getElementById('progress-bar');
-        const progressText = document.getElementById('progress-text');
+        const progressText = document.getElementById('progress-text2');
         
         if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
-        if (progressText) progressText.textContent = `${readCount}/${totalDays} days`;
+        if (progressText) progressText.textContent = `${readCount}/${totalDays}`;
+        const progressTextMain = document.getElementById('progress-text');
+        if (progressTextMain) progressTextMain.textContent = `${readCount}/${totalDays} days`;
       }
       
       // ============================================
-      // INITIAL RENDER
+      // EVENT LISTENERS
       // ============================================
-      renderCalendar(currentMonth, currentYear);
-      
-      // Set current date display
-      const dateDisplay = document.getElementById('current-date-display');
-      if (dateDisplay) {
-        dateDisplay.textContent = today.toLocaleDateString('en-US', { 
-          weekday: 'long', 
-          month: 'long', 
-          day: 'numeric', 
-          year: 'numeric' 
-        });
-      }
-      
-      // Month navigation click handlers
       document.querySelectorAll('.month-nav a').forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
@@ -875,13 +1227,12 @@
         });
       });
       
-      // Day navigation buttons
       document.getElementById('prev-day').addEventListener('click', function(e) {
         e.preventDefault();
         const month = parseInt(this.dataset.month);
         const day = parseInt(this.dataset.day);
         if (day > 0 && !isNaN(month)) {
-          openDay(month, day);
+          window.openDay(month, day);
         }
       });
       
@@ -889,13 +1240,14 @@
         e.preventDefault();
         const month = parseInt(this.dataset.month);
         const day = parseInt(this.dataset.day);
-        const daysInMonth = new Date(currentYear, month + 1, 0).getDate();
-        if (day <= daysInMonth && !isNaN(month)) {
-          openDay(month, day);
+        if (day && !isNaN(month)) {
+          const daysInMonth = getDaysInMonth(month);
+          if (day <= daysInMonth) {
+            window.openDay(month, day);
+          }
         }
       });
       
-      // Bookmark button
       document.getElementById('bookmark-btn').addEventListener('click', function(e) {
         e.preventDefault();
         const month = parseInt(this.dataset.month);
@@ -915,7 +1267,7 @@
         }
       });
       
-      // Search functionality
+      // Search
       const searchInput = document.getElementById('search-input');
       if (searchInput) {
         searchInput.addEventListener('input', function() {
@@ -928,18 +1280,17 @@
             return;
           }
           
-          // Search through devotionals
           const matches = [];
           for (let i = 1; i <= 365; i++) {
-            const dev = getDevotionalForDay(i);
+            const dev = getDevotional(i);
             if (dev) {
-              const searchText = `${dev.title || ''} ${dev.scripture || ''} ${dev.opening || ''}`.toLowerCase();
+              const searchText = `${dev.title} ${dev.scripture} ${dev.opening} ${dev.message || ''}`.toLowerCase();
               if (searchText.includes(query)) {
                 let searchMonth = 0;
                 let searchDay = i;
                 let daysPassed = 0;
                 for (let m = 0; m < 12; m++) {
-                  const daysInM = new Date(currentYear, m + 1, 0).getDate();
+                  const daysInM = getDaysInMonth(m);
                   if (searchDay > daysPassed + daysInM) {
                     daysPassed += daysInM;
                     searchMonth++;
@@ -949,7 +1300,8 @@
                   }
                 }
                 if (searchMonth > 11) searchMonth = 11;
-                matches.push({ day: i, title: dev.title || 'Day ' + i, month: searchMonth, dayNum: searchDay });
+                if (searchDay < 1) searchDay = 1;
+                matches.push({ day: i, title: dev.title, month: searchMonth, dayNum: searchDay });
                 if (matches.length >= 10) break;
               }
             }
@@ -970,10 +1322,7 @@
           
           matches.forEach(item => {
             html += `
-              <div style="padding:0.5rem;border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.2s;" 
-                   onclick="openDay(${item.month}, ${item.dayNum})"
-                   onmouseover="this.style.background='var(--background)'"
-                   onmouseout="this.style.background='transparent'">
+              <div class="search-result-item" onclick="window.openDay(${item.month}, ${item.dayNum})">
                 <strong>Day ${item.day}</strong> - ${item.title}
               </div>
             `;
@@ -985,32 +1334,77 @@
       }
       
       // ============================================
-      // OPEN TODAY'S DEVOTIONAL IF DAY PARAM EXISTS
+      // SCROLL ANIMATIONS
       // ============================================
-      const urlParams = new URLSearchParams(window.location.search);
-      const dayParam = urlParams.get('day');
-      if (dayParam) {
-        const dayNum = parseInt(dayParam);
-        if (dayNum >= 1 && dayNum <= 365) {
-          let targetMonth = 0;
-          let targetDay = dayNum;
-          let daysPassed = 0;
-          for (let m = 0; m < 12; m++) {
-            const daysInM = new Date(currentYear, m + 1, 0).getDate();
-            if (targetDay > daysPassed + daysInM) {
-              daysPassed += daysInM;
-              targetMonth++;
-            } else {
-              targetDay = targetDay - daysPassed;
-              break;
-            }
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
           }
-          if (targetMonth > 11) targetMonth = 11;
-          setTimeout(() => {
-            openDay(targetMonth, targetDay);
-          }, 500);
-        }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+      
+      // ============================================
+      // INITIALIZATION
+      // ============================================
+      const dateDisplay = document.getElementById('current-date-display');
+      if (dateDisplay) {
+        dateDisplay.textContent = today.toLocaleDateString('en-US', {
+          weekday: 'long',
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric'
+        });
       }
+      
+      // Load data and render
+      setTimeout(function() {
+        loadFromMainJS();
+        renderCalendar(currentMonth, currentYear);
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const dayParam = urlParams.get('day');
+        
+        setTimeout(function() {
+          if (dayParam) {
+            const dayNum = parseInt(dayParam);
+            if (dayNum >= 1 && dayNum <= 365) {
+              let targetMonth = 0;
+              let targetDay = dayNum;
+              let daysPassed = 0;
+              for (let m = 0; m < 12; m++) {
+                const daysInM = getDaysInMonth(m);
+                if (targetDay > daysPassed + daysInM) {
+                  daysPassed += daysInM;
+                  targetMonth++;
+                } else {
+                  targetDay = targetDay - daysPassed;
+                  break;
+                }
+              }
+              if (targetMonth > 11) targetMonth = 11;
+              if (targetDay < 1) targetDay = 1;
+              window.openDay(targetMonth, targetDay);
+            }
+          } else {
+            const todayMonth = today.getMonth();
+            const todayDay = today.getDate();
+            window.openDay(todayMonth, todayDay);
+          }
+        }, 400);
+      }, 300);
+      
+      console.log('✅ Reading page loaded successfully!');
+      console.log('📚 ' + Object.keys(DEVOTIONALS_DATA).length + ' devotionals available');
     });
   </script>
 </body>
