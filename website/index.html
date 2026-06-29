@@ -24,20 +24,27 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   
   <style>
-    /* Additional styles */
-    .image-wrapper {
+    /* ============================================ */
+    /* ADDITIONAL STYLES - INDEX PAGE */
+    /* ============================================ */
+    
+    /* FULL WIDTH HERO IMAGE - SPANS EDGE TO EDGE */
+    .hero-image-wrapper {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
       overflow: hidden;
-      border-radius: var(--radius, 12px);
-      margin-bottom: 1.5rem;
       background: var(--background, #f9f9f9);
+      padding: 0;
     }
 
-    .image-wrapper img {
+    .hero-image-wrapper img {
       width: 100%;
       height: auto;
-      max-height: 300px;
+      max-height: 500px;
       object-fit: contain;
       display: block;
+      background: var(--background, #f9f9f9);
     }
 
     .hero-section {
@@ -72,37 +79,6 @@
       font-style: normal;
     }
 
-    .hero-subtitle {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin: 1.5rem 0 1rem;
-    }
-
-    .hero-subtitle a {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--text);
-      text-decoration: none;
-      padding: 0.5rem 1.5rem;
-      border-radius: 50px;
-      transition: all var(--transition);
-      background: var(--white);
-      border: 1px solid var(--border);
-    }
-
-    .hero-subtitle a:hover {
-      background: var(--primary);
-      color: var(--white);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(90, 42, 95, 0.2);
-    }
-
-    .hero-subtitle a i {
-      margin-right: 8px;
-    }
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -120,15 +96,6 @@
       font-weight: 600;
       font-size: 0.9rem;
       margin-top: 0.5rem;
-    }
-
-    .tagline {
-      font-size: 1.25rem;
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 0 auto;
-      font-weight: 300;
-      line-height: 1.6;
     }
 
     /* Mission & Vision */
@@ -328,11 +295,6 @@
       font-size: 0.95rem;
     }
 
-    /* About Preview */
-    #about-preview {
-      margin: 2rem 0;
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       .hero-section h1 {
@@ -342,18 +304,6 @@
       .hero-tagline {
         font-size: 1rem;
         padding: 0 1rem;
-      }
-
-      .hero-subtitle {
-        flex-direction: column;
-        gap: 0.8rem;
-        align-items: center;
-      }
-
-      .hero-subtitle a {
-        width: 100%;
-        max-width: 280px;
-        text-align: center;
       }
 
       .hero-actions {
@@ -379,8 +329,13 @@
         grid-template-columns: 1fr;
       }
 
-      .image-wrapper img {
-        max-height: 200px;
+      .hero-image-wrapper {
+        max-height: 300px;
+      }
+      
+      .hero-image-wrapper img {
+        max-height: 300px;
+        object-fit: contain;
       }
     }
 
@@ -393,16 +348,21 @@
         height: 150px;
       }
 
-      .image-wrapper img {
-        max-height: 150px;
-      }
-
       .devotional-preview {
         padding: 1.2rem;
       }
 
       .devotional-preview h4 {
         font-size: 1.2rem;
+      }
+
+      .hero-image-wrapper {
+        max-height: 200px;
+      }
+      
+      .hero-image-wrapper img {
+        max-height: 200px;
+        object-fit: contain;
       }
     }
   </style>
@@ -458,8 +418,8 @@
     <section class="hero-section fade-in">
       <h1>You're <span>Safe</span> Here</h1>
 
-      <!-- Hero Image -->
-      <div class="image-wrapper">
+      <!-- Hero Image - FULL WIDTH LEFT TO RIGHT -->
+      <div class="hero-image-wrapper">
         <img src="assets/images/You-don't-have-to-pretend-here.png" alt="You're Safe Here" />
       </div>
 
@@ -632,13 +592,6 @@
         </p>
         <span class="author">— Sweetcare</span>
       </div>
-
-      <!-- Get Support, Join Community, YouTube - MOVED TO BOTTOM -->
-      <div class="hero-subtitle">
-        <a href="community.html"><i class="fas fa-hand-holding-heart"></i> Get Support</a>
-        <a href="community.html"><i class="fas fa-users"></i> Join the Community</a>
-        <a href="https://www.youtube.com/@asafeplacewithmma" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
-      </div>
     </section>
 
     <!-- ============================================ -->
@@ -727,10 +680,17 @@
       const previewOpening = document.getElementById('preview-opening');
       const previewScripture = document.getElementById('preview-scripture');
       
+      // Sample devotional data - will be replaced by actual data from main.js
+      const sampleDevotional = {
+        title: 'Finding Peace in the Storm',
+        opening: 'When life feels overwhelming and you can\'t seem to catch your breath, remember that you are not alone. God sees you in the midst of your struggle...',
+        scripture: 'Psalm 34:18 · "The Lord is close to the brokenhearted and saves those who are crushed in spirit."'
+      };
+      
       if (previewTitle) {
-        previewTitle.textContent = 'Finding Peace in the Storm';
-        previewOpening.textContent = 'When life feels overwhelming and you can\'t seem to catch your breath, remember that you are not alone. God sees you in the midst of your struggle...';
-        previewScripture.textContent = 'Psalm 34:18 · "The Lord is close to the brokenhearted and saves those who are crushed in spirit."';
+        previewTitle.textContent = sampleDevotional.title;
+        previewOpening.textContent = sampleDevotional.opening;
+        previewScripture.textContent = sampleDevotional.scripture;
       }
     });
   </script>

@@ -5,7 +5,6 @@
    "You don't have to pretend here."
    ============================================ */
 
-
 * {
   margin: 0;
   padding: 0;
@@ -58,114 +57,6 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-}
-
-/* ============================================ */
-/* IMAGE UTILITY CLASSES - FIXED */
-/* ============================================ */
-
-/* For hero images - shows entire image */
-.hero-img {
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: contain;
-  border-radius: var(--radius, 12px);
-  display: block;
-  background: var(--background, #f9f9f9);
-}
-
-/* For about page images */
-.about-img {
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: contain;
-  border-radius: var(--radius, 12px);
-  display: block;
-  background: var(--background, #f9f9f9);
-}
-
-/* For reading page hero image */
-.reading-hero-img {
-  width: 100%;
-  height: auto;
-  max-height: 250px;
-  object-fit: contain;
-  border-radius: var(--radius, 12px);
-  display: block;
-  background: var(--background, #f9f9f9);
-}
-
-/* For community card images */
-.card-img {
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  object-fit: contain;
-  border-radius: var(--radius-sm, 8px);
-  display: block;
-  background: var(--background, #f9f9f9);
-}
-
-/* For testimonial images */
-.testimonial-img {
-  width: 100%;
-  height: auto;
-  max-height: 220px;
-  object-fit: contain;
-  border-radius: var(--radius, 12px);
-  display: block;
-  background: var(--background, #f9f9f9);
-}
-
-/* For banner images */
-.banner-img {
-  width: 100%;
-  height: auto;
-  max-height: 180px;
-  object-fit: contain;
-  border-radius: var(--radius-sm, 8px);
-  display: block;
-  background: var(--background, #f9f9f9);
-}
-
-/* For contact hero image */
-.contact-hero-img {
-  width: 100%;
-  height: auto;
-  max-height: 250px;
-  object-fit: contain;
-  border-radius: var(--radius, 12px);
-  display: block;
-  background: var(--background, #f9f9f9);
-}
-
-/* For author photo - auto-size and centered */
-.author-photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-.author-photo img {
-  width: min(180px, 70%);
-  height: auto;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--secondary);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* Image wrapper - prevents overflow */
-.image-wrapper {
-  overflow: hidden;
-  border-radius: var(--radius, 12px);
-  margin-bottom: 1.5rem;
-  background: var(--background, #f9f9f9);
 }
 
 /* ============================================ */
@@ -329,6 +220,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 2.5rem 0 1rem;
   color: var(--text);
   font-weight: 400;
+  text-align: center;
 }
 
 .section-title span {
@@ -1248,52 +1140,6 @@ footer {
   .floating-affirmations {
     display: none;
   }
-
-  /* Image responsive overrides */
-  .hero-img {
-    max-height: 250px;
-  }
-  
-  .about-img {
-    max-height: 200px;
-  }
-  
-  .reading-hero-img {
-    max-height: 180px;
-  }
-  
-  .card-img {
-    max-height: 150px;
-  }
-  
-  .testimonial-img {
-    max-height: 160px;
-  }
-  
-  .banner-img {
-    max-height: 140px;
-  }
-  
-  .contact-hero-img {
-    max-height: 180px;
-  }
-  
-  .author-photo img {
-    width: min(140px, 60%);
-  }
-
-  /* WhatsApp card responsive */
-  .whatsapp-card {
-    padding: 1.5rem;
-  }
-  
-  .whatsapp-card h2 {
-    font-size: 1.5rem;
-  }
-  
-  .quick-responses {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1326,39 +1172,6 @@ footer {
   .day-detail .declaration-box {
     font-size: 0.9rem;
     padding: 1rem;
-  }
-
-  /* Image responsive overrides */
-  .hero-img {
-    max-height: 180px;
-  }
-  
-  .about-img {
-    max-height: 150px;
-  }
-  
-  .reading-hero-img {
-    max-height: 140px;
-  }
-  
-  .card-img {
-    max-height: 120px;
-  }
-  
-  .testimonial-img {
-    max-height: 130px;
-  }
-  
-  .banner-img {
-    max-height: 110px;
-  }
-  
-  .contact-hero-img {
-    max-height: 140px;
-  }
-  
-  .author-photo img {
-    width: min(120px, 50%);
   }
 }
 
