@@ -47,6 +47,32 @@
       background: var(--background, #f9f9f9);
     }
 
+    /* Mobile - keep normal */
+    @media (max-width: 768px) {
+      .hero-image-wrapper {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        max-height: 300px;
+      }
+      
+      .hero-image-wrapper img {
+        max-height: 300px;
+        object-fit: contain;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-image-wrapper {
+        max-height: 200px;
+      }
+      
+      .hero-image-wrapper img {
+        max-height: 200px;
+        object-fit: contain;
+      }
+    }
+
     .hero-section {
       text-align: center;
       padding: 2rem 0 1rem;
@@ -295,6 +321,25 @@
       font-size: 0.95rem;
     }
 
+    /* E.A.Peace credit */
+    .design-credit {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 0.5rem;
+      font-family: var(--font-sans);
+    }
+
+    .design-credit a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .design-credit a:hover {
+      text-decoration: underline;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero-section h1 {
@@ -328,15 +373,6 @@
       .podcast-grid {
         grid-template-columns: 1fr;
       }
-
-      .hero-image-wrapper {
-        max-height: 300px;
-      }
-      
-      .hero-image-wrapper img {
-        max-height: 300px;
-        object-fit: contain;
-      }
     }
 
     @media (max-width: 480px) {
@@ -354,15 +390,6 @@
 
       .devotional-preview h4 {
         font-size: 1.2rem;
-      }
-
-      .hero-image-wrapper {
-        max-height: 200px;
-      }
-      
-      .hero-image-wrapper img {
-        max-height: 200px;
-        object-fit: contain;
       }
     }
   </style>
@@ -418,7 +445,7 @@
     <section class="hero-section fade-in">
       <h1>You're <span>Safe</span> Here</h1>
 
-      <!-- Hero Image - FULL WIDTH LEFT TO RIGHT -->
+      <!-- Hero Image - FULL WIDTH LEFT TO RIGHT (PC ONLY) -->
       <div class="hero-image-wrapper">
         <img src="assets/images/You-don't-have-to-pretend-here.png" alt="You're Safe Here" />
       </div>
@@ -477,11 +504,11 @@
     <!-- ABOUT PREVIEW -->
     <!-- ============================================ -->
     <section id="about-preview" class="fade-in">
-      <h2 class="section-title">About <span>A Safe Place with MMA Foundation</span></h2>
+      <h2 class="section-title">About <br> <span>ASP Foundation</span></h2>
       
       <div style="background:var(--white);border-radius:var(--radius);padding:2rem;border:1px solid var(--border);">
         <p style="font-size:1.05rem;color:var(--text-light);line-height:1.9;margin-bottom:1rem;">
-          At <strong>A Safe Place with MMA Foundation</strong>, we believe that everyone deserves a place where they can be seen, heard, and valued.
+          At <strong>ASP Foundation</strong>, we believe that everyone deserves a place where they can be seen, heard, and valued.
         </p>
         
         <p style="font-size:1.05rem;color:var(--text-light);line-height:1.9;margin-bottom:1rem;">
@@ -623,9 +650,8 @@
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>
           <div class="design-credit">
-          <span>Website designed by <a href="http://emmanueladekunlepeace.com/" target="_blank">E.A.Peace</a></span>
-        </div>
-      </div>
+            <span>Website designed by <a href="http://emmanueladekunlepeace.com/" target="_blank">E.A.Peace</a></span>
+          </div>
         </div>
       </div>
     </footer>

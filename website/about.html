@@ -78,6 +78,53 @@
       background: var(--background, #f9f9f9);
     }
 
+    /* ============================================ */
+    /* FULL WIDTH HERO IMAGE - PC ONLY */
+    /* ============================================ */
+    .about-hero-img-wrapper {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      overflow: hidden;
+      background: var(--background, #f9f9f9);
+      padding: 0;
+    }
+
+    .about-hero-img-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: 350px;
+      object-fit: contain;
+      display: block;
+      background: var(--background, #f9f9f9);
+    }
+
+    /* Mobile - keep normal */
+    @media (max-width: 768px) {
+      .about-hero-img-wrapper {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        max-height: 250px;
+      }
+      
+      .about-hero-img-wrapper img {
+        max-height: 250px;
+        object-fit: contain;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-hero-img-wrapper {
+        max-height: 180px;
+      }
+      
+      .about-hero-img-wrapper img {
+        max-height: 180px;
+        object-fit: contain;
+      }
+    }
+
     .mission-quote {
       background: var(--background);
       padding: 1.5rem;
@@ -283,7 +330,7 @@
           </div>
           <h3>Meet the Founder</h3>
           <p>
-            <strong>Mma</strong> is the heart behind A Safe Place with MMA Foundation. She is a fellow traveler, a fellow healer, and still believes that God's love is strongest in the silence.
+            <strong>Chidimma Jane Okenwa (Mma)</strong> is the heart behind ASP Foundation. She is a fellow traveler, a fellow healer, and still believes that God's love is strongest in the silence.
           </p>
           <p style="margin-top:0.8rem;">
             Known for her gentle yet piercing voice, Mma writes and speaks from the space where deep pain meets profound grace. She is not a pastor or theologian — she is simply a woman who has experienced God's faithfulness in her darkest moments and wants others to know they are not alone.
@@ -304,11 +351,12 @@
     <!-- ABOUT HERO -->
     <!-- ============================================ -->
     <section class="about-hero fade-in">
-      <div class="image-wrapper" style="margin-bottom: 1rem; border-radius: var(--radius, 12px); overflow: hidden; background: var(--background, #f9f9f9);">
+      <!-- Full Width Hero Image - PC Only -->
+      <div class="about-hero-img-wrapper">
         <img src="assets/images/You-don't-have-to-pretend-here.png" alt="You're Safe Here" />
       </div>
       
-      <h1>About <span>A Safe Place with MMA Foundation</span></h1>
+      <h1>About <span>ASP Foundation</span></h1>
       <div class="accent-line"></div>
       <p style="color:var(--text-light);max-width:650px;font-size:1.05rem;line-height:1.8;">
         A Christian charity creating safe spaces where people can find hope, healing, 
@@ -330,7 +378,7 @@
       <!-- Left Column -->
       <div class="fade-in-left">
         <p>
-          At <strong>A Safe Place with MMA Foundation</strong>, we believe that everyone deserves a place where they can be seen, heard, and valued.
+          At <strong>ASP Foundation</strong>, we believe that everyone deserves a place where they can be seen, heard, and valued.
         </p>
         
         <p>
@@ -357,7 +405,7 @@
         <h2 style="font-family:var(--font-serif);font-size:1.6rem;color:var(--primary);margin:1.5rem 0 0.5rem;">The heart behind the foundation</h2>
         
         <p>
-          A Safe Place with MMA Foundation was born from a deep understanding of what it means to struggle, to hurt, and to feel alone. It was created for the ones who have been told they're too much or not enough. For the ones who have been wounded by religion but still long for God.
+          ASP Foundation was born from a deep understanding of what it means to struggle, to hurt, and to feel alone. It was created for the ones who have been told they're too much or not enough. For the ones who have been wounded by religion but still long for God.
         </p>
         
         <p>

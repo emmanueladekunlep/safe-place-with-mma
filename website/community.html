@@ -70,6 +70,53 @@
       background: var(--background, #f9f9f9);
     }
 
+    /* ============================================ */
+    /* FULL WIDTH HERO IMAGE - PC ONLY */
+    /* ============================================ */
+    .community-hero-img-wrapper {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      overflow: hidden;
+      background: var(--background, #f9f9f9);
+      padding: 0;
+    }
+
+    .community-hero-img-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: 350px;
+      object-fit: contain;
+      display: block;
+      background: var(--background, #f9f9f9);
+    }
+
+    /* Mobile - keep normal */
+    @media (max-width: 768px) {
+      .community-hero-img-wrapper {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        max-height: 250px;
+      }
+      
+      .community-hero-img-wrapper img {
+        max-height: 250px;
+        object-fit: contain;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .community-hero-img-wrapper {
+        max-height: 180px;
+      }
+      
+      .community-hero-img-wrapper img {
+        max-height: 180px;
+        object-fit: contain;
+      }
+    }
+
     .community-card {
       background: var(--white);
       padding: 2.5rem;
@@ -98,6 +145,25 @@
     .community-card p {
       color: var(--text-light);
       margin-bottom: 1.2rem;
+    }
+
+    /* E.A.Peace credit */
+    .design-credit {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 0.5rem;
+      font-family: var(--font-sans);
+    }
+
+    .design-credit a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .design-credit a:hover {
+      text-decoration: underline;
     }
 
     .grid-2 {
@@ -151,7 +217,7 @@
   <!-- ============================================ -->
   <!-- FLOATING AFFIRMATIONS -->
   <!-- ============================================ -->
-  <div class="floating-affirmations">
+  <div class="floating-affirmations" id="floatingAffirmations">
     <div class="floating-word">You are loved</div>
     <div class="floating-word">You are enough</div>
     <div class="floating-word">You are not alone</div>
@@ -195,8 +261,9 @@
     <!-- COMMUNITY HERO -->
     <!-- ============================================ -->
     <section style="padding:2rem 0 1rem;" class="fade-in">
-      <div class="image-wrapper" style="margin-bottom: 1rem; border-radius: var(--radius, 12px); overflow: hidden; background: var(--background, #f9f9f9);">
-        <img src="assets/images/join-our-community.png" alt="Join Our Community" class="community-hero-img" />
+      <!-- Full Width Hero Image - PC Only -->
+      <div class="community-hero-img-wrapper">
+        <img src="assets/images/join-our-community.png" alt="Join Our Community" />
       </div>
       
       <h1 style="font-family:var(--font-serif);font-size:2.8rem;font-weight:400;color:var(--text);">
@@ -440,8 +507,8 @@
           <span>asafeplacewithmma.com</span>
           <span>@asafeplacewithmma</span>
           <div class="design-credit">
-          <span>Website designed by <a href="http://emmanueladekunlepeace.com/" target="_blank">E.A.Peace</a></span>
-        </div>
+            <span>Website designed by <a href="http://emmanueladekunlepeace.com/" target="_blank">E.A.Peace</a></span>
+          </div>
         </div>
       </div>
     </footer>
@@ -455,51 +522,12 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // ============================================
+      // SPARKLE EFFECT
+      // ============================================
       const container = document.getElementById('sparkleContainer');
       if (container) {
         for (let i = 0; i < 25; i++) {
-          const sparkle = document.createElement('div');
-          sparkle.className = 'sparkle';
-          sparkle.style.left = Math.random() * 100 + '%';
-          sparkle.style.top = Math.random() * 100 + '%';
-          sparkle.style.width = (Math.random() * 4 + 2) + 'px';
-          sparkle.style.height = sparkle.style.width;
-          sparkle.style.animationDelay = (Math.random() * 6) + 's';
-          sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-          container.appendChild(sparkle);
-        }
-      }
-
-      const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
-        observer.observe(el);
-      });
-    });
-  </script>
-</body>
-</html>
-
-<!-- Additional Scripts for Animations -->
-  <script>
-    // ============================================
-    // SPARKLE EFFECT
-    // ============================================
-    document.addEventListener('DOMContentLoaded', function() {
-      const container = document.getElementById('sparkleContainer');
-      if (container) {
-        for (let i = 0; i < 30; i++) {
           const sparkle = document.createElement('div');
           sparkle.className = 'sparkle';
           sparkle.style.left = Math.random() * 100 + '%';
@@ -531,3 +559,29 @@
       document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
         observer.observe(el);
       });
+
+      // ============================================
+      // FLOATING AFFIRMATIONS - FIX VISIBILITY
+      // ============================================
+      const affirmations = document.getElementById('floatingAffirmations');
+      if (affirmations) {
+        affirmations.style.display = 'block';
+        affirmations.style.opacity = '1';
+        affirmations.style.pointerEvents = 'none';
+        
+        const words = affirmations.querySelectorAll('.floating-word');
+        words.forEach((word, index) => {
+          const leftPos = 5 + Math.random() * 90;
+          const delay = index * 1.5 + Math.random() * 2;
+          const duration = 18 + Math.random() * 8;
+          word.style.left = leftPos + '%';
+          word.style.animationDelay = delay + 's';
+          word.style.animationDuration = duration + 's';
+        });
+      }
+
+      console.log('✅ Community page loaded successfully!');
+    });
+  </script>
+</body>
+</html>
