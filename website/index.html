@@ -340,6 +340,92 @@
       text-decoration: underline;
     }
 
+    /* ============================================ */
+    /* TESTIMONIAL STYLES */
+    /* ============================================ */
+    
+    .testimonial-card {
+      background: var(--white, #ffffff);
+      border-radius: var(--radius, 20px);
+      padding: 2rem 2.2rem;
+      border-left: 6px solid var(--secondary, #C8A14B);
+      margin: 2rem 0;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+      transition: all var(--transition, 0.4s ease);
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 8px 32px rgba(90, 42, 95, 0.10);
+      transform: translateY(-2px);
+    }
+
+    .testimonial-content p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text, #4A5568);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .testimonial-content p::before {
+      content: '"';
+      font-size: 3rem;
+      color: var(--secondary, #C8A14B);
+      font-family: var(--font-serif, Georgia, serif);
+      position: relative;
+      top: 0.3rem;
+      margin-right: 4px;
+      opacity: 0.5;
+    }
+
+    .testimonial-content p::after {
+      content: '"';
+      font-size: 3rem;
+      color: var(--secondary, #C8A14B);
+      font-family: var(--font-serif, Georgia, serif);
+      position: relative;
+      top: 0.3rem;
+      margin-left: 4px;
+      opacity: 0.5;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border, #EAE3D8);
+    }
+
+    .testimonial-author img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--secondary, #C8A14B);
+      box-shadow: 0 4px 12px rgba(200, 161, 75, 0.25);
+      transition: all var(--transition, 0.4s ease);
+      flex-shrink: 0;
+    }
+
+    .testimonial-author img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(200, 161, 75, 0.35);
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .author-name {
+      font-weight: 600;
+      color: var(--text, #4A5568);
+      font-size: 1rem;
+      font-family: var(--font-sans, 'Inter', sans-serif);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero-section h1 {
@@ -373,6 +459,30 @@
       .podcast-grid {
         grid-template-columns: 1fr;
       }
+
+      .testimonial-card {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+      
+      .testimonial-content p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+      }
+      
+      .testimonial-content p::before,
+      .testimonial-content p::after {
+        font-size: 2.5rem;
+      }
+      
+      .testimonial-author img {
+        width: 54px;
+        height: 54px;
+      }
+      
+      .author-name {
+        font-size: 0.9rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -390,6 +500,28 @@
 
       .devotional-preview h4 {
         font-size: 1.2rem;
+      }
+
+      .testimonial-card {
+        padding: 1rem;
+      }
+      
+      .testimonial-content p {
+        font-size: 0.9rem;
+      }
+      
+      .testimonial-content p::before,
+      .testimonial-content p::after {
+        font-size: 2rem;
+      }
+      
+      .testimonial-author img {
+        width: 46px;
+        height: 46px;
+      }
+      
+      .testimonial-author {
+        gap: 12px;
       }
     }
   </style>
@@ -609,15 +741,27 @@
     </section>
 
     <!-- ============================================ -->
-    <!-- TESTIMONIAL -->
+    <!-- TESTIMONIAL SECTION - FIXED -->
     <!-- ============================================ -->
-    <section style="margin:2rem 0;" class="fade-in">
-      <div class="testimonial" style="max-width:700px;margin:0 auto;">
-        <p>
-          "This devotional has become my safe place. I cry, I argue, I feel nothing — 
-          and I keep coming back. Because here, I don't have to pretend."
-        </p>
-        <span class="author">— Sweetcare</span>
+    <section class="fade-in">
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <p>
+            "This devotional has become more than a daily reading—it has become my 
+            safe place. In moments of joy, sorrow, uncertainty, or silence, 
+            I know I can come here without fear or pretense. Every page draws me
+            closer to God, renews my strength, and reminds me that I am deeply 
+            loved and never alone. It is a place where healing begins, hope is restored,
+            and faith grows stronger each day."
+          </p>
+        </div>
+        
+        <div class="testimonial-author">
+          <img src="assets/images/sweetcare.jpeg" alt="Chidi Loveth Okeke (Sweetcare)" />
+          <div class="author-info">
+            <span class="author-name">— Chidi Loveth Okeke (Sweetcare)</span>
+          </div>
+        </div>
       </div>
     </section>
 
