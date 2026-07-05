@@ -210,6 +210,47 @@
         padding: 1.5rem;
       }
     }
+
+    /* --- testimonial card with image --- */
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s;
+    }
+    .testimonial-card:hover {
+      box-shadow: 0 6px 20px rgba(90, 42, 95, 0.08);
+    }
+    .testimonial-card .testimonial-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: var(--radius-sm, 8px);
+      display: block;
+      background: #f0f0f0;
+    }
+    .testimonial-card p {
+      margin: 0.2rem 0 0.2rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .testimonial-card .author {
+      font-weight: 600;
+      color: var(--primary);
+      font-style: normal;
+      margin-top: 0.1rem;
+    }
+    @media (max-width: 600px) {
+      .testimonial-card .testimonial-img {
+        height: 130px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -402,7 +443,7 @@
     </section>
 
     <!-- ============================================ -->
-    <!-- TESTIMONIALS -->
+    <!-- TESTIMONIALS  (UPDATED: added images)        -->
     <!-- ============================================ -->
     <section style="margin:3rem 0;">
       <h2 style="font-family:var(--font-serif);font-size:1.8rem;color:var(--text);text-align:center;">
@@ -410,40 +451,38 @@
       </h2>
       <div class="accent-line" style="margin:0.5rem auto 1.5rem;"></div>
       
+      <!-- banner image (kept) -->
       <div style="text-align:center; margin-bottom:1.5rem;overflow:hidden;border-radius:var(--radius,12px);">
         <img src="assets/images/what women are saying.jpg" alt="What people are saying" class="testimonial-img" />
       </div>
       
+      <!-- testimonial grid with images -->
       <div class="grid-2">
-        <div class="testimonial fade-in-left">
-          <p>
-            "This community has been my lifeline. I don't have to pretend here. 
-            I can show up messy and be loved anyway."
-          </p>
+        <!-- Ola Olaleye -->
+        <div class="testimonial-card fade-in-left">
+          <img src="assets/images/Ola-olaleye.jpeg" alt="Ola Olaleye" class="testimonial-img" />
+          <p>"This community has been my lifeline. I don't have to pretend here. They are my christian family"</p>
           <span class="author">— Ola Olaleye</span>
         </div>
         
-        <div class="testimonial fade-in-right">
-          <p>
-            "I found my safe place. The people here have carried me through 
-            the darkest season of my life."
-          </p>
+        <!-- Gloria -->
+        <div class="testimonial-card fade-in-right">
+          <img src="assets/images/Gloria-Lawani-(Glaw).jpeg" alt="Gloria" class="testimonial-img" />
+          <p>"I found my safe place. The people here have carried me through the darkest season of my life."</p>
           <span class="author">— Gloria</span>
         </div>
         
-        <div class="testimonial fade-in-left">
-          <p>
-            "For the first time, I feel like I belong. No judgment. No shame. 
-            Just love and honesty."
-          </p>
+        <!-- Empress -->
+        <div class="testimonial-card fade-in-left">
+          <img src="assets/images/Empress.jpeg" alt="Empress" class="testimonial-img" />
+          <p>"A safe place with Mma has made me realize that people still accept u and make you feel love and welcome, Encouraging you with God’s love"</p>
           <span class="author">— Empress</span>
         </div>
         
-        <div class="testimonial fade-in-right">
-          <p>
-            "The devotionals and the community have changed my life. 
-            I'm learning to heal and I'm not alone."
-          </p>
+        <!-- Loverestored -->
+        <div class="testimonial-card fade-in-right">
+          <img src="assets/images/loverestored.jpeg" alt="Loverestored" class="testimonial-img" />
+          <p>"The devotionals and the community have changed my life. I'm learning to heal and I'm not alone."</p>
           <span class="author">— Loverestored</span>
         </div>
       </div>
