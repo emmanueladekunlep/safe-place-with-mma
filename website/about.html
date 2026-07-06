@@ -79,7 +79,7 @@
     }
 
     /* ============================================ */
-    /* FULL WIDTH HERO IMAGE - PC ONLY */
+    /* FULL WIDTH HERO IMAGE - SPANS EDGE TO EDGE LEFT TO RIGHT */
     /* ============================================ */
     .about-hero-img-wrapper {
       width: 100vw;
@@ -92,36 +92,36 @@
 
     .about-hero-img-wrapper img {
       width: 100%;
-      height: auto;
-      max-height: 350px;
-      object-fit: contain;
+      height: 300px;
+      object-fit: cover;
       display: block;
       background: var(--background, #f9f9f9);
     }
 
-    /* Mobile - keep normal */
+    /* Mobile - cover full width left to right */
     @media (max-width: 768px) {
       .about-hero-img-wrapper {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
         max-height: 250px;
       }
       
       .about-hero-img-wrapper img {
-        max-height: 250px;
-        object-fit: contain;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
       }
     }
 
     @media (max-width: 480px) {
       .about-hero-img-wrapper {
-        max-height: 180px;
+        max-height: 200px;
       }
       
       .about-hero-img-wrapper img {
-        max-height: 180px;
-        object-fit: contain;
+        height: 200px;
+        object-fit: cover;
       }
     }
 
@@ -351,7 +351,7 @@
     <!-- ABOUT HERO -->
     <!-- ============================================ -->
     <section class="about-hero fade-in">
-      <!-- Full Width Hero Image - PC Only -->
+      <!-- Full Width Hero Image - LEFT TO RIGHT -->
       <div class="about-hero-img-wrapper">
         <img src="assets/images/You-don't-have-to-pretend-here.png" alt="You're Safe Here" />
       </div>

@@ -28,7 +28,7 @@
     /* ADDITIONAL STYLES - INDEX PAGE */
     /* ============================================ */
     
-    /* FULL WIDTH HERO IMAGE - SPANS EDGE TO EDGE */
+    /* FULL WIDTH HERO IMAGE - SPANS EDGE TO EDGE LEFT TO RIGHT */
     .hero-image-wrapper {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
@@ -40,25 +40,25 @@
 
     .hero-image-wrapper img {
       width: 100%;
-      height: auto;
-      max-height: 500px;
-      object-fit: contain;
+      height: 300px;
+      object-fit: cover;
       display: block;
       background: var(--background, #f9f9f9);
     }
 
-    /* Mobile - keep normal */
+    /* Mobile - cover full width left to right */
     @media (max-width: 768px) {
       .hero-image-wrapper {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        max-height: 300px;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        max-height: 250px;
       }
       
       .hero-image-wrapper img {
-        max-height: 300px;
-        object-fit: contain;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
       }
     }
 
@@ -68,8 +68,8 @@
       }
       
       .hero-image-wrapper img {
-        max-height: 200px;
-        object-fit: contain;
+        height: 200px;
+        object-fit: cover;
       }
     }
 
@@ -577,7 +577,7 @@
     <section class="hero-section fade-in">
       <h1>You're <span>Safe</span> Here</h1>
 
-      <!-- Hero Image - FULL WIDTH LEFT TO RIGHT (PC ONLY) -->
+      <!-- Hero Image - FULL WIDTH LEFT TO RIGHT -->
       <div class="hero-image-wrapper">
         <img src="assets/images/You-don't-have-to-pretend-here.png" alt="You're Safe Here" />
       </div>

@@ -21,6 +21,100 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   
   <style>
+    /* ============================================ */
+    /* FULL WIDTH HERO IMAGE - SPANS EDGE TO EDGE LEFT TO RIGHT */
+    /* ============================================ */
+    .contact-hero-img-wrapper {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      overflow: hidden;
+      background: var(--background, #f9f9f9);
+      padding: 0;
+    }
+
+    .contact-hero-img-wrapper img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      background: var(--background, #f9f9f9);
+    }
+
+    /* Mobile - cover full width left to right */
+    @media (max-width: 768px) {
+      .contact-hero-img-wrapper {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        max-height: 250px;
+      }
+      
+      .contact-hero-img-wrapper img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-hero-img-wrapper {
+        max-height: 200px;
+      }
+      
+      .contact-hero-img-wrapper img {
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+
+    /* ============================================ */
+    /* SECOND FULL WIDTH IMAGE - PRAYING WOMAN */
+    /* ============================================ */
+    .prayer-img-wrapper {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      overflow: hidden;
+      background: var(--background, #f9f9f9);
+      padding: 0;
+    }
+
+    .prayer-img-wrapper img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      background: var(--background, #f9f9f9);
+    }
+
+    /* Mobile - cover full width left to right */
+    @media (max-width: 768px) {
+      .prayer-img-wrapper {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        max-height: 250px;
+      }
+      
+      .prayer-img-wrapper img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .prayer-img-wrapper {
+        max-height: 200px;
+      }
+      
+      .prayer-img-wrapper img {
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+
     .contact-hero-img {
       width: 100%;
       height: auto;
@@ -343,8 +437,9 @@
     <!-- CONTACT HERO -->
     <!-- ============================================ -->
     <section style="padding:2rem 0 1rem;" class="fade-in">
-      <div class="image-wrapper">
-        <img src="assets/images/reach-out.jpg" alt="Reach out to us" class="contact-hero-img" />
+      <!-- Full Width Hero Image - LEFT TO RIGHT -->
+      <div class="contact-hero-img-wrapper">
+        <img src="assets/images/reach-out.jpg" alt="Reach out to us" />
       </div>
       <h1 style="font-family:var(--font-serif);font-size:2.8rem;font-weight:400;color:var(--text);">
         Reach <span style="color:var(--primary);">Out</span>
@@ -405,11 +500,11 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- PRAYER REQUEST IMAGE SECTION -->
+    <!-- PRAYER REQUEST IMAGE SECTION - FULL WIDTH LEFT TO RIGHT -->
     <!-- ============================================ -->
     <section style="margin:2rem 0;" class="fade-in">
-      <div class="image-wrapper" style="border-radius: var(--radius, 12px); overflow: hidden; background: var(--background, #f9f9f9);">
-        <img src="assets/images/praying-woman.png" alt="Prayer & Support" class="prayer-img" />
+      <div class="prayer-img-wrapper">
+        <img src="assets/images/praying-woman.png" alt="Prayer & Support" />
       </div>
     </section>
 
@@ -666,44 +761,3 @@
   </script>
 </body>
 </html>
-
-<!-- Additional Scripts for Animations -->
-  <script>
-    // ============================================
-    // SPARKLE EFFECT
-    // ============================================
-    document.addEventListener('DOMContentLoaded', function() {
-      const container = document.getElementById('sparkleContainer');
-      if (container) {
-        for (let i = 0; i < 30; i++) {
-          const sparkle = document.createElement('div');
-          sparkle.className = 'sparkle';
-          sparkle.style.left = Math.random() * 100 + '%';
-          sparkle.style.top = Math.random() * 100 + '%';
-          sparkle.style.width = (Math.random() * 4 + 2) + 'px';
-          sparkle.style.height = sparkle.style.width;
-          sparkle.style.animationDelay = (Math.random() * 6) + 's';
-          sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-          container.appendChild(sparkle);
-        }
-      }
-
-      // ============================================
-      // SCROLL ANIMATIONS (Intersection Observer)
-      // ============================================
-      const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
-        observer.observe(el);
-      });

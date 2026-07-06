@@ -1,6 +1,3 @@
-I've updated the testimonial images to be smaller within their frames with a professional, polished look. Each photo now has a soft border, subtle shadow, and rounded corners that make them feel like proper portrait shots.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,10 +23,15 @@ I've updated the testimonial images to be smaller within their frames with a pro
   <style>
     .card-img {
       width: 100%;
-      height: 180px;
+      height: 250px;
       object-fit: cover;
       border-radius: var(--radius-sm, 8px);
       display: block;
+      transition: transform 0.4s ease;
+    }
+    
+    .card:hover .card-img {
+      transform: scale(1.03);
     }
     
     .testimonial-img {
@@ -56,11 +58,15 @@ I've updated the testimonial images to be smaller within their frames with a pro
 
     .image-wrapper img {
       width: 100%;
-      height: auto;
-      max-height: 300px;
-      object-fit: contain;
+      height: 250px;
+      object-fit: cover;
       display: block;
       background: var(--background, #f9f9f9);
+      transition: transform 0.4s ease;
+    }
+
+    .image-wrapper:hover img {
+      transform: scale(1.05);
     }
 
     .community-hero-img {
@@ -74,7 +80,7 @@ I've updated the testimonial images to be smaller within their frames with a pro
     }
 
     /* ============================================ */
-    /* FULL WIDTH HERO IMAGE - PC ONLY */
+    /* FULL WIDTH HERO IMAGE - SPANS EDGE TO EDGE LEFT TO RIGHT */
     /* ============================================ */
     .community-hero-img-wrapper {
       width: 100vw;
@@ -87,36 +93,36 @@ I've updated the testimonial images to be smaller within their frames with a pro
 
     .community-hero-img-wrapper img {
       width: 100%;
-      height: auto;
-      max-height: 350px;
-      object-fit: contain;
+      height: 300px;
+      object-fit: cover;
       display: block;
       background: var(--background, #f9f9f9);
     }
 
-    /* Mobile - keep normal */
+    /* Mobile - cover full width left to right */
     @media (max-width: 768px) {
       .community-hero-img-wrapper {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
         max-height: 250px;
       }
       
       .community-hero-img-wrapper img {
-        max-height: 250px;
-        object-fit: contain;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
       }
     }
 
     @media (max-width: 480px) {
       .community-hero-img-wrapper {
-        max-height: 180px;
+        max-height: 200px;
       }
       
       .community-hero-img-wrapper img {
-        max-height: 180px;
-        object-fit: contain;
+        height: 200px;
+        object-fit: cover;
       }
     }
 
@@ -181,9 +187,51 @@ I've updated the testimonial images to be smaller within their frames with a pro
       gap: 2rem;
     }
 
+    /* Card styling for What to Expect section */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all var(--transition);
+      padding: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 40px rgba(90, 42, 95, 0.10);
+    }
+
+    .card .image-wrapper {
+      margin: 0;
+      border-radius: 0;
+    }
+
+    .card .card-content {
+      padding: 1.2rem 1.5rem 1.8rem;
+      text-align: center;
+    }
+
+    .card .card-content h3 {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .card-content p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
     @media (max-width: 768px) {
       .card-img {
-        height: 140px;
+        height: 200px;
+      }
+      
+      .image-wrapper img {
+        height: 200px;
       }
       
       .testimonial-img {
@@ -211,6 +259,14 @@ I've updated the testimonial images to be smaller within their frames with a pro
 
       .community-card {
         padding: 1.5rem;
+      }
+
+      .card-img {
+        height: 160px;
+      }
+      
+      .image-wrapper img {
+        height: 160px;
       }
     }
 
@@ -329,7 +385,7 @@ I've updated the testimonial images to be smaller within their frames with a pro
     <!-- COMMUNITY HERO -->
     <!-- ============================================ -->
     <section style="padding:2rem 0 1rem;" class="fade-in">
-      <!-- Full Width Hero Image - PC Only -->
+      <!-- Full Width Hero Image - LEFT TO RIGHT -->
       <div class="community-hero-img-wrapper">
         <img src="assets/images/join-our-community.png" alt="Join Our Community" />
       </div>
@@ -403,34 +459,34 @@ I've updated the testimonial images to be smaller within their frames with a pro
       <div class="accent-line"></div>
       
       <div class="grid-3" style="margin-top:1.5rem;">
-        <div class="card" style="text-align:center;">
+        <div class="card">
           <div class="image-wrapper">
             <img src="assets/images/real-connection.jpg" alt="Real connection" class="card-img" />
           </div>
-          <h3 style="font-size:1.1rem;">Real Connection</h3>
-          <p style="font-size:0.9rem;">
-            No performance. No pretending. Just real people sharing real life.
-          </p>
+          <div class="card-content">
+            <h3>Real Connection</h3>
+            <p>No performance. No pretending. Just real people sharing real life.</p>
+          </div>
         </div>
         
-        <div class="card" style="text-align:center;">
+        <div class="card">
           <div class="image-wrapper">
             <img src="assets/images/prayer&support.jpg" alt="Prayer and support" class="card-img" />
           </div>
-          <h3 style="font-size:1.1rem;">Prayer &amp; Support</h3>
-          <p style="font-size:0.9rem;">
-            Prayer requests, encouragement, and a community that shows up.
-          </p>
+          <div class="card-content">
+            <h3>Prayer &amp; Support</h3>
+            <p>Prayer requests, encouragement, and a community that shows up.</p>
+          </div>
         </div>
         
-        <div class="card" style="text-align:center;">
+        <div class="card">
           <div class="image-wrapper">
             <img src="assets/images/safe-space.jpg" alt="Safe space" class="card-img" />
           </div>
-          <h3 style="font-size:1.1rem;">Safe Space</h3>
-          <p style="font-size:0.9rem;">
-            A judgment-free zone where you can be honest about your struggles.
-          </p>
+          <div class="card-content">
+            <h3>Safe Space</h3>
+            <p>A judgment-free zone where you can be honest about your struggles.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -480,7 +536,7 @@ I've updated the testimonial images to be smaller within their frames with a pro
       
       <!-- banner image (kept) -->
       <div style="text-align:center; margin-bottom:1.5rem;overflow:hidden;border-radius:var(--radius,12px);">
-        <img src="assets/images/what women are saying.jpg" alt="What people are saying" class="testimonial-img" />
+        <img src="assets/images/what-women-are-saying.jpg" alt="What people are saying" class="testimonial-img" />
       </div>
       
       <!-- testimonial grid with professional circular images -->
@@ -499,7 +555,9 @@ I've updated the testimonial images to be smaller within their frames with a pro
           <div class="testimonial-image-frame">
             <img src="assets/images/Gloria-Lawani-(Glaw).jpeg" alt="Gloria" class="testimonial-img" />
           </div>
-          <p>"I found my safe place. The people here have carried me through the darkest season of my life."</p>
+          <p>"Thanks for being a sister and a super friend. Thanks for sharing prayers, Thanks for today's word. 
+            The safety of being Helpless.
+           This is me. I'm glad I read it today as an intentional act."</p>
           <span class="author">— Gloria</span>
         </div>
         
@@ -517,7 +575,7 @@ I've updated the testimonial images to be smaller within their frames with a pro
           <div class="testimonial-image-frame">
             <img src="assets/images/loverestored.jpeg" alt="Loverestored" class="testimonial-img" />
           </div>
-          <p>"The devotionals and the community have changed my life. I'm learning to heal and I'm not alone."</p>
+          <p>“The devotionals and this community have been a source of encouragement and healing for me. I’m learning, growing, and being reminded that I’m not alone.”</p>
           <span class="author">— Loverestored</span>
         </div>
       </div>
@@ -659,4 +717,3 @@ I've updated the testimonial images to be smaller within their frames with a pro
   </script>
 </body>
 </html>
-```
