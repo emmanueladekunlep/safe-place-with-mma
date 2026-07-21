@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Theme Color for Mobile Browsers -->
+<meta name="theme-color" content="#5A2A5F" />
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" href="assets/images/icon-192x192.png">
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="manifest.json" />
+
   <title>About · A Safe Place With Mma Foundation</title>
   <meta name="description" content="Learn about A Safe Place with MMA Foundation - a Christian charity creating safe spaces for hope, healing, belonging, and authentic community." />
   
@@ -314,6 +324,7 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html" class="active">About</a>
+        <a href="trustees.html">Trustees</a>
         <a href="reading.html">Reading</a>
         <a href="community.html">Community</a>
         <a href="contact.html">Contact</a>
@@ -509,6 +520,7 @@
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
+        <a href="trustees.html">Trustees</a>
         <a href="reading.html">Reading</a>
         <a href="community.html">Community</a>
         <a href="contact.html">Contact</a>
@@ -543,6 +555,33 @@
   <!-- JAVASCRIPT -->
   <!-- ============================================ -->
   <script src="js/main.js"></script>
+  
+  <!-- ============================================ -->
+  <!-- FLOATING BURDEN JAR - HTML -->
+  <!-- ============================================ -->
+  <button id="burdenFloatBtn" class="burden-float-btn" aria-label="Share your burden">
+    <i class="fas fa-candle"></i>
+    <span>Share</span>
+  </button>
+
+  <div id="burdenModal" class="burden-modal">
+    <div class="burden-modal-content">
+      <div class="burden-modal-header">
+        <h2>🕯️ Drop Your Burden</h2>
+        <button id="burdenCloseBtn" class="burden-close-btn">&times;</button>
+      </div>
+      <p class="burden-modal-sub">You are safe. You are seen. You are loved.</p>
+      
+      <form id="burdenForm">
+        <textarea id="burdenInput" placeholder="What's on your heart today?" rows="4"></textarea>
+        <button type="submit" id="burdenSubmitBtn">🙏 Receive Prayer</button>
+      </form>
+      
+      <div id="burdenReply">
+        <em>Your response will appear here...</em>
+      </div>
+    </div>
+  </div>
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -607,5 +646,17 @@
       console.log('✅ About page loaded successfully!');
     });
   </script>
+  <!-- Register Service Worker for PWA -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+        console.log('Service Worker registered successfully:', registration);
+      })
+      .catch(function(error) {
+        console.log('Service Worker registration failed:', error);
+      });
+  }
+</script>
 </body>
 </html>

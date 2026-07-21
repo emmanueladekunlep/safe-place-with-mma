@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Theme Color for Mobile Browsers -->
+<meta name="theme-color" content="#5A2A5F" />
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" href="assets/images/icon-192x192.png">
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="manifest.json" />
   <title>Community · A Safe Place With Mma Foundation</title>
   <meta name="description" content="Join a community of people on a journey of healing, restoration, and honest faith. You don't have to walk alone." />
   
@@ -374,6 +382,7 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
+        <a href="trustees.html">Trustees</a>
         <a href="reading.html">Reading</a>
         <a href="community.html" class="active">Community</a>
         <a href="contact.html">Contact</a>
@@ -450,7 +459,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- WHAT TO EXPECT -->
+    /* WHAT TO EXPECT */
     <!-- ============================================ -->
     <section style="margin:2rem 0;" class="fade-in">
       <h2 style="font-family:var(--font-serif);font-size:1.8rem;color:var(--text);">
@@ -526,7 +535,7 @@
     </section>
 
     <!-- ============================================ -->
-    <!-- TESTIMONIALS (professional circular portraits) -->
+    /* TESTIMONIALS (professional circular portraits) */
     <!-- ============================================ -->
     <section style="margin:3rem 0;">
       <h2 style="font-family:var(--font-serif);font-size:1.8rem;color:var(--text);text-align:center;">
@@ -575,7 +584,7 @@
           <div class="testimonial-image-frame">
             <img src="assets/images/loverestored.jpeg" alt="Loverestored" class="testimonial-img" />
           </div>
-          <p>“The devotionals and this community have been a source of encouragement and healing for me. I’m learning, growing, and being reminded that I’m not alone.”</p>
+          <p>"The devotionals and this community have been a source of encouragement and healing for me. I'm learning, growing, and being reminded that I'm not alone."</p>
           <span class="author">— Loverestored</span>
         </div>
       </div>
@@ -617,6 +626,7 @@
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
+        <a href="trustees.html">Trustees</a>
         <a href="reading.html">Reading</a>
         <a href="community.html">Community</a>
         <a href="contact.html">Contact</a>
@@ -651,6 +661,33 @@
   <!-- JAVASCRIPT -->
   <!-- ============================================ -->
   <script src="js/main.js"></script>
+  
+  <!-- ============================================ -->
+  <!-- FLOATING BURDEN JAR - HTML -->
+  <!-- ============================================ -->
+  <button id="burdenFloatBtn" class="burden-float-btn" aria-label="Share your burden">
+    <i class="fas fa-candle"></i>
+    <span>Share</span>
+  </button>
+
+  <div id="burdenModal" class="burden-modal">
+    <div class="burden-modal-content">
+      <div class="burden-modal-header">
+        <h2>🕯️ Drop Your Burden</h2>
+        <button id="burdenCloseBtn" class="burden-close-btn">&times;</button>
+      </div>
+      <p class="burden-modal-sub">You are safe. You are seen. You are loved.</p>
+      
+      <form id="burdenForm">
+        <textarea id="burdenInput" placeholder="What's on your heart today?" rows="4"></textarea>
+        <button type="submit" id="burdenSubmitBtn">🙏 Receive Prayer</button>
+      </form>
+      
+      <div id="burdenReply">
+        <em>Your response will appear here...</em>
+      </div>
+    </div>
+  </div>
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -715,5 +752,17 @@
       console.log('✅ Community page loaded successfully!');
     });
   </script>
+  <!-- Register Service Worker for PWA -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+        console.log('Service Worker registered successfully:', registration);
+      })
+      .catch(function(error) {
+        console.log('Service Worker registration failed:', error);
+      });
+  }
+</script>
 </body>
 </html>

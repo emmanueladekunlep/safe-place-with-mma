@@ -5166,3 +5166,164 @@ if (document.readyState === 'loading') {
 window.DEVOTIONALS = DEVOTIONALS;
 // Make DEVOTIONALS available globally
 window.DEVOTIONALS = DEVOTIONALS;
+// ============================================
+// BURDEN JAR - WITH EMAIL & GROK AI
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  const btn = document.getElementById('burdenFloatBtn');
+  const modal = document.getElementById('burdenModal');
+  const close = document.getElementById('burdenCloseBtn');
+  const form = document.getElementById('burdenForm');
+  const input = document.getElementById('burdenInput');
+  const submitBtn = document.getElementById('burdenSubmitBtn');
+  const replyDiv = document.getElementById('burdenReply');
+
+  // Open modal
+  if (btn && modal) {
+    btn.onclick = function() {
+      modal.style.display = 'flex';
+      modal.classList.add('show');
+      input.focus();
+      replyDiv.classList.remove('show');
+      replyDiv.innerHTML = '';
+    };
+  }
+
+  // Close modal
+  function closeModal() {
+    modal.style.display = 'none';
+    modal.classList.remove('show');
+    replyDiv.classList.remove('show');
+    replyDiv.innerHTML = '';
+    input.value = '';
+    submitBtn.disabled = false;
+    submitBtn.textContent = '🙏 Receive Prayer';
+  }
+
+  if (close && modal) {
+    close.onclick = closeModal;
+  }
+
+  if (modal) {
+    modal.onclick = function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    };
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('show')) {
+      closeModal();
+    }
+  });
+
+  // Form submission
+  if (form) {
+    form.onsubmit = async function(e) {
+      e.preventDefault();
+
+      const message = input.value.trim();
+      if (!message) {
+        input.focus();
+        return;
+      }
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitBtn.textContent = '🙏 Praying...';
+      replyDiv.classList.add('show');
+      replyDiv.innerHTML = '<span class="burden-loading">✨ Praying for you...</span>';
+
+      try {
+        // 1. SEND EMAIL VIA FORMSPREE (UPDATED ENDPOINT + FIX)
+        const formData = new FormData();
+        formData.append('burden', message);
+        formData.append('_subject', '🙏 New Anonymous Burden Prayer Request');
+        formData.append('_format', 'json');  // ← Prevents redirect issues
+
+        const emailResponse = await fetch('https://formspree.io/f/xvzjynel', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (!emailResponse.ok) {
+          console.warn('Email notification failed, but continuing...');
+        }
+
+        // 2. GET AI RESPONSE (GROK API)
+        const aiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer xai-jksJ8BztKzHFEwouzkYo1E02PnnqdhSIn7Cc4w8NwmcTyp7PprmaSFK'
+          },
+          body: JSON.stringify({
+            model: 'grok-4.3',
+            messages: [
+              {
+                role: 'system',
+                content: `You are the voice of ASP Foundation — A Safe Place With Mma. You speak with the heart of Chidimma Jane Okenwa (Mma).
+
+Your mission: To create Christ-centred spaces where people experience hope, healing, belonging, education, practical support, and authentic community.
+
+Your vision: A world where every individual knows they are loved, valued, supported, and never have to face life's challenges alone.
+
+Your core values:
+- Authenticity: A space where people can be real about struggles, doubts, and questions. No performance. No pretending.
+- Healing without judgment: Emotional, spiritual, and relational restoration at your own pace. No shame. No rush.
+- Grace & encouragement: You are not too far gone. Love and restoration are always available.
+- Community & connection: No one has to navigate life's challenges alone.
+
+Your voice is: Warm, gentle, never judgmental. You speak like a friend who has been through the fire and found God's love on the other side. You don't use religious jargon — you speak from the heart.
+
+When someone shares a burden:
+- Acknowledge their pain with compassion
+- Point them to God's love without shame
+- Offer a relevant Bible verse of hope
+- End with a short, honest prayer
+
+Your responses are 3-4 sentences. You are not a therapist — you are a fellow traveler offering hope.`
+              },
+              {
+                role: 'user',
+                content: 'Someone is carrying this burden: "' + message + '". Please respond with a compassionate message, a Bible verse of hope, and a short prayer.'
+              }
+            ],
+            temperature: 0.7,
+            max_tokens: 300
+          })
+        });
+
+        const data = await aiResponse.json();
+
+        if (data.error) {
+          throw new Error(data.error.message || 'Something went wrong');
+        }
+
+        const aiText = data.choices?.[0]?.message?.content || 
+                      "💛 The Lord is close to the brokenhearted...";
+
+        replyDiv.innerHTML = `<p style="white-space: pre-wrap; line-height: 1.6;">${aiText}</p>`;
+
+      } catch (error) {
+        console.error('Burden Jar Error:', error);
+        replyDiv.innerHTML = `
+          <div style="color: #6b4c3b;">
+            💛 We are praying for you. <br>
+            There was a small connection issue — please try again in a moment.
+          </div>`;
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '🙏 Receive Prayer';
+        input.value = '';
+      }
+    };
+  }
+
+  console.log('✅ Burden Jar loaded successfully!');
+});

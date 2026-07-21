@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   
   <style>
     /* ============================================
@@ -741,10 +741,11 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
+        <a href="trustees.html">Trustees</a>
         <a href="reading.html" class="active">Reading</a>
         <a href="community.html">Community</a>
         <a href="contact.html">Contact</a>
-        <a href="index.html" class="btn btn-sm btn-outline">Home</a>
+        <a href="reading.html" class="btn btn-sm btn-outline" style="font-size:0.8rem;">Start Reading</a>
       </div>
     </nav>
 
@@ -834,16 +835,18 @@
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
+        <a href="trustees.html">Trustees</a>
         <a href="reading.html">Reading</a>
         <a href="community.html">Community</a>
         <a href="contact.html">Contact</a>
       </div>
       
       <div class="social-links">
-        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp" style="color:#25D366;"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook" style="color:#1877F2;"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" style="color:#E4405F;"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fab fa-youtube" style="color:#FF0000;"></i></a>
+        <a href="https://chat.whatsapp.com/G8nLOmKrYnEKmZvbc1y0qK" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366;"></i></a>
+        <a href="https://teams.live.com/l/community/FEAFlCBUdxFGT8qXg?v=g1" aria-label="Microsoft Teams" target="_blank"><i class="fab fa-microsoft" style="color:#6264A7;"></i></a>
+        <a href="https://www.tiktok.com/@asafeplacewithmma7?_r=1&_t=ZS-97cQnuE5kcm" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok" style="color:#000000;"></i></a>
+        <a href="https://youtube.com/@asafeplacewithmma?si=AjO1Ku7wc0fPVwqH" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" style="color:#FF0000;"></i></a>
+        <a href="https://open.spotify.com/show/0ON8oxmkRJpr3S7rQXiW1G?si=dKve_UY-Q5W2GLnHL8E5OA" aria-label="Spotify" target="_blank"><i class="fab fa-spotify" style="color:#1DB954;"></i></a>
         <a href="mailto:info@asafeplacewithmma.com" aria-label="Email"><i class="fas fa-envelope" style="color:var(--primary);"></i></a>
       </div>
       
@@ -857,6 +860,31 @@
 
   <!-- ========== LOAD MAIN.JS ========== -->
   <script src="js/main.js"></script>
+
+  <!-- ========== FLOATING BURDEN JAR - HTML ========== -->
+  <button id="burdenFloatBtn" class="burden-float-btn" aria-label="Share your burden">
+    <i class="fas fa-candle"></i>
+    <span>Share</span>
+  </button>
+
+  <div id="burdenModal" class="burden-modal">
+    <div class="burden-modal-content">
+      <div class="burden-modal-header">
+        <h2>🕯️ Drop Your Burden</h2>
+        <button id="burdenCloseBtn" class="burden-close-btn">&times;</button>
+      </div>
+      <p class="burden-modal-sub">You are safe. You are seen. You are loved.</p>
+      
+      <form id="burdenForm">
+        <textarea id="burdenInput" placeholder="What's on your heart today?" rows="4"></textarea>
+        <button type="submit" id="burdenSubmitBtn">🙏 Receive Prayer</button>
+      </form>
+      
+      <div id="burdenReply">
+        <em>Your response will appear here...</em>
+      </div>
+    </div>
+  </div>
 
   <!-- ========== APP LOGIC ========== -->
   <script>
@@ -1412,46 +1440,17 @@
       console.log('📚 ' + Object.keys(DEVOTIONALS_DATA).length + ' devotionals available');
     });
   </script>
+  <!-- Register Service Worker for PWA -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+        console.log('Service Worker registered successfully:', registration);
+      })
+      .catch(function(error) {
+        console.log('Service Worker registration failed:', error);
+      });
+  }
+</script>
 </body>
 </html>
-
-<!-- Additional Scripts for Animations -->
-  <script>
-    // ============================================
-    // SPARKLE EFFECT
-    // ============================================
-    document.addEventListener('DOMContentLoaded', function() {
-      const container = document.getElementById('sparkleContainer');
-      if (container) {
-        for (let i = 0; i < 30; i++) {
-          const sparkle = document.createElement('div');
-          sparkle.className = 'sparkle';
-          sparkle.style.left = Math.random() * 100 + '%';
-          sparkle.style.top = Math.random() * 100 + '%';
-          sparkle.style.width = (Math.random() * 4 + 2) + 'px';
-          sparkle.style.height = sparkle.style.width;
-          sparkle.style.animationDelay = (Math.random() * 6) + 's';
-          sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-          container.appendChild(sparkle);
-        }
-      }
-
-      // ============================================
-      // SCROLL ANIMATIONS (Intersection Observer)
-      // ============================================
-      const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
-        observer.observe(el);
-      });
